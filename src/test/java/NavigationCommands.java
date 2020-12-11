@@ -9,7 +9,7 @@ import java.net.URL;
 public class NavigationCommands {
 
    @Test
-    public void navigate() throws MalformedURLException, InterruptedException {
+    public void navigate() throws MalformedURLException {
        WebDriverManager.chromedriver().setup();
        WebDriver driver = new ChromeDriver();
        driver.get("https://the-internet.herokuapp.com/");

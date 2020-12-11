@@ -20,7 +20,7 @@ public class BrowserCommands {
         driver.quit();
     }
     @Test
-    public void alerts() throws InterruptedException {
+    public void alerts() {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.get("http://uitestpractice.com");
