@@ -1,0 +1,550 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link href="../App_Themes/Default/00_Controls.css?timestamp=637254201060000000" type="text/css" rel="stylesheet"><link href="../Content/font-awesome.css?timestamp=637254197140000000" type="text/css" rel="stylesheet"><title>
+	Acumatica - Login
+</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<style type="text/css">
+		select:focus, input[type="text"]:focus
+		{
+			outline: auto 5px -webkit-focus-ring-color;
+		}
+
+		span.error
+		{
+			color: red;
+		}
+	</style>
+	<script type="text/javascript">
+		function initLoginImage()
+		{
+			var an = window.navigator.userAgent.toLowerCase();
+			var isIPhone = an.indexOf("iphone") >= 0, isAndroid = an.indexOf("android") >= 0;
+			var isWinPhone = an.indexOf("windows phone") >= 0 || an.indexOf("wpdesktop") >= 0;
+			var outlook = document.getElementById("__isOutlook");
+			if (((isIPhone || isAndroid || isWinPhone) && window.screen.availWidth < 800) || (outlook != null && outlook.value == "1"))
+			{
+				if (outlook != null && outlook.value == "1")
+				{
+					var links = document.getElementById('login_links');
+					links.style.display = "none";
+
+					var btn_cancel = document.getElementById('btnCancel');
+					if (btn_cancel)
+						btn_cancel.style.display = "none";
+				}
+
+				var bg = document.getElementById('login_bg');
+				var panel = document.getElementById('login_panel');
+				panel.className = "mobile border-box";
+				bg.style.display = "none";
+				return;
+			}
+
+			var url = window.__loginBg;
+			if (url)
+			{
+				var elem = document.getElementById('login_bg_image');
+				var im = new Image(); im.src = url;
+				var initImage = function ()
+				{
+					elem.originalWidth = im.naturalWidth ? im.naturalWidth : im.width;
+					elem.originalHeight = im.naturalHeight ? im.naturalHeight : im.height;
+					resizeLoginImage(); elem.style.display = ""; elem.src = url;
+				}
+				if (im.complete) initImage(); else im.onload = initImage;
+			}
+		}
+
+		function resizeLoginImage()
+		{
+			var elem = document.getElementById('login_bg_image');
+			var container = document.getElementById('login_bg'), panel = document.getElementById('login_panel');
+			if (container.style.display == "")
+			{
+				var nw = elem.originalWidth, nh = elem.originalHeight;
+				var pw = container.offsetWidth - panel.offsetWidth, ph = container.offsetHeight;
+
+				var coeff = Math.max(Math.max(pw / nw, ph / nh), 0.5);
+				elem.style.width = Math.ceil(coeff * nw) + "px";
+				elem.style.height = Math.ceil(coeff * nh) + "px";
+			}
+		}
+	</script>
+	</head>
+<body>
+	<form name="form1" method="post" action="./Login.aspx?ReturnUrl=%2f" id="form1" autocomplete="off">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTg4ODU3NzA1OA8WAh4TVmFsaWRhdGVSZXF1ZXN0TW9kZQIBZBgBBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WAQUbY3RsMDAkcGhVc2VyJHJlbWVtYmVyRGV2aWNlObVVxxhDZ3BvdfHU8Ob/zaK6ulk=">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+
+<script src="/Scripts/jquery-3.1.1.min.js" type="text/javascript"></script>
+<script src="/Scripts/jquery.signalR-2.2.1.min.js" type="text/javascript"></script>
+<script src="/signalr/hubs" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+var __loginBg = '/Icons/login_bg12.jpg';//]]>
+</script>
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="7AFA5AE2">
+</div>
+		<div id="login_bg">
+			<img id="login_bg_image" style="width: 1021px; height: 680px;" src="/Icons/login_bg12.jpg">
+			<input name="ctl00$txtLoginBgIndex" type="hidden" id="txtLoginBgIndex" value="login_bg12.jpg">
+			<input name="ctl00$__isOutlook" type="hidden" id="__isOutlook">
+		</div>
+		<div id="login_panel" class="border-box">
+			<div id="login_data">
+				<div id="login_logo">
+					<a class="logo" id="panelT_logoCell" tabindex="-1" target="_blank" href="http://www.acumatica.com">
+						<img src="../Icons/login_logo.png" class="login_img" alt="logo">
+					</a>
+					
+	<select name="ctl00$phLogo$cmbLang" onchange="javascript:setTimeout('__doPostBack(\'ctl00$phLogo$cmbLang\',\'\')', 0)" id="cmbLang" class="login_lang" style="display:;">
+	<option selected="selected" value="ka-GE">ქართული</option>
+	<option value="en-US">English</option>
+
+</select>
+
+				</div>
+
+				<div id="login_errBox">
+					<span id="lblMsg" class="login_error"></span>
+				</div>
+				<div id="login_user">
+					
+	
+	
+
+	<input name="ctl00$phUser$txtUser" type="text" id="txtUser" class="login_user border-box" autocomplete="username" placeholder="My Username">
+	<input name="ctl00$phUser$txtPass" type="password" id="txtPass" class="login_pass border-box" placeholder="My Password" autocomplete="current-password" style="width:100%;">
+				
+	
+	<input name="ctl00$phUser$txtVeryDummyPass" type="hidden" id="txtVeryDummyPass">
+
+	
+	<input name="ctl00$phUser$txtDummyCpny" type="hidden" id="txtDummyCpny">
+
+	
+	
+
+	
+	<div id="multiFactorTip" class="multi-factor-tip" style="display: none;">
+		<div class="auth-caption">
+			<i id="multiFactorIcon" class="ac ac-smartphone"></i>
+			<span id="lbl2FactorCap" class="labelB">Two-Factor Authentication</span>
+		</div>
+		<span id="lb2Factor" class="labelB auth-info"></span>
+	    <input name="ctl00$phUser$oneTimePasswordText" type="text" id="oneTimePasswordText" class="login_user border-box pass-text" style="display: none;">
+	    <input id="mfLoginButton" name="mfLoginButton" value="Sign In" type="button" style="float: left; margin-top: 10px; margin-bottom: 10px; display: none" class="login_button">
+        <div style="display: none; margin: 10px 0px; clear: both" id="rememberContainer">
+            <span class="label"><input id="rememberDevice" type="checkbox" name="ctl00$phUser$rememberDevice" checked="checked"><label for="rememberDevice">Do not request confirmation on this device again</label></span>
+        </div>
+        <span id="resendTimer" class="labelB auth-info" style="display: none; clear: both"></span>
+	    <input id="resendButton" name="resendButton" value="Send again" onclick="resend();" type="button" style="float: left; margin-top: 10px; margin-bottom: 10px; display: none; clear: both" class="login_button">
+        <div id="noDeviceSend" style="display: none; clear: both">
+            <span id="noDeviceLabel" class="labelB auth-info">3. Approve push request on your mobile device:</span>
+	        <input id="noDeviceSendButton" name="noDeviceSendButton" value="Send request to device" onclick="startProviderSend('MobilePush', false, 'smartphone', true);" type="button" style="float: left; width: 219px; margin-top: 10px; margin-bottom: 10px;" class="login_button">
+        </div>
+		<input type="hidden" name="ctl00$phUser$MultiFactorPipelineNotStarted" id="MultiFactorPipelineNotStarted" value="true">
+	</div>
+	<div id="retryAfterDeny" class="multi-factor-method" style="display: none">
+		<input value="Try Again" onclick="window.location.reload(); return false;" class="login_button" style="text-align: center; float: left;">
+	</div>
+
+	
+	
+
+	<input type="submit" name="ctl00$phUser$btnLogin" value="Sign In" onclick="return login_Click(this);" id="btnLogin" class="login_button">	
+	
+
+	<div id="openOtherMultiFactor" class="multi-factor-method" style="display: none; clear:both;">
+		<a class="login_link" href="javascript:void 0" onclick="showMultiFactorMenu(); return false;">
+			Use Another Authentication Method
+		</a>
+	</div>
+	<div id="multiFactorMenu" style="display: none" class="list-group auth">
+		<div class="auth-caption">
+			<span id="lbl2FactorMethod" class="labelB">Select Authentication Method:</span>
+		</div>
+		
+				<div id="SmsbuttonId" class="multiFactorMenuItem list-group-item" onclick="startProviderSend('Sms', 
+    true, 'message', false );">
+					<i class="ac ac-fw ac-message"></i>
+					<span>Receive code in SMS</span>
+				</div>
+		
+				<div id="MobilePushbuttonId" class="multiFactorMenuItem list-group-item" onclick="startProviderSend('MobilePush', 
+    false, 'smartphone', false );">
+					<i class="ac ac-fw ac-smartphone"></i>
+					<span>Receive push notification on the confirmation device</span>
+				</div>
+		
+				<div id="EmailbuttonId" class="multiFactorMenuItem list-group-item" onclick="startProviderSend('Email', 
+    true, 'email_outline', false );">
+					<i class="ac ac-fw ac-email_outline"></i>
+					<span>Receive code by email</span>
+				</div>
+		
+				<div id="AccessCodebuttonId" class="multiFactorMenuItem list-group-item" onclick="startProviderSend('AccessCode', 
+    true, 'unlock', false );">
+					<i class="ac ac-fw ac-unlock"></i>
+					<span>Enter code generated in mobile app or from the list</span>
+				</div>
+		
+	</div>
+
+	<script type="text/javascript">
+
+	    var resend = function() {};
+	    var timeoutId = 0;
+
+	    function onchkEulaChanged(checked)
+	    {
+	        var btnLogin = document.getElementById('btnLogin');
+	        btnLogin.disabled = !checked;
+	    }
+
+	    function login_Click(e)
+	    {
+	        var login = $("[id$=txtUser]").val();
+	        if (!login) return false;
+
+            var isOutlookPlugin = localStorage.getItem('doRedirect');
+            if (isOutlookPlugin) {
+                var lang = $('[id$=cmbLang]').val();
+                if (lang) {
+                    localStorage.setItem('acumaticaLocale', lang);
+                }
+            }
+
+	        window.delayedCallback = true;
+	        clearInterval(timeoutId);
+	        if (e == null)
+	            e = window.event;
+	        if (e && (e.ctrlKey || e.shiftKey) && e.preventDefault != null)
+	            e.preventDefault();
+
+	        if ($("[id$=MultiFactorPipelineNotStarted]").val() === 'true') {
+	            disableLoginFields();
+	            startTwoFactorPipeline();
+	            return false;
+	        }
+	        else
+	        {
+	            delete window.delayedCallback;
+	        }
+	    }
+
+	    function startTwoFactorPipeline()
+	    {
+	        var hub = $.connection.multifactorHub;
+	        hub.client.setOneTimePassword = function (oneTimePassword, correlationCode)
+	        {
+	            $('[id$=oneTimePasswordText]').val(oneTimePassword);
+	            $("[id$=MultiFactorPipelineNotStarted]").val('false');
+	            var btnLogin = document.getElementById('btnLogin');
+	            btnLogin.click();
+	        }
+
+	        hub.client.denyAcceptTwoFactor = function (correlationCode)
+	        {
+	            $('[id$=oneTimePasswordText]').val("");
+	            $("#lblMsg").text("The confirmation request has been rejected. If you rejected it by mistake, click the Try Again button to try to sign in again.");
+	            $("#openOtherMultiFactor").hide();
+	            $(".multi-factor-tip").hide();
+	            $("[id$=txtUser]").hide();
+	            $('#retryAfterDeny').show();
+	        }
+	        startHub(0);
+	    }
+
+	    function disableLoginFields() {
+	        $("[id$=txtUser]").attr('readonly', 'readonly');
+	        $("[id$=txtPass]").attr('readonly', 'readonly');
+	        $("[id$=cmbCompany] option:not([selected])").attr('disabled', 'disabled');
+	        $("[id$=btnLogin]").attr('readonly', 'readonly');
+	        $("#lblMsg").text("");
+	    }
+
+	    function hideLoginFields() {
+	        $("[id$=txtPass]").hide();
+	        $("[id$=cmbCompany]").hide();
+	        $("[id$=btnLogin]").hide();
+	        $("#login_ext").hide();
+	    }
+
+	    function startHub(retryCounter) {
+	        console.log("Start hub connection");
+	        $('#mfLoginButton').click(function() {
+	            document.getElementById('btnLogin').click();
+	        });
+	        $.connection.hub.start()
+	            .done(function ()
+	            {
+	                window.console.log("Hub connection started; transport = "+$.connection.hub.transport.name);
+	                startProviderSend("MobilePush", false, "smartphone", false);
+	            })
+	            .fail(function (e) {
+	                window.console.log(e);
+	                if (retryCounter < 5) {
+	                    setTimeout(function() {
+	                        startHub(retryCounter+1);
+	                    }, 10000);
+	                } else {
+	                    alert(e);
+	                }
+	            });
+	    }
+
+	    function showMultiFactorMenu()
+	    {
+	        $("#multiFactorMenu").show();
+	        $('[id$=oneTimePasswordText]').hide();
+	        $("#openOtherMultiFactor").hide();
+	        $('#multiFactorTip').hide();
+	        $('#noDeviceSend').hide();
+	        $("#mfLoginButton").hide();
+	        stopTimer();
+	    }
+
+        function stopTimer() {
+            if(timeoutId!=0)
+                clearInterval(timeoutId);
+            $("#resendTimer").hide();
+            $("#resendTimer").html("");
+            $("#resendButton").hide();
+        }
+
+	    function hideMultiFactorMenu()
+	    {
+	        $("#multiFactorMenu").hide();
+	        $("#openOtherMultiFactor").show();
+	        $('#multiFactorTip').show();
+	    }
+
+	    function SetVisibilityForMultiFactorMenuItems(providers)
+	    {
+	        $(".multiFactorMenuItem").hide();
+	        for (i = 0; i < providers.length; i++)
+	        {
+	            $("#" + providers[i] + "buttonId").show();
+	        }
+	    };
+
+	    function startProviderSend(providerType, showTextbox, iconName, noDeviceSend)
+	    {
+	        var login = $("[id$=txtUser]").val();
+	        var pass = $("[id$=txtPass]").val();
+		    
+	        startTwoFactorPipeLine(providerType, login, pass, 0, showTextbox, iconName, noDeviceSend);
+	    }
+
+	    function startTwoFactorPipeLine(providerType, login, pass, retryCount, showTextbox, iconName, noDeviceSend) {
+	        $("#lblMsg").text("");
+	        if ($.connection.hub && $.connection.hub.state === $.signalR.connectionState.disconnected) {
+	            $.connection.hub.start().done(function() {
+	                window.console.log("Hub connection started; transport = "+$.connection.hub.transport.name);
+	                startTwoFactorPipeLine(providerType, login, pass, retryCount, showTextbox, iconName, noDeviceSend);
+	            }).fail(function(e) {
+	                window.console.log(e);
+	            });
+	        }
+	        var hub = $.connection.multifactorHub;
+            console.log("Start two factor pipeline, provider: " + providerType);
+	        var lang=$('[id$=cmbLang]').val();
+	        hub.server.startTwoFactorPipeline(login, pass, providerType, lang).done(function (result)
+	        {
+	            console.log("Success");
+	            stopTimer();
+	            if (result.IsMultiFactor>0) {
+	                $("#lb2Factor").html(result.Text.replace(new RegExp("\r\n", "g"), "<br />"));
+	                $('#multiFactorTip').show();
+	                $('#multiFactorIcon').attr('class', 'ac ac-' + iconName);
+	                hideLoginFields();
+	                if (showTextbox&&!result.IsError) {
+	                    $('[id$=oneTimePasswordText]').show();
+	                    $("#mfLoginButton").show();
+	                    $("[id$=MultiFactorPipelineNotStarted]").val('false');
+	                } else {
+	                    $('[id$=oneTimePasswordText]').hide();
+	                    $("#mfLoginButton").hide();
+	                }
+	                SetVisibilityForMultiFactorMenuItems(result.Providers);
+	                hideMultiFactorMenu();
+	                if (result.ResendTimer > 0&&!(result.HasNoDevice&&noDeviceSend))
+	                    startResendTimer(result.ResendTimer, providerType, showTextbox, iconName, false);
+                    if (result.IsMultiFactor == 1&&!result.HasNoDevice) {
+                        $("#rememberContainer").show();
+                    } else {
+                        $("#rememberContainer").hide();
+                    }
+	                if (result.HasNoDevice) {
+	                    $("#noDeviceSend").show();
+                        if (noDeviceSend) {
+                            $("#lblMsg").text("There is no registered device, so the confirmation request could not be sent. Please follow the instructions below to register a device. If you are not able to register a device now, use another authentication method.");
+                        }
+	                } else {
+	                    $("#noDeviceSend").hide();
+	                }
+	                delete window.delayedCallback;
+	            } else {
+	                $("[id$=MultiFactorPipelineNotStarted]").val('false');
+	                document.getElementById('btnLogin').click();
+	            }
+	            if (result.IsError)
+	            {
+	                $("#lb2Factor").addClass("error");
+	                $("#rememberContainer").hide();
+	                stopTimer();
+	            }
+	            else
+	            {
+	                $("#lb2Factor").removeClass("error");
+	            }
+	        }).fail(function(error) {
+	            if (retryCount < 5) {
+	                console.log('Invocation of startTwoFactorPipeline failed. Error: ' + error + '; Retry');
+	                startTwoFactorPipeLine(providerType, login, pass, retryCount + 1, showTextbox, iconName, noDeviceSend);
+	            } else {
+	                console.log('Invocation of startTwoFactorPipeline failed. Error: ' + error);
+	                $("#lblMsg").text(error);
+	            }
+	        });
+	    }
+
+	    function startResendTimer(time, providerType, showTextbox, iconName, noDeviceSend) {
+	        resend = function() {
+	            $("#resendButton").hide();
+	            startProviderSend(providerType, showTextbox, iconName, noDeviceSend);
+	        };
+	        var setTimerSpan = function(countDown) {
+	            var minutes = Math.floor(countDown / 60);
+	            var seconds = "0"+countDown % 60;
+	            $("#resendTimer")
+	                .html("You will be able to re-send the code after "+minutes+":"+seconds.substr(seconds.length-2));
+	        };
+	        if (time === 0)
+                $("#resendButton").show();
+            else {
+	            $("#resendTimer").show();
+	            setTimerSpan(time);
+                timeoutId = setInterval(function() {
+                    
+                    if (time <= 0) {
+                        $("#resendButton").show();
+                        $("#resendTimer").hide();
+                        $("#resendTimer").html("");
+                        clearInterval(timeoutId);
+                        timeoutId = 0;
+                    }
+                    time--;
+                    setTimerSpan(time);
+                }, 1000);
+            }
+	    }
+
+	    function ShowNoDeviceSendButton() {
+	        $("#noDeviceSend").show();
+	    };
+	</script>
+
+				</div>
+				<div id="login_ext">
+					
+	<div class="extlogin_caption">
+		
+	</div>
+	
+		
+	
+
+				</div>
+				
+	<div id="login_info" style="display:none;">
+		<div id="logOutReasone" style="display:none;">
+			<div id="logOutReasoneMsg" class="login_error">Last update was unsuccessful.</div>
+		</div>
+		<div id="dbmsMisconfigured" style="display:none;">
+			<div id="dbmsProblems" class="login_error">There are problems on database server side:</div>
+			<div id="dbmsMisconfiguredLabel" class="label">Contact server administrator.</div>
+		</div>
+		<div id="updateError" style="display:none;">
+			<div id="updateErrorMsg" class="login_error">Last update was unsuccessful.</div>
+			<div id="updateErrorLabel" class="label">Contact server administrator.</div>
+		</div>
+		<div id="customizationError" style="display:none;">
+			<div id="customizationErrorMsg" class="login_error">Warning: customization failed to apply automatically after the upgrade.</div>
+			<div id="customizationErrorLabel" class="label">Some functionality may be unavailable.<br> Contact server administrator.<br>
+Click <a href="#" onclick="document.getElementById('custErrorDetails').style.display='';">here</a>
+to view details about this error.</div>
+			<div style="display:none; width: 100%; height: 200px; margin-top: 10px;" id="custErrorDetails">
+				<pre id="custErrorContent"></pre>
+			</div>
+		</div>
+		<div id="passwordRecoveryError" style="display:none">
+			<div id="passwordRecoveryErrorMsg" class="login_error"></div>
+		</div>
+	</div>
+
+			</div>
+
+			<div id="login_copyright" class="border-box">
+				<div id="login_links">
+					
+	<input name="ctl00$phLinks$txtDummyInstallationID" type="hidden" id="txtDummyInstallationID" value="8F7D59C0-A7D588A6-C0F6B75C-726F71A0-B982ADAB">
+	<a id="lnkForgotPswd" class="login_link" href="http://erp01tst.tbcbank.ge/Frames/PasswordRemind.aspx?ReturnUrl=%2f">Forgot Your Credentials?</a>
+
+				</div>
+				<div id="login_customization">
+					<span id="lblCstProjects" class="labelH">Customized: FACalcDeprParallelsProcess, TG20201202, AG2019R220201130, RS2019R220201130, PC2019R220201130, RA20201202, AcuErpTBC2019R220201130</span>
+				</div>
+				<span id="lblCopy" class="labelH">Copyright © 2005-2019 Acumatica, Inc. All rights reserved<br>Acumatica Cloud ERP 2019 R2<br>Build 19.210.0026</span>
+			</div>
+		</div>
+		<script type="text/javascript">
+			initLoginImage();
+			window.onresize = resizeLoginImage;
+		</script>
+		
+	<script type="text/javascript">
+	    window.onload = function ()
+	    {
+	        try
+	        {
+	            if (window != window.top && !window.top.location.href.indexOf(window.location.href.substring(0, index)))
+	            {
+	                window.top.location.href = window.location.href.substring(0,index);
+	            }
+	        }
+	        catch (ex) { }
+
+			var editor = document.form1['txtUser'];
+			if (editor == null || editor.readOnly) editor = document.form1['txtNewPassword'];
+			if (editor && !editor.readOnly) editor.focus();	    }
+	</script>
+
+	</form>
+
+
+</body></html>

@@ -1,0 +1,2386 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><style>:root{ --primary-color:#10b2ee;--background-color:#F5F7F8;--interactive-color:#FFFFFF;--highlight-color:#D0F0FC;--activerow-color:#E8F8FE;--altrow-color:#FBFEFF; }</style><link href="/Content/font-awesome.css?timestamp=637254197140000000" type="text/css" rel="stylesheet"><link href="/App_Themes/Default/00_Controls.css?timestamp=637254201060000000" type="text/css" rel="stylesheet"><title>
+	Import by Scenario
+</title><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta http-equiv="content-script-type" content="text/javascript"><style type="text/css">
+	.ctl00_phF_smPnlNewScenarioCreation_frmNewScenarioCreation { width:100%; }
+	.ctl00_phF_form { width:100%; }
+	.ctl00_phG_tab { height:150px;width:100%; }
+	.ctl00_phG_tab_t0_gridPreparedData { table-layout:fixed;height:411px;width:100%; }
+	.ctl00_phG_tab_t0_gridPreparedData_at_tlb { border-width:0px;width:100%; }
+	.ctl00_phG_tab_t0_gridPreparedData_ab_tlb { border-width:0px;width:100%; }
+	.ctl00_phG_tab_t1_mapping { table-layout:fixed;width:100%; }
+	.ctl00_phG_tab_t1_mapping_at_tlb { border-width:0px;width:100%; }
+	.ctl00_phG_tab_t1_mapping_ab_tlb { border-width:0px;width:100%; }
+	.ctl00_phG_tab_t1_mapping_lfFirst0 { height:24px;width:80px; }
+	.ctl00_phG_tab_t1_mapping_lfPrev0 { height:24px;width:80px; }
+	.ctl00_phG_tab_t1_mapping_lfNext0 { height:24px;width:80px; }
+	.ctl00_phG_tab_t1_mapping_lfLast0 { height:24px;width:80px; }
+	.ctl00_phG_tab_t2_grHistory { table-layout:fixed;height:460px;width:100%; }
+	.ctl00_phG_tab_t2_grHistory_at_tlb { border-width:0px;width:100%; }
+	.ctl00_phG_tab_t2_grHistory_ab_tlb { border-width:0px;width:100%; }
+	.ctl00_phG_tab_t3_DetailsForm { width:100%; }
+	.ctl00_phG_tab_t3_DetailsForm_CaptionL { background-position:left top;width:5px; }
+	.ctl00_phG_tab_t3_DetailsForm_CaptionR { background-position:right top;width:5px; }
+	.ctl00_phG_tab_t3_DetailsForm_CaptionM {  }
+
+</style><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="apps/enhance/main" src="/scripts/ca/apps/enhance/app-bundle.js?b=637254345220000000"></script><style type="text/css">.aurelia-hide { display:none !important; }</style><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="controls/global/index" src="/scripts/ca/controls/global/controls-bundle.js?b=637254345220000000"></script><style type="text/css">.qp-branch-selector,
+.qp-branch-selector * {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+qp-branch-selector {
+  display: block;
+}
+
+.branch-selector input {
+  color: transparent;
+}
+
+.branch-selector__display-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right:26px;  
+  height: 100%;
+  pointer-events: none;
+
+  margin: 0;
+  border: 0;
+  padding: 0 4px 0 6px;
+  line-height: 24px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.branch-selector__button {
+  margin: 2px 0 0;
+  background: #fff;
+  border: 0;
+  width: 20px;
+  color: rgba(0, 0, 0, .64);
+  cursor: pointer;
+}
+
+
+.edit-mode .branch-selector__display-text {
+  visibility: hidden;
+}
+
+.edit-mode input {
+  color: initial;
+}
+
+.branch-selector__branch-tree {
+  width: auto;
+  overflow-y: auto;
+  position: absolute;
+  z-index: 1000;
+  background: white;
+}
+
+.branch-selector__node {
+  display: block;
+  height: 18px;
+  padding: 4px 6px;
+  font-size: 13px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  
+}
+.branch-selector__node.can-select {
+  cursor: pointer;
+}
+
+.branch-selector__node-organization {
+  margin: 2px 0;
+}
+
+.branch-selector__node-branch {
+
+  padding-left: 30px;
+  position: relative;
+}
+
+.branch-selector__node-branch::before {
+
+  display: block;
+  position: absolute;
+  content: '';
+  width: 15px;
+  left: 10px;
+  /* left: 0;//2.35em; */
+  top: -50%;
+  height: 100%;
+  border-bottom: 1px dotted #bbb;
+  border-left: 1px dotted #bbb;
+}
+
+.branch-selector__node-organization+.branch-selector__node-branch::before {
+  height: 60%;
+  top: -15%;
+}
+</style><style type="text/css">.loader-indicator-img {
+    color:#999999;
+    color:var(#999999, --primary-color);
+}
+
+.loader-indicator-img .progress {
+  stroke-width: 10;
+  stroke: currentColor;
+  stroke-linecap: square;  
+  -webkit-animation: dash 2.5s infinite;  
+          animation: dash 2.5s infinite;
+}
+
+
+@-webkit-keyframes dash {
+  0% {
+    stroke-dasharray: 0, 250;
+    stroke-dashoffset: 0;
+  }
+
+  25% {
+    stroke-dasharray: 250, 0;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 0, 250;
+    stroke-dashoffset: -250;
+  }
+
+  75% {
+    stroke-dasharray: 250, 0;
+    stroke-dashoffset: 0;
+  }
+
+  100% {
+    stroke-dasharray: 0, 250;
+    stroke-dashoffset: 0;
+  }
+}
+
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 0, 250;
+    stroke-dashoffset: 0;
+  }
+
+  25% {
+    stroke-dasharray: 250, 0;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 0, 250;
+    stroke-dashoffset: -250;
+  }
+
+  75% {
+    stroke-dasharray: 250, 0;
+    stroke-dashoffset: 0;
+  }
+
+  100% {
+    stroke-dasharray: 0, 250;
+    stroke-dashoffset: 0;
+  }
+}
+</style><style type="text/css">/* qp-editor-wrapper,
+qp-editor-wrapper * {
+  box-sizing: border-box;
+
+} */
+
+qp-suggester {
+  display: block;
+  position: absolute;
+  /* z-index: 1000; */
+  top: 100%;
+  /* overflow: hidden; */
+
+
+}
+
+.qp-suggester,
+.qp-suggester * {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+
+
+}
+
+.qp-suggester.loading{
+  -webkit-filter:grayscale(.5);
+          filter:grayscale(.5);
+}
+.qp-suggester.show-above {
+  -webkit-transform:translateY(-100%);
+          transform:translateY(-100%);
+  -webkit-transform:translateY(calc(-100% - 1px));
+          transform:translateY(calc(-100% - 1px));
+}
+
+.qp-suggester.show-left {
+  -webkit-transform:translateX(-100%);
+          transform:translateX(-100%);  
+}
+
+.qp-suggester.show-left.show-above {
+  -webkit-transform:translate(-100%,-100%);
+          transform:translate(-100%,-100%);  
+}
+
+qp-suggestion {
+  display: block;
+  height:24px;
+  padding: 4px 6px;
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.loading-placeholder.loading {
+  position: relative;
+}
+.loading-placeholder.loading:before{
+  position: absolute;
+  top:2px;
+  left: 5px;
+  right:5px;
+  bottom: 2px;
+  content:'';
+  background-color: #ccc;
+}
+</style></head>
+<body style="margin: 0px; min-width: 300px;">
+	
+<script>
+window.ClientLocalizedStrings = {
+noResultsFound: 'No results found.'
+}
+
+window.globalControlsModules=["controls/global"];
+
+requirejs = {
+	baseUrl: '/scripts/ca/',
+	paths: {
+		root: ""
+	},
+	urlArgs: "b=637254345220000000",
+	packages: [],
+	stubModules: [
+	'text'
+	],
+	shim: {},
+	bundles: {"apps/enhance/app-bundle":["apps/enhance/main"],
+"controls/global/controls-bundle":["controls/global/index"]}
+}
+</script><script src="/scripts/ca/vendor-bundle.js?b=637254345220000000" data-main="apps/enhance/main" defer=""></script><!--12/2/2020 7:29:42 PM-->
+	<form name="aspnetForm" method="post" action="./SM206036.aspx?timeStamp=4c70593630bf2b9215058327043656802B6E9F18F&amp;unum=0&amp;HideScript=On" id="aspnetForm" autocomplete="off" enctype="multipart/form-data">
+<div>
+<input type="hidden" name="__RequestVerificationToken" id="__RequestVerificationToken" value="sgYzCOfbnTi4LVXVTDxnvm84AC9EjgTuk9EQrogQ09CVUJrELqzJTisHplagOaDupOiEIp16dDjqkzGRBMPypLsQilk1">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+<input type="hidden" name="ctl00_usrCaption_tlbPath_state" id="ctl00_usrCaption_tlbPath_state" value="">
+<input type="hidden" name="ctl00_usrCaption_tlbPath_cmdBranch_state" id="ctl00_usrCaption_tlbPath_cmdBranch_state" value="%3CPXText%20Value%3D%221%22%2F%3E">
+<input type="hidden" name="ctl00_usrCaption_tlbDataView_state" id="ctl00_usrCaption_tlbDataView_state" value="">
+<input type="hidden" name="ctl00_usrCaption_tlbTools_state" id="ctl00_usrCaption_tlbTools_state" value="">
+<input type="hidden" name="__SmartPanelVisible" id="__SmartPanelVisible" value="upDlgForFileCreation|true">
+<input type="hidden" name="ctl00_usrCaption_dlgUploadXml_state" id="ctl00_usrCaption_dlgUploadXml_state" value="">
+<input type="hidden" name="ctl00_usrCaption_dlgUploadXml_upl_txt_state" id="ctl00_usrCaption_dlgUploadXml_upl_txt_state" value="">
+<input type="hidden" name="ctl00_usrCaption_dlgUploadXml_btnUpload_state" id="ctl00_usrCaption_dlgUploadXml_btnUpload_state" value="">
+<input type="hidden" name="ctl00_usrCaption_dlgUploadXml_btnClose_state" id="ctl00_usrCaption_dlgUploadXml_btnClose_state" value="">
+<input type="hidden" name="ctl00_usrCaption_pnlAbout_state" id="ctl00_usrCaption_pnlAbout_state" value="">
+<input type="hidden" name="ctl00_usrCaption_pnlAudit_state" id="ctl00_usrCaption_pnlAudit_state" value="">
+<input type="hidden" name="ctl00_usrCaption_shareColumnsDlg_state" id="ctl00_usrCaption_shareColumnsDlg_state" value="">
+<input type="hidden" name="ctl00_usrCaption_PanelDynamicForm_state" id="ctl00_usrCaption_PanelDynamicForm_state" value="">
+<input type="hidden" name="ctl00_phDS_ds_ToolBar_state" id="ctl00_phDS_ds_ToolBar_state" value="">
+<input type="hidden" name="ctl00_phDS_ds_ctl00_state" id="ctl00_phDS_ds_ctl00_state" value="">
+<input type="hidden" name="ctl00_phF_uplDlg_state" id="ctl00_phF_uplDlg_state" value="">
+<input type="hidden" name="ctl00_phF_uplDlg_upl_txt_state" id="ctl00_phF_uplDlg_upl_txt_state" value="">
+<input type="hidden" name="ctl00_phF_uplDlg_edtLinkExisting_state" id="ctl00_phF_uplDlg_edtLinkExisting_state" value="">
+<input type="hidden" name="ctl00_phF_uplDlg_edtComment_state" id="ctl00_phF_uplDlg_edtComment_state" value="">
+<input type="hidden" name="ctl00_phF_uplDlg_btnUpload_state" id="ctl00_phF_uplDlg_btnUpload_state" value="">
+<input type="hidden" name="ctl00_phF_uplDlg_btnClose_state" id="ctl00_phF_uplDlg_btnClose_state" value="">
+<input type="hidden" name="ctl00_phF_upDlgForFileCreation_state" id="ctl00_phF_upDlgForFileCreation_state" value="">
+<input type="hidden" name="ctl00_phF_upDlgForFileCreation_upl_txt_state" id="ctl00_phF_upDlgForFileCreation_upl_txt_state" value="">
+<input type="hidden" name="ctl00_phF_upDlgForFileCreation_btnUpload_state" id="ctl00_phF_upDlgForFileCreation_btnUpload_state" value="">
+<input type="hidden" name="ctl00_phF_upDlgForFileCreation_btnClose_state" id="ctl00_phF_upDlgForFileCreation_btnClose_state" value="">
+<input type="hidden" name="ctl00_phF_smPnlNewScenarioCreation_state" id="ctl00_phF_smPnlNewScenarioCreation_state" value="">
+<input type="hidden" name="ctl00_phF_smPnlNewScenarioCreation_frmNewScenarioCreation_state" id="ctl00_phF_smPnlNewScenarioCreation_frmNewScenarioCreation_state" value="%3CPXBoundPanel%20PageCount%3D%221%22%20PageIndex%3D%220%22%20DataKey%3D%22newscenarioproperties%2C%2FwEWAA%3D%3D%22%2F%3E">
+<input type="hidden" name="ctl00_phF_smPnlNewScenarioCreation_frmNewScenarioCreation_trNewScenarioCreation_state" id="ctl00_phF_smPnlNewScenarioCreation_frmNewScenarioCreation_trNewScenarioCreation_state" value="%3CPXSelector%20Value%3D%22%22%2F%3E">
+<input type="hidden" name="ctl00_phF_smPnlNewScenarioCreation_frmNewScenarioCreation_scenarioName_state" id="ctl00_phF_smPnlNewScenarioCreation_frmNewScenarioCreation_scenarioName_state" value="">
+<input type="hidden" name="ctl00_phF_smPnlNewScenarioCreation_frmNewScenarioCreation_providerType_state" id="ctl00_phF_smPnlNewScenarioCreation_frmNewScenarioCreation_providerType_state" value="%3CPXSelector%20Value%3D%22%22%2F%3E">
+<input type="hidden" name="ctl00_phF_smPnlNewScenarioCreation_btnOk_state" id="ctl00_phF_smPnlNewScenarioCreation_btnOk_state" value="">
+<input type="hidden" name="ctl00_phF_smPnlNewScenarioCreation_btnCancel_state" id="ctl00_phF_smPnlNewScenarioCreation_btnCancel_state" value="">
+<input type="hidden" name="ctl00_phF_form_state" id="ctl00_phF_form_state" value="%3CPXBoundPanel%20PageCount%3D%22-1%22%20PageIndex%3D%220%22%20DataKey%3D%22mappingssingle%2C%2FwEWAQ8FBE5hbWUFIyBSZWNlaXZlZCBUYXggSW52b2ljZSBTdGF0dXMgVXBkYXRl%22%2F%3E">
+<input type="hidden" name="ctl00_phF_form_edName_state" id="ctl00_phF_form_edName_state" value="">
+<input type="hidden" name="ctl00_phF_form_edScreenID_state" id="ctl00_phF_form_edScreenID_state" value="%3CPXSelector%20Value%3D%22RS306000%22%2F%3E">
+<input type="hidden" name="ctl00_phF_form_edStatus_state" id="ctl00_phF_form_edStatus_state" value="%3CPXText%20Value%3D%22I%22%2F%3E">
+<input type="hidden" name="ctl00_phF_form_edNbrRecords_state" id="ctl00_phF_form_edNbrRecords_state" value="">
+<input type="hidden" name="ctl00_phF_form_mappingTabVisibility_state" id="ctl00_phF_form_mappingTabVisibility_state" value="">
+<input type="hidden" name="ctl00_phF_form_chkDiscardPrevious_state" id="ctl00_phF_form_chkDiscardPrevious_state" value="">
+<input type="hidden" name="ctl00_phG_tab_state" id="ctl00_phG_tab_state" value="%3CPXBoundPanel%20PageCount%3D%220%22%20PageIndex%3D%220%22%20SelectedIndex%3D%220%22%2F%3E">
+<input type="hidden" name="ctl00_phG_tab_t0_gridPreparedData_state" id="ctl00_phG_tab_t0_gridPreparedData_state" value="%3CPXGrid%20TotalRowCount%3D%22-1%22%20PageSize%3D%2219%22%20PageIndex%3D%220%22%20FilterID%3D%22%22%20FilterActive%3D%22false%22%20DataValues%3D%22%22%20PageAdjusted%3D%22true%22%20ExternalSearch%3D%22false%22%3E%3CLevels%2F%3E%3CClientState%2F%3E%3C%2FPXGrid%3E" postonreload="true">
+<input type="hidden" name="ctl00_phG_tab_t0_gridPreparedData_lv0_state" id="ctl00_phG_tab_t0_gridPreparedData_lv0_state" value="%3CPXBoundPanel%20PageCount%3D%220%22%20PageIndex%3D%220%22%20DataKey%3D%22prepareddata%2C%2FwEWAA%3D%3D%22%2F%3E">
+<input type="hidden" name="ctl00_phG_tab_t0_gridPreparedData_lv0_chkIsActive_state" id="ctl00_phG_tab_t0_gridPreparedData_lv0_chkIsActive_state" value="">
+<input type="hidden" name="ctl00_phG_tab_t0_gridPreparedData_lv0_edErrorMessage_state" id="ctl00_phG_tab_t0_gridPreparedData_lv0_edErrorMessage_state" value="">
+<input type="hidden" name="ctl00_phG_tab_t0_gridPreparedData_lv0_chkIsProcessed_state" id="ctl00_phG_tab_t0_gridPreparedData_lv0_chkIsProcessed_state" value="">
+<input type="hidden" name="ctl00_phG_tab_t1_mapping_state" id="ctl00_phG_tab_t1_mapping_state" value="%3CPXGrid%20TotalRowCount%3D%220%22%20PageSize%3D%22200%22%20PageIndex%3D%220%22%20ExternalSearch%3D%22false%22%20FilterID%3D%22%22%20FilterActive%3D%22false%22%20DataValues%3D%22%22%3E%3CLevels%2F%3E%3CClientState%2F%3E%3C%2FPXGrid%3E">
+<input type="hidden" name="ctl00_phG_tab_t1_mapping_lv0_state" id="ctl00_phG_tab_t1_mapping_lv0_state" value="%3CPXBoundPanel%20PageCount%3D%220%22%20PageIndex%3D%220%22%20DataKey%3D%22mappingssimple%2C%2FwEWAA%3D%3D%22%2F%3E">
+<input type="hidden" name="ctl00_phG_tab_t1_mapping_lv0_edValue_state" id="ctl00_phG_tab_t1_mapping_lv0_edValue_state" value="%3CPXText%20Value%3D%22%22%2F%3E">
+<input type="hidden" name="ctl00_phG_tab_t1_mapping_lv0_edValue_pnlFormulaCombo_state" id="ctl00_phG_tab_t1_mapping_lv0_edValue_pnlFormulaCombo_state" value="">
+<input type="hidden" name="ctl00_phG_tab_t1_mapping_lv0_ed_state" id="ctl00_phG_tab_t1_mapping_lv0_ed_state" value="%3CPXText%20InputMask%3D%22%23%23%2F%23%23%2F%23%23%23%23%22%2F%3E">
+<input type="hidden" name="ctl00_phG_tab_t1_mapping_lv0_ec_state" id="ctl00_phG_tab_t1_mapping_lv0_ec_state" value="%3CPXText%20Value%3D%22%22%2F%3E">
+<input type="hidden" name="ctl00_phG_tab_t1_mapping_lv0_es_state" id="ctl00_phG_tab_t1_mapping_lv0_es_state" value="">
+<input type="hidden" name="ctl00_phG_tab_t1_mapping_lv0_em_state" id="ctl00_phG_tab_t1_mapping_lv0_em_state" value="">
+<input type="hidden" name="ctl00_phG_tab_t2_grHistory_state" id="ctl00_phG_tab_t2_grHistory_state" value="%3CPXGrid%20TotalRowCount%3D%220%22%20PageSize%3D%22200%22%20PageIndex%3D%220%22%20ExternalSearch%3D%22false%22%20FilterID%3D%22%22%20FilterActive%3D%22false%22%20DataValues%3D%22%22%3E%3CLevels%2F%3E%3CClientState%2F%3E%3C%2FPXGrid%3E">
+<input type="hidden" name="ctl00_phG_tab_t3_DetailsForm_state" id="ctl00_phG_tab_t3_DetailsForm_state" value="%3CPXBoundPanel%20PageCount%3D%221%22%20PageIndex%3D%220%22%20DataKey%3D%22mappingssingledetails%2C%2FwEWAQ8FBE5hbWUFIyBSZWNlaXZlZCBUYXggSW52b2ljZSBTdGF0dXMgVXBkYXRl%22%2F%3E">
+<input type="hidden" name="ctl00_phG_tab_t3_DetailsForm_edProviderID_state" id="ctl00_phG_tab_t3_DetailsForm_edProviderID_state" value="">
+<input type="hidden" name="ctl00_phG_tab_t3_DetailsForm_edSyncType_state" id="ctl00_phG_tab_t3_DetailsForm_edSyncType_state" value="%3CPXText%20Value%3D%22F%22%2F%3E">
+<input type="hidden" name="ctl00_phG_tab_t3_DetailsForm_edPreparedOn_state" id="ctl00_phG_tab_t3_DetailsForm_edPreparedOn_state" value="%3CPXText%20InputMask%3D%22%23%23%2F%23%23%2F%23%23%23%23%20%23%23%3A%23%23%20CC%22%2F%3E">
+<input type="hidden" name="ctl00_phG_tab_t3_DetailsForm_edCompletedOn_state" id="ctl00_phG_tab_t3_DetailsForm_edCompletedOn_state" value="%3CPXText%20InputMask%3D%22%23%23%2F%23%23%2F%23%23%23%23%20%23%23%3A%23%23%20CC%22%2F%3E">
+<input type="hidden" name="ctl00_phG_tab_t3_DetailsForm_edSitemapTitle_state" id="ctl00_phG_tab_t3_DetailsForm_edSitemapTitle_state" value="">
+<input type="hidden" name="ctl00_phG_tab_t3_DetailsForm_OperationForm_state" id="ctl00_phG_tab_t3_DetailsForm_OperationForm_state" value="%3CPXBoundPanel%20PageCount%3D%221%22%20PageIndex%3D%220%22%20DataKey%3D%22operation%2C%2FwEWAA%3D%3D%22%2F%3E">
+<input type="hidden" name="ctl00_phG_tab_t3_DetailsForm_OperationForm_chkBreakOnError_state" id="ctl00_phG_tab_t3_DetailsForm_OperationForm_chkBreakOnError_state" value="">
+<input type="hidden" name="ctl00_phG_tab_t3_DetailsForm_OperationForm_chkBreakOnTarget_state" id="ctl00_phG_tab_t3_DetailsForm_OperationForm_chkBreakOnTarget_state" value="">
+<input type="hidden" name="ctl00_phG_tab_t3_DetailsForm_OperationForm_chkValidate_state" id="ctl00_phG_tab_t3_DetailsForm_OperationForm_chkValidate_state" value="">
+<input type="hidden" name="ctl00_phG_tab_t3_DetailsForm_OperationForm_chkValidateAndSave_state" id="ctl00_phG_tab_t3_DetailsForm_OperationForm_chkValidateAndSave_state" value="">
+<input type="hidden" name="ctl00_phG_tab_t3_DetailsForm_OperationForm_chkSkipHeadersr_state" id="ctl00_phG_tab_t3_DetailsForm_OperationForm_chkSkipHeadersr_state" value="">
+<input type="hidden" name="ctl00_L10nEditor_state" id="ctl00_L10nEditor_state" value="">
+<input type="hidden" name="inputBox_state" id="inputBox_state" value="">
+<input type="hidden" name="msgBox_state" id="msgBox_state" value="">
+<input type="hidden" name="__DataSourceSessionID" id="__DataSourceSessionID" value="1467b1ba-7317-4a3f-8df6-1b2a8fa14ea0">
+<input type="hidden" name="ctl00_phDS_ds_state" id="ctl00_phDS_ds_state" value="%3CPXBaseDataSource%2F%3E">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="">
+</div>
+
+
+<script src="/WebResource.axd?s=PX_Web_Controls_Scripts_PageTitle_js&amp;d=lpbH2fTkCB0UoS38E1CVjAKEXwbP0-lzJ-pkQJk5nIIQpr46UIK4pguHUmIp3WvfAlHAciPD_GsWIiDIXQ9jn9yDdycs1l0lA34VemyeHxQPqCkGBbza9FA3VVBL9UIRA6E4mw2&amp;t=637254361120000000" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+var __screenID="SM.20.60.36";var addToFavorites="Add to Favorites";var removeFromFavorites="Remove from Favorites";var __toolbarID="ctl00_usrCaption_tlbTools";var __appPath = '/';var __nodePath="";var __nodeGuid="050e963b-403f-4cd4-8987-2e0287cc9278";
+window.top.__createPxContext(window);
+var __PXToolBar = {"styles":{"normal":"toolBtnNormal","hover":"","pushed":"toolBtnPushed","disabled":"toolBtnDisabled","dropDown":"toolBtnDD","dropNormal":"toolBtnDropN","dropHover":"","dropPushed":"toolBtnDropP"}};
+var _ctl00_usrCaption_tlbPath = {"items":[{"type":"PXToolBarButton","key":"syncTOC"},{"type":"PXToolBarContainer","key":"branch"},{"type":"PXToolBarContainer","key":"title"},{"type":"PXToolBarButton","dynamicText":1,"toggleMode":1,"autoCallBack":{"handler":"__tlbPath_FavChange","command":"AddFav"},"images":{"normal":"main@FavoritesGray"},"pushedImages":{"normal":"main@Favorites"},"key":"favorites"}],"clientEvents":{"buttonClick":"__tlbPath_Click","menuShow":"__tlbPath_MenuShow"}};
+var _confirmMsg = "Any unsaved changes will be discarded.";
+var __PXDropDown = {"styles":{"dropDown":"ddTable","item":"ddItem","selection":"ddSelection"}};
+var _ctl00_usrCaption_tlbPath_cmdBranch = {"items":[{"text":"TBC Bank","value":"1"}],"autoPostBack":1,"autoSuggest":0,"allowNull":0};
+var __PXDataViewBar = {"callbacks":[{"name":"CollectParams","blockPage":1,"postData":3,"postDataControls":0},{"name":"NoteShow","blockPage":1,"postData":0},{"name":"NoteSave","repaintControls":3,"blockPage":1,"postData":0},{"name":"FilesMenuShow","blockPage":1,"postData":0},{"name":"ActivityShow","blockPage":1,"postData":0},{"name":"CheckActivity","blockPage":1,"postData":0},{"name":"LinkShow","repaintControls":3,"blockPage":1,"postData":0},{"name":"LinkUpdate","repaintControls":3,"blockPage":1,"postData":0},{"name":"LinkSend","repaintControls":3,"blockPage":1,"postData":0},{"name":"NotifyMenuShow","repaintControls":3,"blockPage":1,"postData":0},{"name":"NotifyShow","repaintControls":3,"blockPage":1,"commitChanges":1,"postData":0}],"styles":{"normal":"toolBtnNormal","hover":"","pushed":"toolBtnPushed","disabled":"toolBtnDisabled","dropDown":"toolBtnDD","dropNormal":"toolBtnDropN","dropHover":"","dropPushed":"toolBtnDropP"},"filesMenuUrls":{"filesDisplayUrl":"~/Frames/GetFile.ashx","fileInfoUrl":"~/Pages/SM/SM202510.aspx"}};
+var _ctl00_usrCaption_tlbDataView = {"screenLink":"ScreenId=SM206036&Name=+Received+Tax+Invoice+Status+Update","callbacks":[{},{},{},{},{},{},{},{},{},{},{}],"dataSourceID":"ds","items":[{"type":"PXToolBarButton","commandName":"NoteShow"},{"type":"PXToolBarButton","displayStyle":2,"commandName":"FilesMenuShow"}]};
+var _ctl00_usrCaption_tlbTools = {"items":[{"type":"PXToolBarButton","autoCallBack":{"command":"refresh","argument":"refresh"},"key":"keyBtnRefresh"},{"type":"PXToolBarButton","key":"help"}],"clientEvents":{"initialize":"__setFileLinksEvents"}};
+var __PXMenu = {"styles":{"menu":"menuIsland","item":"menuItem","hover":"menuItem","disabled":"menuDisabled","spacer":"menuSpacer","topSel":"menuTopSelected"},"expandEffects":{"delay":300,"shadowWidth":3,"type":"Inset"}};
+var _ctl00_usrCaption_tlbTools_menuhelp = {"items":{"i1":{"commandSourceID":"ctl00_usrCaption_tlbDataView","commandName":"LinkShow"},"i2":{"navigateUrl":"/Soap/SM206036.asmx","target":"_blank"},"i3":{"navigateUrl":"/Pages/SM/SM201020.aspx?Screen=050e963b-403f-4cd4-8987-2e0287cc9278","target":"_blank"},"i4":{"popupPanel":"ctl00_usrCaption_shareColumnsDlg"},"i5":{"navigateUrl":"/Frames/Trace.aspx?preserveSession=true","target":"_blank","value":"trace"},"i6":{"popupPanel":"ctl00_usrCaption_pnlAbout"}},"menuStyle":2,"allowFocus":0};
+var __PXUploadDialog = {"maxFileSize":250000,"labelCss":"label","buttonCss":"Button","autoAdjustSize":1,"callBackMode":{"blockPage":1,"postData":0}};
+var _ctl00_usrCaption_dlgUploadXml = {"renderComment":0,"renderLink":0,"key":"UploadImportedXml"};
+var _ctl00_usrCaption_dlgUploadXml_upl = {"maxFileSize":250000,"maxFileSizeMsg":"The file exceeds the maximal allowed size (250000 KB).","allowedFileTypes":".als;.cer;.csv;.dat;.doc;.docx;.epl;.exe;.gif;.ico;.ics;.jpeg;.jpg;.js;.mdb;.msi;.ofx;.pdf;.pfx;.png;.ppt;.pptx;.qbo;.qfx;.rar;.rtf;.sql;.swf;.tif;.txt;.xls;.xlsx;.xml;.zip;.zpl;.msg","callbackTargetID":null,"submitButtonID":"ctl00_usrCaption_dlgUploadXml_btnUpload","allowedTypesMessage":"Only the following file types are allowed: .als;.cer;.csv;.dat;.doc;.docx;.epl;.exe;.gif;.ico;.ics;.jpeg;.jpg;.js;.mdb;.msi;.ofx;.pdf;.pfx;.png;.ppt;.pptx;.qbo;.qfx;.rar;.rtf;.sql;.swf;.tif;.txt;.xls;.xlsx;.xml;.zip;.zpl;.msg.","sizeCheckerHandlerUrl":"/Frames/CheckFileSize.ashx","uniqueId":"d9af3120-0160-440a-a6fb-aefe607a711d","uploadForbiddenMessage":"File upload is forbidden."};
+var _ctl00_usrCaption_dlgUploadXml_upl_txt = {"disableColor":null};
+var __PXButton = {"styles":{"normal":"Button","hover":"ButtonH","disabled":"ButtonD","pushed":"ButtonP","dropDown":"ButtonDD","dropN":"ButtonDN","dropH":"ButtonDH"}};
+var _ctl00_usrCaption_dlgUploadXml_btnUpload = {"styles":{"normal":"Button Button"}};
+var _ctl00_usrCaption_dlgUploadXml_btnClose = {"styles":{"normal":"Button Button"},"dialogResult":2};
+var __PXSmartPanel = {"callBackMode":{"blockPage":1,"postData":0}};
+var _ctl00_usrCaption_pnlAbout = {"loadOnDemand":1,"showAfterLoad":1};
+var _ctl00_usrCaption_pnlAudit = {"loadOnDemand":1,"autoReload":1};
+var _ctl00_usrCaption_shareColumnsDlg = {"commandSourceID":"ctl00_usrCaption_shareColumnsDlg_shareColumsDS","loadOnDemand":1,"autoReload":1,"key":"ShareColumnsFilter","commandName":"preload","autoCallBack":{"command":"WizCancel","target":"ctl00_usrCaption_shareColumnsDlg_gridWizard"}};
+var _ctl00_usrCaption_PanelDynamicForm = {"loadOnDemand":1,"autoReload":1,"showAfterLoad":1,"key":"FilterPreview","acceptButtonID":"PXButtonOK","cancelButtonID":"PXButtonCancel","autoCallBack":{"command":"Refresh","target":"ctl00_usrCaption_PanelDynamicForm_FormPreview"}};
+var _ctl00_phDS_ds_ToolBar = {"commandSourceID":"ctl00_phDS_ds","items":[{"type":"PXToolBarButton","commandName":"Save"},{"type":"PXToolBarButton","commandName":"insert"},{"type":"PXToolBarButton","commandName":"Cancel"},{"type":"PXToolBarSeperator"},{"type":"PXToolBarButton","commandName":"First"},{"type":"PXToolBarButton","commandName":"Prev"},{"type":"PXToolBarButton","commandName":"Next"},{"type":"PXToolBarButton","commandName":"Last"},{"type":"PXToolBarButton","commandName":"prepareImport"},{"type":"PXToolBarButton","commandName":"prepare"},{"type":"PXToolBarButton","commandName":"import"},{"type":"PXToolBarSeperator"},{"type":"PXToolBarButton","commandName":"showUploadPanel"},{"type":"PXToolBarButton","commandName":"getLatestFile"},{"type":"PXToolBarButton","commandName":"convertSimpleMappingToManual"},{"type":"PXToolBarButton","commandName":"viewScreen"},{"type":"PXToolBarButton","commandName":"LongRun","images":{"normal":"/App_Themes/Default/Images/spinnerSmall.gif?imgTimeStamp=637254197140000000","disabled":"main@Success","hover":"main@Fail"}},{"type":"PXToolBarButton","commandName":"ElapsedTime"}]};
+var __PXShortcutManager = {};
+var _ctl00_phDS_ds_ctl00 = {"targetId":"ctl00_phDS_ds"};
+var _ctl00_phF_uplDlg = {"key":"UploadPanel"};
+var _ctl00_phF_uplDlg_upl = {"maxFileSize":250000,"maxFileSizeMsg":"The file exceeds the maximal allowed size (250000 KB).","allowedFileTypes":".als;.cer;.csv;.dat;.doc;.docx;.epl;.exe;.gif;.ico;.ics;.jpeg;.jpg;.js;.mdb;.msi;.ofx;.pdf;.pfx;.png;.ppt;.pptx;.qbo;.qfx;.rar;.rtf;.sql;.swf;.tif;.txt;.xls;.xlsx;.xml;.zip;.zpl;.msg","callbackTargetID":null,"submitButtonID":"ctl00_phF_uplDlg_btnUpload","allowedTypesMessage":"Only the following file types are allowed: .als;.cer;.csv;.dat;.doc;.docx;.epl;.exe;.gif;.ico;.ics;.jpeg;.jpg;.js;.mdb;.msi;.ofx;.pdf;.pfx;.png;.ppt;.pptx;.qbo;.qfx;.rar;.rtf;.sql;.swf;.tif;.txt;.xls;.xlsx;.xml;.zip;.zpl;.msg.","sizeCheckerHandlerUrl":"/Frames/CheckFileSize.ashx","uniqueId":"45bdfe64-4480-48a9-900a-b4e97aa191f2","uploadForbiddenMessage":"File upload is forbidden."};
+var _ctl00_phF_uplDlg_upl_txt = {"disableColor":null};
+var _ctl00_phF_uplDlg_edtLinkExisting = {"disableColor":null};
+var _ctl00_phF_uplDlg_edtComment = {"disableColor":null};
+var _ctl00_phF_uplDlg_btnUpload = {"styles":{"normal":"Button Button"}};
+var _ctl00_phF_uplDlg_btnClose = {"styles":{"normal":"Button Button"},"dialogResult":2};
+var _ctl00_phF_upDlgForFileCreation = {"renderComment":0,"renderLink":0,"key":"CreateFromFilePanel"};
+var _ctl00_phF_upDlgForFileCreation_upl = {"maxFileSize":250000,"maxFileSizeMsg":"The file exceeds the maximal allowed size (250000 KB).","allowedFileTypes":".als;.cer;.csv;.dat;.doc;.docx;.epl;.exe;.gif;.ico;.ics;.jpeg;.jpg;.js;.mdb;.msi;.ofx;.pdf;.pfx;.png;.ppt;.pptx;.qbo;.qfx;.rar;.rtf;.sql;.swf;.tif;.txt;.xls;.xlsx;.xml;.zip;.zpl;.msg","callbackTargetID":null,"submitButtonID":"ctl00_phF_upDlgForFileCreation_btnUpload","allowedTypesMessage":"Only the following file types are allowed: .als;.cer;.csv;.dat;.doc;.docx;.epl;.exe;.gif;.ico;.ics;.jpeg;.jpg;.js;.mdb;.msi;.ofx;.pdf;.pfx;.png;.ppt;.pptx;.qbo;.qfx;.rar;.rtf;.sql;.swf;.tif;.txt;.xls;.xlsx;.xml;.zip;.zpl;.msg.","sizeCheckerHandlerUrl":"/Frames/CheckFileSize.ashx","uniqueId":"c498204b-d3c6-4983-82ad-87d323d772d5","uploadForbiddenMessage":"File upload is forbidden."};
+var _ctl00_phF_upDlgForFileCreation_upl_txt = {"disableColor":null};
+var _ctl00_phF_upDlgForFileCreation_btnUpload = {"styles":{"normal":"Button Button"}};
+var _ctl00_phF_upDlgForFileCreation_btnClose = {"styles":{"normal":"Button Button"},"dialogResult":2};
+var _ctl00_phF_smPnlNewScenarioCreation = {"key":"NewScenarioProperties","autoCallBack":{"command":"Refresh","target":"ctl00_phF_smPnlNewScenarioCreation_frmNewScenarioCreation"},"callBackMode":{"commitChanges":1,"postData":3}};
+var __PXFormView = {"maxFileSize":250000,"maxFileSizeMsg":"The file exceeds the maximal allowed size (250000 KB).","allowedFiles":".als;.cer;.csv;.dat;.doc;.docx;.epl;.exe;.gif;.ico;.ics;.jpeg;.jpg;.js;.mdb;.msi;.ofx;.pdf;.pfx;.png;.ppt;.pptx;.qbo;.qfx;.rar;.rtf;.sql;.swf;.tif;.txt;.xls;.xlsx;.xml;.zip;.zpl;.msg","allowedFilesMsg":"Only the following file types are allowed: {0}.","callbacks":[{"name":"Refresh","repaintControls":1,"blockPage":1,"postData":0},{"name":"Search","repaintControls":1,"blockPage":1},{"name":"Save","repaintControls":1,"blockPage":1,"commitChanges":1},{"name":"Delete","repaintControls":1,"blockPage":1},{"name":"AddNew","repaintControls":1,"blockPage":1,"postData":0},{"name":"NoteShow","blockPage":1,"postData":0},{"name":"NoteSave","repaintControls":3,"blockPage":1,"postData":0},{"name":"FilesMenuShow","blockPage":1,"postData":0},{"name":"ActivityShow","blockPage":1,"postData":0},{"name":"LinkShow","repaintControls":3,"blockPage":1,"postData":0},{"name":"LinkUpdate","repaintControls":3,"blockPage":1,"postData":0},{"name":"LinkSend","repaintControls":3,"blockPage":1,"postData":0},{"name":"NotifyMenuShow","repaintControls":3,"blockPage":1,"postData":0},{"name":"NotifyShow","repaintControls":3,"blockPage":1,"commitChanges":1,"postData":0},{"name":"CheckActivity","blockPage":1,"postData":0},{"name":"UploadFile","blockPage":1}],"errorCss":"FormError","warningCss":"FormWarn","infoCss":"FormInfo","minHeight":63,"filesMenuUrls":{"filesDisplayUrl":"~/Frames/GetFile.ashx","fileInfoUrl":"~/Pages/SM/SM202510.aspx"}};
+var _ctl00_phF_smPnlNewScenarioCreation_frmNewScenarioCreation = {"dataKey":"newscenarioproperties,/wEWAA==","dataBound":1,"canAddFiles":0,"viewHash":-171016225,"callbacks":[{"repaintControls":0},{},{"repaintControls":0},{},{},{},{},{},{},{},{},{},{},{},{},{}],"allowCollapse":1,"dataSourceID":"ds","dataMember":"NewScenarioProperties","pageCount":1};
+var __PXSelector = {"autoComplete":1,"nextLabel":"Next","prevLabel":"Prev","callBackMode":{"blockPage":1}};
+var _ctl00_phF_smPnlNewScenarioCreation_frmNewScenarioCreation_trNewScenarioCreation = {"dataKey":"NodeID","bindingContainer":"ctl00_phF_smPnlNewScenarioCreation_frmNewScenarioCreation","localizedCaptionPrefix":"Select","autoComplete":0,"onValueChange":1,"inputMask":"CC.CC.CC.CC","required":1,"valueField":"ScreenID","textField":"Title","asciiCharSet":1};
+var _ctl00_phF_smPnlNewScenarioCreation_frmNewScenarioCreation_scenarioName = {"bindingContainer":"ctl00_phF_smPnlNewScenarioCreation_frmNewScenarioCreation","disableColor":null,"required":1,"defaultLocale":"en-US"};
+var _ctl00_phF_smPnlNewScenarioCreation_frmNewScenarioCreation_providerType = {"dataKey":"TypeName","bindingContainer":"ctl00_phF_smPnlNewScenarioCreation_frmNewScenarioCreation","localizedCaptionPrefix":"Select","required":1,"valueField":"typeName","hintField":"description","textField":"Description","asciiCharSet":1};
+var _ctl00_phF_smPnlNewScenarioCreation_btnOk = {"dialogResult":1,"autoCallBack":{"command":"Save","target":"ctl00_phF_form"}};
+var _ctl00_phF_smPnlNewScenarioCreation_btnCancel = {"dialogResult":2};
+var _ctl00_phF_form = {"dataKey":"mappingssingle,/wEWAQ8FBE5hbWUFIyBSZWNlaXZlZCBUYXggSW52b2ljZSBTdGF0dXMgVXBkYXRl","dataBound":1,"canAddFiles":2,"allowDelete":0,"allowInsert":0,"viewHash":322411522,"isPrimary":"1","keyControls":"ctl00_phF_form_edName","keyFields":"Name","callbacks":[{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}],"dataSourceID":"ds","dataMember":"MappingsSingle","pageCount":-1};
+var _ctl00_phF_form_edName = {"dataKey":"Name","bindingContainer":"ctl00_phF_form","localizedCaptionPrefix":"Select","onValueChange":2,"required":1,"valueField":"name","autoCallBack":{"command":"Refresh","target":"ctl00_phF_form"}};
+var _ctl00_phF_form_edScreenID = {"dataKey":"NodeID","bindingContainer":"ctl00_phF_form","localizedCaptionPrefix":"Select","autoComplete":0,"onValueChange":1,"inputMask":"CC.CC.CC.CC","valueField":"screenID","textField":"title","asciiCharSet":1};
+var _ctl00_phF_form_edStatus = {"bindingContainer":"ctl00_phF_form","items":[{"text":"New","value":"N"},{"text":"Prepared","value":"P"},{"text":"Processed","value":"I"},{"text":"Partially Processed","value":"F"}],"selectedIndex":-1,"allowNull":0};
+var _ctl00_phF_form_edNbrRecords = {"bindingContainer":"ctl00_phF_form","minValue":-2147483648,"maxValue":2147483647,"disableColor":null,"defaultLocale":"en-US"};
+var _ctl00_phF_form_mappingTabVisibility = {"bindingContainer":"ctl00_phF_form"};
+var _ctl00_phF_form_chkDiscardPrevious = {"bindingContainer":"ctl00_phF_form"};
+var __PXTab = {"maxFileSize":250000,"maxFileSizeMsg":"The file exceeds the maximal allowed size (250000 KB).","allowedFiles":".als;.cer;.csv;.dat;.doc;.docx;.epl;.exe;.gif;.ico;.ics;.jpeg;.jpg;.js;.mdb;.msi;.ofx;.pdf;.pfx;.png;.ppt;.pptx;.qbo;.qfx;.rar;.rtf;.sql;.swf;.tif;.txt;.xls;.xlsx;.xml;.zip;.zpl;.msg","allowedFilesMsg":"Only the following file types are allowed: {0}.","callbacks":[{"name":"Refresh","repaintControls":1,"blockPage":1,"postData":0},{"name":"Search","repaintControls":1,"blockPage":1},{"name":"Save","repaintControls":1,"blockPage":1,"commitChanges":1},{"name":"Delete","repaintControls":1,"blockPage":1},{"name":"AddNew","repaintControls":1,"blockPage":1,"postData":0},{"name":"NoteShow","blockPage":1,"postData":0},{"name":"NoteSave","repaintControls":3,"blockPage":1,"postData":0},{"name":"FilesMenuShow","blockPage":1,"postData":0},{"name":"ActivityShow","blockPage":1,"postData":0},{"name":"LinkShow","repaintControls":3,"blockPage":1,"postData":0},{"name":"LinkUpdate","repaintControls":3,"blockPage":1,"postData":0},{"name":"LinkSend","repaintControls":3,"blockPage":1,"postData":0},{"name":"NotifyMenuShow","repaintControls":3,"blockPage":1,"postData":0},{"name":"NotifyShow","repaintControls":3,"blockPage":1,"commitChanges":1,"postData":0},{"name":"RepaintTab","blockPage":1,"postData":0},{"name":"CheckActivity","blockPage":1,"postData":0},{"name":"UploadFile","blockPage":1}],"itemsCount":0,"tabImages":0,"errorCss":"FormError","warningCss":"FormWarn","infoCss":"FormInfo","styles":{"base":"tabBase","normal":"tabNormal","selected":"tabSelected","hover":"tabHover","disabled":"tabDisabled","roundLeft":"tabRoundNL,tabRoundHL,tabRoundSL","roundMiddle":"tabRoundNM,tabRoundHM,tabRoundSM","roundRight":"tabRoundNR,tabRoundHR,tabRoundSR"},"minHeight":63,"filesMenuUrls":{"filesDisplayUrl":"~/Frames/GetFile.ashx","fileInfoUrl":"~/Pages/SM/SM202510.aspx"}};
+var _ctl00_phG_tab = {"itemsCount":4,"items":[{"repaintOnDemand":1},{},{"repaintOnDemand":1},{"repaintOnDemand":1}],"checkChanges":0,"autoSize":{"enabled":1,"container":1,"minHeight":150}};
+var _ctl00_phG_tab_oi = {};
+var _ctl00_phG_tab_oi_menu = {"menuStyle":2};
+var __PXGrid = {"allowNote":0,"gridViewText":"Grid View","xslFile":"/WebResource.axd?d=HmMYixLkmA-UhxAE9TDuWBDp99vSM62sLnfJoRZNYb7cl7B3EMNB_yJ4J1zaY2QbrI5mijV-Du9t90gAA4gS_FYFE3nII_JiXOcZ0EML4TvJOeDj0&t=637254354240000000","xslEditFile":"/WebResource.axd?d=xe7DGrFGSe7OGauGSsyLSnquE205Hfammzk-1HxdTI9R8r45hE8uFV9CdwlU1wg_KWNNiZQErw27oooaDPSrzrSTYWyvjhfWY7recs8Lv7bvJm3bKfZsVZcZZPMnUbrH49kRpA2&t=637254354240000000","callbacks":[{"name":"Refresh","blockPage":1,"postData":0},{"name":"Save","repaintControls":1,"blockPage":1,"commitChanges":1,"postData":0},{"name":"FetchRow","repaintControls":1,"blockPage":1,"commitChanges":1,"postData":0},{"name":"InitRow","blockPage":1,"postData":0},{"name":"NoteShow","blockPage":1,"postData":0},{"name":"NoteSave","repaintControls":3,"blockPage":1,"postData":0},{"name":"FilterShow","blockPage":1,"postData":0},{"name":"ExportExcel","blockPage":1,"postData":0},{"name":"FilesMenu","blockPage":1,"postData":0},{"name":"LayoutSave","blockPage":1,"commitChanges":1,"postData":0},{"name":"LayoutReset","blockPage":1,"postData":0},{"name":"Navigate","blockPage":1,"postData":0},{"name":"FilterDialog","blockPage":1,"postData":0},{"name":"ColumnsDialog","blockPage":1,"postData":0},{"name":"DelDefault","blockPage":1,"postData":0,"postDataControls":0},{"name":"FilterSave","blockPage":1,"postData":0}],"recordNumMsg":"{0} of {1} records","editStr":"Edit","exportCommand":1,"timeStr":"Time","rowChangedMsg":"Data in the current row has been changed. Do you want to save changes?","gridChangedMsg":"The grid has unsaved changes. Do you want to save changes?","filterAppliedMsg":"Filter Applied","filterAllMsg":"All","filterEmptyMsg":"Is Empty","filterNameMsg":"Enter new filter name here","filterRemoveMsg":"The current filter with all conditions will be deleted","filterChangesInSharedMsg":"You have modified the shared filter. Do you want to save your changes?","filterNames":["Equals","Does Not Equal","Is Greater Than","Is Greater Than or Equal To","Is Less Than","Is Less Than or Equal To","Contains","Starts With","Ends With","Does Not Contain","Is Between","Is Empty","Is Not Empty","Today","Overdue","Today+Overdue","Tomorrow","This Week","Next Week","This Month","Next Month","Is In","Is Not In","External Reference","Nested selector filter"],"emptyMsg":{"comboAddMessage":"No records found.\r\nTry to change filter or modify parameters above to see records here.","namedComboMessage":"No records found as \u0027{0}\u0027.\r\nTry to change filter or modify parameters above to see records here.","namedComboAddMessage":"No records found as \u0027{0}\u0027.\r\nTry to change filter or modify parameters above to see records here.","filteredMessage":"No records found.\r\nTry to change filter to see records here.","filteredAddMessage":"No records found.\r\nTry to change filter to see records here.","namedFilteredMessage":"No records found as \u0027{0}\u0027.\r\nTry to change filter to see records here.","namedFilteredAddMessage":"No records found as \u0027{0}\u0027.\r\nTry to change filter to see records here.","anonFilteredMessage":"No records found.\r\nTry to change filter to see records here.","anonFilteredAddMessage":"No records found.\r\nTry to change filter to see records here."},"emptyMessageMode":0,"autoSaveLayout":0,"exportImages":{"processing":"/App_Themes/Default/Images/spinnerSmall.gif?imgTimeStamp=637254197140000000"},"levels":[{}],"filesMenuUrls":{"filesDisplayUrl":"/Frames/GetFile.ashx","fileInfoUrl":"/Pages/SM/SM202510.aspx"}};
+var _ctl00_phG_tab_t0_gridPreparedData = {"allowNote":1,"callbacks":[{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}],"dataMember":"PreparedData","exportImages":{"processing":"/App_Themes/Default/Images/spinnerSmall.gif?imgTimeStamp=637254197140000000"},"levels":[{"dataKey":"MappingID,LineNbr","mode":{"allowAddNew":0,"allowDelete":0},"columns":[{"type":5,"dataType":9,"key":"Files","defaultValue":0,"allowNull":0,"allowResize":0,"allowFocus":0},{"type":5,"dataType":9,"key":"Notes","defaultValue":0,"allowNull":0,"allowResize":0,"allowFocus":0},{"width":"70px","dataType":1,"dataField":"MappingID","visible":0,"allowShowHide":0},{"dataType":9,"dataField":"LineNbr","allowUpdate":0},{"type":1,"dataType":3,"dataField":"IsActive","defaultValue":1,"allowNull":0,"formEditorID":"chkIsActive"},{"type":1,"dataType":3,"dataField":"IsProcessed","defaultValue":0,"allowNull":0,"formEditorID":"chkIsProcessed"},{"dataField":"ErrorMessage","maxLength":4000,"allowUpdate":0,"formEditorID":"edErrorMessage"},{"dataField":"Value_0"},{"dataField":"Value_1"},{"dataField":"Value_2"},{"dataField":"Value_3"},{"dataField":"Value_4"}]}],"autoSize":{"enabled":1,"minHeight":250},"dataSourceID":"ds","allowPaging":1,"adjustPageSize":2,"pageSize":200};
+var _ctl00_phG_tab_t0_gridPreparedData_at = {"pagerMode":1};
+var _ctl00_phG_tab_t0_gridPreparedData_at_tlb = {"commandSourceID":"ctl00_phG_tab_t0_gridPreparedData","canOverflow":1,"items":[{"type":"PXToolBarButton","commandName":"Refresh"},{"type":"PXToolBarButton","commandName":"AddNew"},{"type":"PXToolBarButton","commandName":"Delete"},{"type":"PXToolBarSeperator"},{"dependOnGrid":"ctl00_phG_tab_t0_gridPreparedData","commandSourceID":"ctl00_phDS_ds","type":"PXToolBarButton","commandName":"switchActivation"},{"dependOnGrid":"ctl00_phG_tab_t0_gridPreparedData","commandSourceID":"ctl00_phDS_ds","type":"PXToolBarButton","commandName":"switchActivationUntilError"},{"dependOnGrid":"ctl00_phG_tab_t0_gridPreparedData","commandSourceID":"ctl00_phDS_ds","type":"PXToolBarButton","commandName":"switchProcessing"},{"commandSourceID":"ctl00_phDS_ds","type":"PXToolBarButton","commandName":"clearErrors"},{"type":"PXToolBarSeperator"},{"type":"PXToolBarButton","commandName":"AdjustColumns"},{"type":"PXToolBarButton","commandName":"ExportExcel"},{"type":"PXToolBarLabel"},{"type":"PXToolBarLabel","allowHide":0},{"type":"PXToolBarButton","commandName":"FilterShow"},{"type":"PXToolBarButton","images":{"normal":"control@HiddenItems"},"key":"hi"}]};
+var _ctl00_phG_tab_t0_gridPreparedData_at_tlb_fs = {"bindingContainer":"ctl00_phG_tab_t0_gridPreparedData","items":[{"text":"All Records","value":"-1"}],"valueType":11,"allowNull":0};
+var _ctl00_phG_tab_t0_gridPreparedData_at_tlb_menuhi = {"commandSourceID":"ctl00_phG_tab_t0_gridPreparedData","menuStyle":2,"allowFocus":0};
+var _ctl00_phG_tab_t0_gridPreparedData_ab = {"pagerMode":1};
+var _ctl00_phG_tab_t0_gridPreparedData_ab_tlb = {"commandSourceID":"ctl00_phG_tab_t0_gridPreparedData","canOverflow":1,"items":[{"type":"PXToolBarLabel"},{"type":"PXToolBarButton","commandName":"PageFirst"},{"type":"PXToolBarButton","commandName":"PagePrev"},{"type":"PXToolBarButton","commandName":"PageNext"},{"type":"PXToolBarButton","commandName":"PageLast"},{"type":"PXToolBarButton","images":{"normal":"control@HiddenItems"},"key":"hi"}]};
+var _ctl00_phG_tab_t0_gridPreparedData_ab_tlb_menuhi = {"commandSourceID":"ctl00_phG_tab_t0_gridPreparedData","menuStyle":2,"allowFocus":0};
+var _ctl00_phG_tab_t0_gridPreparedData_lv0 = {"dataKey":"prepareddata,/wEWAA==","dataBound":1,"canAddFiles":0,"viewHash":1853475082,"callbacks":[{"repaintControls":4,"repaintControlsIDs":"ds"},{},{"postData":0},{"commitChanges":1,"postData":0},{"repaintControls":4,"repaintControlsIDs":"ds"},{},{},{},{},{},{},{},{},{},{},{}],"autoSize":{"enabled":1},"dataSourceID":"ds","dataMember":"PreparedData"};
+var _ctl00_phG_tab_t0_gridPreparedData_lv0_chkIsActive = {"bindingContainer":"ctl00_phG_tab_t0_gridPreparedData_lv0"};
+var _ctl00_phG_tab_t0_gridPreparedData_lv0_edErrorMessage = {"bindingContainer":"ctl00_phG_tab_t0_gridPreparedData_lv0","disableColor":null,"autoCallBack":{"command":"Refresh"},"defaultLocale":"en-US"};
+var _ctl00_phG_tab_t0_gridPreparedData_lv0_chkIsProcessed = {"bindingContainer":"ctl00_phG_tab_t0_gridPreparedData_lv0"};
+var _ctl00_phG_tab_t0_gridPreparedData_menu = {"commandSourceID":"ctl00_phG_tab_t0_gridPreparedData","items":{"i0":{"commandName":"Refresh"},"i1":{"commandName":"AddNew"},"i2":{"commandName":"Delete"},"i3":{"dependOnGrid":"ctl00_phG_tab_t0_gridPreparedData","syncText":1,"commandName":"switchActivation"},"i4":{"dependOnGrid":"ctl00_phG_tab_t0_gridPreparedData","syncText":1,"commandName":"switchActivationUntilError"},"i5":{"dependOnGrid":"ctl00_phG_tab_t0_gridPreparedData","syncText":1,"commandName":"switchProcessing"},"i6":{"syncText":1,"commandName":"clearErrors"},"i7":{"commandName":"AdjustColumns"},"i8":{"commandName":"ExportExcel"},"i9":{"commandName":"FilterShow"},"i10":{"commandName":"FilterSet"}},"menuStyle":2};
+var _ctl00_phG_tab_t0_gridPreparedData_menu0 = {"commandSourceID":"ctl00_phG_tab_t0_gridPreparedData","items":{"i1":{"commandName":"LayoutSave"},"i2":{"commandName":"LayoutReset"}},"menuStyle":2};
+var _ctl00_phG_tab_t1_mapping = {"allowNote":1,"callbacks":[{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}],"dataMember":"MappingsSimple","keepPosition":1,"autoAdjustColumns":1,"autoSaveLayout":1,"matrixMode":1,"exportImages":{"processing":"/App_Themes/Default/Images/spinnerSmall.gif?imgTimeStamp=637254197140000000"},"levels":[{"dataKey":"MappingID,LineNbr","mode":{"initNewRow":1},"columns":[{"type":5,"dataType":9,"key":"Files","defaultValue":0,"allowNull":0,"allowResize":0,"allowFocus":0},{"type":5,"dataType":9,"key":"Notes","defaultValue":0,"allowNull":0,"allowResize":0,"allowFocus":0},{"type":1,"dataType":3,"dataField":"IsActive","defaultValue":1,"allowNull":0},{"type":3,"dataField":"Value","maxLength":4000,"commitChanges":1,"formEditorID":"edValue"},{"required":1,"type":3,"dataField":"ObjectName","maxLength":128,"commitChanges":1},{"type":1,"dataType":3,"dataField":"IsKey","allowUpdate":0},{"type":3,"dataField":"FieldName","maxLength":4000},{"width":"70px","dataType":1,"dataField":"MappingID","visible":0,"allowShowHide":0},{"width":"70px","dataType":7,"dataField":"LineNbr","visible":0,"allowUpdate":0,"allowShowHide":0}]}],"autoSize":{"enabled":1,"minHeight":250},"dataSourceID":"ds","pageSize":200};
+var _ctl00_phG_tab_t1_mapping_at = {"pagerMode":1};
+var _ctl00_phG_tab_t1_mapping_at_tlb = {"commandSourceID":"ctl00_phG_tab_t1_mapping","canOverflow":1,"items":[{"type":"PXToolBarButton","commandName":"Refresh"},{"type":"PXToolBarButton","commandName":"AddNew"},{"type":"PXToolBarButton","commandName":"Delete"},{"type":"PXToolBarSeperator"},{"type":"PXToolBarButton","autoCallBack":{"command":"RefreshFromFile","target":"ctl00_phDS_ds"}},{"type":"PXToolBarSeperator"},{"type":"PXToolBarButton","commandName":"AdjustColumns"},{"type":"PXToolBarButton","commandName":"ExportExcel"},{"type":"PXToolBarLabel"},{"type":"PXToolBarButton","images":{"normal":"control@HiddenItems"},"key":"hi"}]};
+var _ctl00_phG_tab_t1_mapping_at_tlb_menuhi = {"commandSourceID":"ctl00_phG_tab_t1_mapping","menuStyle":2,"allowFocus":0};
+var _ctl00_phG_tab_t1_mapping_ab = {"pagerMode":1};
+var _ctl00_phG_tab_t1_mapping_ab_tlb = {"commandSourceID":"ctl00_phG_tab_t1_mapping","canOverflow":1,"items":[{"type":"PXToolBarLabel"},{"type":"PXToolBarButton","images":{"normal":"control@HiddenItems"},"key":"hi"}]};
+var _ctl00_phG_tab_t1_mapping_ab_tlb_menuhi = {"commandSourceID":"ctl00_phG_tab_t1_mapping","menuStyle":2,"allowFocus":0};
+var _ctl00_phG_tab_t1_mapping_lv0 = {"dataKey":"mappingssimple,/wEWAA==","dataBound":1,"canAddFiles":0,"viewHash":-527663486,"callbacks":[{"repaintControls":4,"repaintControlsIDs":"ds"},{},{"postData":0},{"commitChanges":1,"postData":0},{"repaintControls":4,"repaintControlsIDs":"ds"},{},{},{},{},{},{},{},{},{},{},{}],"autoSize":{"enabled":1},"dataSourceID":"ds","dataMember":"MappingsSimple"};
+var __PXFormulaCombo = {"styles":{"dropDown":"ddTable","item":"ddItem","selection":"ddSelection"},"callBackMode":{"blockPage":1},"fieldsAutoRefresh":0,"fieldsRootAutoRefresh":0,"conditionStyles":null,"allowEdit":1};
+var _ctl00_phG_tab_t1_mapping_lv0_edValue = {"bindingContainer":"ctl00_phG_tab_t1_mapping_lv0","popupPanel":"ctl00_phG_tab_t1_mapping_lv0_edValue_pnlFormulaCombo","fieldsAutoRefresh":1,"fieldsRootAutoRefresh":1,"items":[{}],"selectedIndex":-1};
+var _ctl00_phG_tab_t1_mapping_lv0_edValue_pnlFormulaCombo = {"loadOnDemand":1};
+var __PXDateTimeEdit = {"images":{"normal":"control@DropDownN","disabled":"control@DropDownD","hover":"control@DropDownH","pushed":"control@DropDownP"},"editMask":"04/08/03","displayMask":"04/08/03","dropDownStyles":{"dropDown":"ddTable","item":"ddItem","selection":"ddSelection"},"disableColor":null};
+var _ctl00_phG_tab_t1_mapping_lv0_ed = {"bindingContainer":"ctl00_phG_tab_t1_mapping_lv0"};
+var _ctl00_phG_tab_t1_mapping_lv0_ec = {"bindingContainer":"ctl00_phG_tab_t1_mapping_lv0"};
+var _ctl00_phG_tab_t1_mapping_lv0_es = {"bindingContainer":"ctl00_phG_tab_t1_mapping_lv0","localizedCaptionPrefix":"Select","callBackMode":{"postData":2}};
+var __PXSegmentMask = {"autoComplete":1,"nextLabel":"Next","prevLabel":"Prev","callBackMode":{"blockPage":1}};
+var _ctl00_phG_tab_t1_mapping_lv0_em = {"bindingContainer":"ctl00_phG_tab_t1_mapping_lv0","localizedCaptionPrefix":"Select","selectMode":1,"callBackMode":{"postData":2}};
+var _ctl00_phG_tab_t1_mapping_lfFirst0 = {"styles":{"normal":"Button ctl00_phG_tab_t1_mapping_lfFirst0"},"commandName":"First"};
+var _ctl00_phG_tab_t1_mapping_lfPrev0 = {"styles":{"normal":"Button ctl00_phG_tab_t1_mapping_lfPrev0"},"commandName":"Prev"};
+var _ctl00_phG_tab_t1_mapping_lfNext0 = {"styles":{"normal":"Button ctl00_phG_tab_t1_mapping_lfNext0"},"commandName":"Next"};
+var _ctl00_phG_tab_t1_mapping_lfLast0 = {"styles":{"normal":"Button ctl00_phG_tab_t1_mapping_lfLast0"},"commandName":"Last"};
+var _ctl00_phG_tab_t1_mapping_menu = {"commandSourceID":"ctl00_phG_tab_t1_mapping","items":{"i0":{"commandName":"Refresh"},"i1":{"commandName":"AddNew"},"i2":{"commandName":"Delete"},"i3":{"syncText":1,"autoCallBack":{"command":"RefreshFromFile","target":"ctl00_phDS_ds"}},"i4":{"commandName":"AdjustColumns"},"i5":{"commandName":"ExportExcel"}},"menuStyle":2};
+var _ctl00_phG_tab_t1_mapping_menu0 = {"commandSourceID":"ctl00_phG_tab_t1_mapping","items":{"i1":{"commandName":"LayoutSave"},"i2":{"commandName":"LayoutReset"}},"menuStyle":2};
+var _ctl00_phG_tab_t2_grHistory = {"callbacks":[{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}],"dataMember":"History","autoSaveLayout":1,"exportImages":{"processing":"/App_Themes/Default/Images/spinnerSmall.gif?imgTimeStamp=637254197140000000"},"levels":[{"dataKey":"MappingID,StatusDate","mode":{"allowAddNew":0,"allowUpdate":0,"allowDelete":0},"columns":[{"width":"70px","dataType":11,"dataField":"Ticks","visible":0,"allowShowHide":0},{"dateMask":"04/08/03 10:17 15","dataType":16,"displayFormat":"g","dataField":"StatusDate","allowUpdate":0,"formEditorID":"edStatusDate"},{"type":3,"dataField":"Status","maxLength":1,"allowUpdate":0,"formEditorID":"edStatusH"},{"dataType":9,"dataField":"NbrRecords","allowUpdate":0,"formEditorID":"edNbrRecordsH"},{"dataField":"ImportTimeStamp","maxLength":4000},{"dataField":"Description","maxLength":255,"allowUpdate":0},{"width":"70px","dataType":1,"dataField":"MappingID","visible":0,"allowShowHide":0}]}],"autoSize":{"enabled":1,"minHeight":250},"dataSourceID":"ds","allowPaging":1,"adjustPageSize":2,"pageSize":200};
+var _ctl00_phG_tab_t2_grHistory_at = {"pagerMode":1};
+var _ctl00_phG_tab_t2_grHistory_at_tlb = {"commandSourceID":"ctl00_phG_tab_t2_grHistory","canOverflow":1,"items":[{"type":"PXToolBarButton","commandName":"Refresh"},{"type":"PXToolBarSeperator"},{"dependOnGrid":"ctl00_phG_tab_t2_grHistory","commandSourceID":"ctl00_phDS_ds","type":"PXToolBarButton","commandName":"rollback"},{"type":"PXToolBarSeperator"},{"type":"PXToolBarButton","commandName":"AdjustColumns"},{"type":"PXToolBarButton","commandName":"ExportExcel"},{"type":"PXToolBarLabel"},{"type":"PXToolBarButton","images":{"normal":"control@HiddenItems"},"key":"hi"}]};
+var _ctl00_phG_tab_t2_grHistory_at_tlb_menuhi = {"commandSourceID":"ctl00_phG_tab_t2_grHistory","menuStyle":2,"allowFocus":0};
+var _ctl00_phG_tab_t2_grHistory_ab = {"pagerMode":1};
+var _ctl00_phG_tab_t2_grHistory_ab_tlb = {"commandSourceID":"ctl00_phG_tab_t2_grHistory","canOverflow":1,"items":[{"type":"PXToolBarLabel"},{"type":"PXToolBarButton","commandName":"PageFirst"},{"type":"PXToolBarButton","commandName":"PagePrev"},{"type":"PXToolBarButton","commandName":"PageNext"},{"type":"PXToolBarButton","commandName":"PageLast"},{"type":"PXToolBarButton","images":{"normal":"control@HiddenItems"},"key":"hi"}]};
+var _ctl00_phG_tab_t2_grHistory_ab_tlb_menuhi = {"commandSourceID":"ctl00_phG_tab_t2_grHistory","menuStyle":2,"allowFocus":0};
+var _ctl00_phG_tab_t2_grHistory_menu = {"commandSourceID":"ctl00_phG_tab_t2_grHistory","items":{"i0":{"commandName":"Refresh"},"i1":{"dependOnGrid":"ctl00_phG_tab_t2_grHistory","syncText":1,"commandName":"rollback"},"i2":{"commandName":"AdjustColumns"},"i3":{"commandName":"ExportExcel"}},"menuStyle":2};
+var _ctl00_phG_tab_t2_grHistory_menu0 = {"commandSourceID":"ctl00_phG_tab_t2_grHistory","items":{"i1":{"commandName":"LayoutSave"},"i2":{"commandName":"LayoutReset"}},"menuStyle":2};
+var _ctl00_phG_tab_t3_DetailsForm = {"dataKey":"mappingssingledetails,/wEWAQ8FBE5hbWUFIyBSZWNlaXZlZCBUYXggSW52b2ljZSBTdGF0dXMgVXBkYXRl","dataBound":1,"canAddFiles":0,"allowDelete":0,"allowInsert":0,"viewHash":322411522,"callbacks":[{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}],"allowCollapse":0,"minHeight":0,"dataSourceID":"ds","dataMember":"MappingsSingleDetails","pageCount":1};
+var _ctl00_phG_tab_t3_DetailsForm_edProviderID = {"dataKey":"Name","bindingContainer":"ctl00_phG_tab_t3_DetailsForm","localizedCaptionPrefix":"Select","valueField":"name","allowEdit":1};
+var _ctl00_phG_tab_t3_DetailsForm_edSyncType = {"bindingContainer":"ctl00_phG_tab_t3_DetailsForm","items":[{"text":"Full","value":"F"},{"text":"Incremental - All Records","value":"A"},{"text":"Incremental - New Only","value":"N"}],"selectedIndex":-1,"allowNull":0};
+var _ctl00_phG_tab_t3_DetailsForm_edPreparedOn = {"bindingContainer":"ctl00_phG_tab_t3_DetailsForm","editMask":"04/08/03 10:17 15","displayMask":"04/08/03 10:17 15","defaultLocale":"en-US"};
+var _ctl00_phG_tab_t3_DetailsForm_edCompletedOn = {"bindingContainer":"ctl00_phG_tab_t3_DetailsForm","editMask":"04/08/03 10:17 15","displayMask":"04/08/03 10:17 15","defaultLocale":"en-US"};
+var _ctl00_phG_tab_t3_DetailsForm_edSitemapTitle = {"bindingContainer":"ctl00_phG_tab_t3_DetailsForm","disableColor":null,"defaultLocale":"en-US"};
+var _ctl00_phG_tab_t3_DetailsForm_OperationForm = {"dataKey":"operation,/wEWAA==","dataBound":1,"canAddFiles":0,"viewHash":1648572184,"callbacks":[{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}],"allowCollapse":1,"dataSourceID":"ds","dataMember":"Operation","pageCount":1};
+var _ctl00_phG_tab_t3_DetailsForm_OperationForm_chkBreakOnError = {"bindingContainer":"ctl00_phG_tab_t3_DetailsForm_OperationForm"};
+var _ctl00_phG_tab_t3_DetailsForm_OperationForm_chkBreakOnTarget = {"bindingContainer":"ctl00_phG_tab_t3_DetailsForm_OperationForm"};
+var _ctl00_phG_tab_t3_DetailsForm_OperationForm_chkValidate = {"bindingContainer":"ctl00_phG_tab_t3_DetailsForm_OperationForm","onValueChange":1,"autoCallBack":{"activeBehavior":1,"command":"Save","behavior":{"repaintControls":2,"repaintControlsIDs":"gridPreparedData","commitChanges":1},"target":"ctl00_phG_tab_t3_DetailsForm"}};
+var _ctl00_phG_tab_t3_DetailsForm_OperationForm_chkValidateAndSave = {"bindingContainer":"ctl00_phG_tab_t3_DetailsForm_OperationForm","onValueChange":1};
+var _ctl00_phG_tab_t3_DetailsForm_OperationForm_chkSkipHeadersr = {"bindingContainer":"ctl00_phG_tab_t3_DetailsForm_OperationForm"};
+var _ctl00_L10nEditor = {"commandSourceID":"ctl00_phDS_ds","loadOnDemand":1,"autoReload":1,"commandName":"SaveLoc","autoCallBack":{"behavior":{"postData":0}}};
+var __PXInputBox = {"activeEnter":0,"buttonCss":"MessageButton","autoAdjustSize":1,"callBackMode":{"blockPage":1,"postData":0}};
+var _inputBox = {};
+var __PXMessage = {"buttonCss":"MessageButton","autoAdjustSize":1,"callBackMode":{"blockPage":1,"postData":0}};
+var _msgBox = {};
+var _ctl00_phDS_ds = {"callbacks":[{"name":"Process","repaintControls":1,"blockPage":1,"commitChanges":1,"postData":3},{"name":"ProcessAll","repaintControls":1,"blockPage":1,"commitChanges":1,"postData":3},{"name":"_ScheduleAdd_","repaintControls":1,"blockPage":1,"commitChanges":1,"postData":3},{"name":"_ScheduleView_","repaintControls":1,"blockPage":1,"commitChanges":1,"postData":3},{"name":"_ScheduleHistory_","repaintControls":1,"blockPage":1,"commitChanges":1,"postData":3},{"name":"_ScheduleHistoryDelete_","repaintControls":1,"blockPage":1,"commitChanges":1,"postData":3},{"name":"_ScheduleHistoryDeleteAll_","repaintControls":1,"blockPage":1,"commitChanges":1,"postData":3},{"name":"Schedule","repaintControls":1,"blockPage":1,"commitChanges":1,"postData":3},{"name":"Schedule@_ScheduleHistory_","repaintControls":1,"blockPage":1,"commitChanges":1,"postData":3},{"name":"Schedule@_ScheduleHistoryDelete_","repaintControls":1,"blockPage":1,"commitChanges":1,"postData":3},{"name":"Schedule@_ScheduleHistoryDeleteAll_","repaintControls":1,"blockPage":1,"commitChanges":1,"postData":3},{"name":"Schedule@_ScheduleAdd_","repaintControls":1,"blockPage":1,"commitChanges":1,"postData":3},{"name":"Schedule@_ScheduleView_","repaintControls":1,"blockPage":1,"commitChanges":1,"postData":3},{"name":"viewHistory","repaintControls":1,"blockPage":1,"commitChanges":1,"postData":3},{"name":"viewPreparedData","repaintControls":1,"blockPage":1,"commitChanges":1,"postData":3},{"name":"savePreparedData","repaintControls":1,"blockPage":1,"commitChanges":1,"postData":3},{"name":"Save","repaintControls":1,"blockPage":1,"commitChanges":1,"postData":3},{"name":"insert","repaintControls":1,"blockPage":1,"postData":0},{"name":"Cancel","repaintControls":1,"blockPage":1,"postData":3},{"name":"First","repaintControls":1,"blockPage":1,"postData":0},{"name":"Prev","repaintControls":1,"blockPage":1,"postData":3},{"name":"Next","repaintControls":1,"blockPage":1,"postData":3},{"name":"Last","repaintControls":1,"blockPage":1,"postData":0},{"name":"prepareImport","repaintControls":1,"blockPage":1,"commitChanges":1,"postData":3},{"name":"prepare","repaintControls":1,"blockPage":1,"commitChanges":1,"postData":3},{"name":"import","repaintControls":1,"blockPage":1,"commitChanges":1,"postData":3},{"name":"rollback","repaintControls":1,"blockPage":1,"postData":3},{"name":"switchActivation","repaintControls":1,"blockPage":1,"postData":3},{"name":"switchActivationUntilError","repaintControls":1,"blockPage":1,"postData":3},{"name":"switchProcessing","repaintControls":1,"blockPage":1,"postData":3},{"name":"showUploadPanel","repaintControls":1,"blockPage":1,"postData":3},{"name":"getLatestFile","repaintControls":1,"blockPage":1,"postData":3},{"name":"clearErrors","repaintControls":1,"blockPage":1,"postData":3},{"name":"refreshFromFile","repaintControls":1,"blockPage":1,"postData":3},{"name":"convertSimpleMappingToManual","repaintControls":1,"blockPage":1,"postData":3},{"name":"viewScreen","repaintControls":1,"blockPage":1,"postData":3},{"name":"LongRun","repaintControls":1,"postData":3},{"name":"ElapsedTime","repaintControls":1,"postData":3},{"name":"SaveLoc","blockPage":1,"postData":2,"container":"ctl00_L10nEditor"},{"name":"RepaintControls","repaintControls":1,"blockPage":1,"commitChanges":1,"postData":3},{"name":"ReloadPage","repaintControls":1,"blockPage":1,"postData":3},{"name":"Commit","repaintControls":1,"blockPage":1,"commitChanges":1,"postData":3},{"name":"ShowImportGraphErrors","repaintControls":1,"blockPage":1,"postData":3}],"sourceName":"ctl00$phDS$ds","isDefault":1,"popupMessage":null,"longRunAbort":"Press to abort","dataKey":"/wEWAQ8FBE5hbWUFIyBSZWNlaXZlZCBUYXggSW52b2ljZSBTdGF0dXMgVXBkYXRl","commandStates":[{"name":"Save","tooltip":"Save (Ctrl+S)."},{"name":"insert","tooltip":"Add New Record (Ctrl+Ins)"},{"name":"Cancel","tooltip":"Cancel (Esc)"},{"name":"First","tooltip":"Go to First Record"},{"name":"Prev","tooltip":"Go to Previous Record (PgUp)"},{"name":"Next","tooltip":"Go to Next Record (PgDn)"},{"name":"Last","tooltip":"Go to Last Record"},{"name":"prepareImport","displayName":"Prepare & Import","tooltip":"Prepare & Import"},{"name":"prepare","displayName":"Prepare","tooltip":"Prepare"},{"name":"import","displayName":"Import","tooltip":"Import"},{"name":"rollback","displayName":"Roll Back","tooltip":"Roll Back"},{"name":"switchActivation","displayName":"Toggle Activation","tooltip":"Change the activation status for all rows."},{"name":"switchActivationUntilError","displayName":"Clear Activation Until Error","tooltip":"Clear the activation status for all rows before the row with an error."},{"name":"switchProcessing","displayName":"Toggle Processing","tooltip":"Change processing status for all rows."},{"name":"showUploadPanel","enabled":0,"displayName":"Upload File Version","tooltip":"Upload a new version of the file attached to the provider."},{"name":"getLatestFile","enabled":0,"displayName":"Get File","tooltip":"Get the latest version of the file that is used by the provider for this mapping."},{"name":"clearErrors","displayName":"Clear Errors","tooltip":"Delete error messages for all rows in the prepared data."},{"name":"refreshFromFile","displayName":"Refresh from File","tooltip":null},{"name":"convertSimpleMappingToManual","visible":0,"displayName":"Convert To Manual Scenario","tooltip":null},{"name":"viewScreen","enabled":0,"displayName":"View Screen","tooltip":null},{"name":"LongRun","visible":0,"enabled":0,"displayName":null,"tooltip":null},{"name":"ElapsedTime","visible":0,"enabled":0,"displayName":null,"tooltip":null}],"showProcessWindow":0,"primaryView":"MappingsSingle","confirmations":[{"commandName":"Save","checkDirty":1,"message":null,"shortcutChar":83,"shortcutCtrl":1},{"commandName":"insert","checkDirty":1,"shortcutChar":45,"shortcutCtrl":1},{"commandName":"Cancel","checkDirty":1,"shortcutChar":27},{"commandName":"First","checkDirty":1},{"commandName":"Prev","checkDirty":1,"shortcutChar":33},{"commandName":"Next","checkDirty":1,"shortcutChar":34},{"commandName":"Last","checkDirty":1}],"clientEvents":{"commandPerformed":"commandResult"},"saveCommandName":"Save","cancelCommandName":"Cancel"};
+//]]>
+</script>
+
+		<div id="page-caption">
+			<div id="ctl00_usrCaption_pnlTitle" class="pageTitle">
+	
+	<div id="ctl00_usrCaption_pnlTitleBottom" class="groupBox" style="position:relative;overflow:hidden;">
+		
+		<div id="ctl00_usrCaption_pnlTBL" class="panelTBL">
+		<div class="stack-h" style="position:relative;">
+			<div class="cell-pn">
+				<div class="cell-w">
+					<div name="ctl00$usrCaption$tlbPath" id="ctl00_usrCaption_tlbPath" class="toolBar toolBarPath auto-size">
+						<ul id="ctl00_usrCaption_tlbPath_ul" class="toolsList">
+							<li style="display:none;"><div class="toolsBtn" data-cmd="syncTOC" tooltip="Sync Navigation Pane">
+								<div class="toolBtnNormal" data-type="button">
+									<div class="sprite-icon main-icon" icon="SyncTOC">
+										<div class="main-icon-img main-SyncTOC">
+
+										</div>
+									</div>
+								</div>
+							</div></li><li><div style="display:none;">
+								
+							<div name="ctl00$usrCaption$tlbPath$cmdBranch" id="ctl00_usrCaption_tlbPath_cmdBranch" tabindex="-1" class="dropDown">
+									<div class="editorCont">
+										<div class="editorWrap" title="">
+											<input name="ctl00$usrCaption$tlbPath$cmdBranch$text" type="text" value="TBC Bank" id="ctl00_usrCaption_tlbPath_cmdBranch_text" class="editor" invisible="1"><span class="center"></span><span class="text">TBC Bank</span>
+										</div>
+									</div><div class="buttonsCont">
+										<span class="center"></span><div class="sprite-icon control-icon" icon="DropDownN" type="sel">
+											<div class="control-icon-img control-DropDownN">
+
+											</div>
+										</div>
+									</div>
+								</div>
+						
+							</div></li><li><div class="pageTitleCont">
+								
+							<a href="/Pages/SM/SM206036.aspx?timeStamp=4c70593630bf2b9215058327043656802B6E9F18F&amp;unum=0&amp;HideScript=On" id="ctl00_usrCaption_tlbPath_lblScreenTitle" class="linkTitle">Import by Scenario</a>
+						
+							</div></li><li><div class="toolsBtn" data-cmd="favorites" tooltip="Add to Favorites">
+								<div class="toolBtnNormal" data-type="button">
+									<div class="sprite-icon main-icon" icon="FavoritesGray">
+										<div class="main-icon-img main-FavoritesGray">
+
+										</div>
+									</div>
+								</div>
+							</div></li>
+						</ul>
+					</div>
+				</div>
+			</div><div style="clear:left;">
+
+			</div>
+		</div>
+		</div>
+
+		<div id="ctl00_usrCaption_pnlTBR" class="panelTBR">
+		<div class="stack-h" style="position:relative;">
+			<div class="cell-pn">
+				<div name="ctl00$usrCaption$tlbDataView" id="ctl00_usrCaption_tlbDataView" class="toolBar toolBarT auto-size">
+					<ul id="ctl00_usrCaption_tlbDataView_ul" class="toolsList">
+						<li><div class="toolsBtn" data-cmd="NoteShow" tooltip="Add Note">
+							<div class="toolBtnNormal" data-type="button">
+								<div class="sprite-icon main-icon" icon="NoteEmpty">
+									<div class="main-icon-img main-NoteEmpty">
+
+									</div>
+								</div>&nbsp;Notes
+							</div>
+						</div></li><li><div class="toolsBtn" data-cmd="FilesMenuShow">
+							<div class="toolBtnNormal" data-type="button">
+								Files
+							</div>
+						</div></li>
+					</ul>
+				</div>
+			</div><div class="cell-pn">
+				<div id="ctl00_usrCaption_PivotTablesContainer"></div>
+			</div><div class="cell-pn">
+				<div id="ctl00_usrCaption_CustomizationContainer"></div>
+			</div><div class="cell-pn">
+				<div name="ctl00$usrCaption$tlbTools" id="ctl00_usrCaption_tlbTools" class="toolBar toolBarT auto-size" style="text-align:right;">
+					<ul id="ctl00_usrCaption_tlbTools_ul" class="toolsList">
+						<li style="display:none;"><div class="toolsBtn" data-cmd="keyBtnRefresh" tooltip="Click to refresh page.">
+							<div class="toolBtnNormal" data-type="button">
+								<div class="sprite-icon main-icon" icon="Refresh">
+									<div class="main-icon-img main-Refresh">
+
+									</div>
+								</div>&nbsp;Refresh
+							</div>
+						</div></li><li><div class="toolsBtn" data-cmd="help" data-drop="1" tooltip="View Tools">
+							<div class="toolBtnNormal" data-type="button">
+								Tools
+							</div><div class="toolBtnDropN" data-type="drop">
+								<div class="sprite-icon control-icon" icon="ArrowDown">
+									<div class="control-icon-img control-ArrowDown">
+
+									</div>
+								</div>
+							</div>
+						</div></li>
+					</ul>
+				</div>
+			</div><div style="clear:left;">
+
+			</div>
+		</div>
+		</div>
+	
+	</div>
+
+</div>
+
+<div id="ctl00_usrCaption_pnlDialogs">
+	<table name="ctl00$usrCaption$dlgUploadXml" cellspacing="0" cellpadding="0" id="ctl00_usrCaption_dlgUploadXml" tabindex="100" class="SmartPanel" allowedtypes=".xml" style="display:none;height:60px;width:450px;position: static">
+	<tbody><tr>
+		<td id="ctl00_usrCaption_dlgUploadXml_cap" class="SmartPanelC" style="vertical-align:middle;"><div class="sprite-icon control-icon" icon="Close" mode="c" style="float: right; opacity: 0.55;">
+			<div class="control-icon-img control-Close">
+
+			</div>
+		</div>Upload XML File</td>
+	</tr><tr>
+		<td class="SmartPanelCN" id="ctl00_usrCaption_dlgUploadXml_cont" style="width:450px;height:60px;"><table tabindex="100" cellpadding="3" border="0" style="width:100%;">
+			<tbody><tr style="vertical-align:top;">
+				<td><nobr><span class="label">Choose File:</span></nobr></td><td style="width:100%;"><div name="ctl00$usrCaption$dlgUploadXml$upl" id="ctl00_usrCaption_dlgUploadXml_upl" style="width:100%;">
+					<table cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;">
+						<tbody><tr>
+							<td style="width:100%;"><input type="file" name="ctl00$usrCaption$dlgUploadXml$upl$upl" id="ctl00_usrCaption_dlgUploadXml_upl_upl" size="35" accept=".als,.cer,.csv,.dat,.doc,.docx,.epl,.exe,.gif,.ico,.ics,.jpeg,.jpg,.js,.mdb,.msi,.ofx,.pdf,.pfx,.png,.ppt,.pptx,.qbo,.qfx,.rar,.rtf,.sql,.swf,.tif,.txt,.xls,.xlsx,.xml,.zip,.zpl,.msg" style="width:100%;"></td><td style="width:16px;text-align:left;"><img id="ctl00_usrCaption_dlgUploadXml_upl_imgl" src="/App_Themes/Default/Images/spinnerSmall.gif?imgTimeStamp=637254197140000000" style="border-width:0px;display:none;"></td>
+						</tr>
+					</tbody></table><input name="ctl00$usrCaption$dlgUploadXml$upl$txt" type="text" id="ctl00_usrCaption_dlgUploadXml_upl_txt" style="height:0px;width:0px;visibility:hidden;display:none;position:absolute;left:0px;top:0px;">
+				</div></td>
+			</tr><tr style="vertical-align:top;">
+				<td><nobr><span class="label">max 250000KB</span></nobr></td><td style="width:100%;text-align:right;"><button name="ctl00$usrCaption$dlgUploadXml$btnUpload" type="button" id="ctl00_usrCaption_dlgUploadXml_btnUpload" class="Button Button">Upload</button>&nbsp;&nbsp;<button name="ctl00$usrCaption$dlgUploadXml$btnClose" type="button" id="ctl00_usrCaption_dlgUploadXml_btnClose" class="Button Button">Cancel</button></td>
+			</tr>
+		</tbody></table></td>
+	</tr>
+</tbody></table>
+
+	<table name="ctl00$usrCaption$pnlAbout" cellspacing="0" cellpadding="0" id="ctl00_usrCaption_pnlAbout" tabindex="200" class="SmartPanel" style="display:none;width:430px;">
+	<tbody><tr>
+		<td id="ctl00_usrCaption_pnlAbout_cap" class="SmartPanelC" style="vertical-align:middle;"><div class="sprite-icon control-icon" icon="Close" mode="c" style="float: right; opacity: 0.55;">
+			<div class="control-icon-img control-Close">
+
+			</div>
+		</div>About Acumatica</td>
+	</tr><tr>
+		<td class="SmartPanelCN" id="ctl00_usrCaption_pnlAbout_cont" style="width:430px;height:;"><div class="panelContent" style="overflow:hidden;">
+
+		</div></td>
+	</tr>
+</tbody></table>
+	<table name="ctl00$usrCaption$pnlAudit" cellspacing="0" cellpadding="0" id="ctl00_usrCaption_pnlAudit" tabindex="500" class="SmartPanel" style="display:none;">
+	<tbody><tr>
+		<td id="ctl00_usrCaption_pnlAudit_cap" class="SmartPanelC" style="vertical-align:middle;"><div class="sprite-icon control-icon" icon="Close" mode="c" style="float: right; opacity: 0.55;">
+			<div class="control-icon-img control-Close">
+
+			</div>
+		</div>Update History</td>
+	</tr><tr>
+		<td class="SmartPanelCN" id="ctl00_usrCaption_pnlAudit_cont" style="width:;height:;"><div class="panelContent" style="overflow:hidden;">
+
+		</div></td>
+	</tr>
+</tbody></table>
+		<div name="ctl00$usrCaption$shareColumnsDlg" id="ctl00_usrCaption_shareColumnsDlg" tabindex="600" class="SmartPanel SmartPanelCN" style="display:none;height:500px;width:635px;display: none;">
+
+</div>
+    
+    <table name="ctl00$usrCaption$PanelDynamicForm" cellspacing="0" cellpadding="0" id="ctl00_usrCaption_PanelDynamicForm" tabindex="1500" class="SmartPanel" style="display:none;width:400px;">
+	<tbody><tr>
+		<td id="ctl00_usrCaption_PanelDynamicForm_cap" class="SmartPanelC" style="vertical-align:middle;"><div class="sprite-icon control-icon" icon="Close" mode="c" style="float: right; opacity: 0.55;">
+			<div class="control-icon-img control-Close">
+
+			</div>
+		</div>Transition</td>
+	</tr><tr>
+		<td class="SmartPanelCN" id="ctl00_usrCaption_PanelDynamicForm_cont" style="width:400px;height:;"><div class="panelContent">
+
+		</div></td>
+	</tr>
+</tbody></table>
+
+
+
+</div>
+
+			<div class="phDS">
+				
+    <script type="text/javascript">
+        function commandResult(ds, context)
+        {
+            if (context.command == "Save" || context.command == "Delete")
+            {
+                var ds = px_all[context.id];
+                var isSitemapAltered = (ds.callbackResultArg == "RefreshSitemap");
+                if (isSitemapAltered) __refreshMainMenu();
+            }
+        }
+	</script>
+	<div name="ctl00$phDS$ds" cellpadding="0" cellspacing="0" id="ctl00_phDS_ds" class="dataSource" style="width:100%;overflow:hidden;">
+	<div name="ctl00$phDS$ds$ToolBar" id="ctl00_phDS_ds_ToolBar" class="toolBar toolBarDS">
+		<ul id="ctl00_phDS_ds_ToolBar_ul" class="toolsList">
+			<li><div class="toolsBtn" data-cmd="Save" enabled="false" tooltip="Save (Ctrl+S).">
+				<div class="toolBtnDisabled" data-type="button">
+					<div class="sprite-icon main-icon" icon="Save">
+						<div class="main-icon-img main-Save">
+
+						</div>
+					</div>
+				</div>
+			</div></li><li><div class="toolsBtn" data-cmd="insert" tooltip="Add New Record (Ctrl+Ins)">
+				<div class="toolBtnNormal" data-type="button">
+					<div class="sprite-icon main-icon" icon="AddNew">
+						<div class="main-icon-img main-AddNew">
+
+						</div>
+					</div>
+				</div>
+			</div></li><li><div class="toolsBtn" data-cmd="Cancel" tooltip="Cancel (Esc)">
+				<div class="toolBtnNormal" data-type="button">
+					<div class="sprite-icon main-icon" icon="Cancel">
+						<div class="main-icon-img main-Cancel">
+
+						</div>
+					</div>
+				</div>
+			</div></li><li><div class="toolBarSep">
+
+			</div></li><li><div class="toolsBtn" data-cmd="First" tooltip="Go to First Record">
+				<div class="toolBtnNormal" data-type="button">
+					<div class="sprite-icon main-icon" icon="PageFirst">
+						<div class="main-icon-img main-PageFirst">
+
+						</div>
+					</div>
+				</div>
+			</div></li><li><div class="toolsBtn" data-cmd="Prev" tooltip="Go to Previous Record (PgUp)">
+				<div class="toolBtnNormal" data-type="button">
+					<div class="sprite-icon main-icon" icon="PagePrev">
+						<div class="main-icon-img main-PagePrev">
+
+						</div>
+					</div>
+				</div>
+			</div></li><li><div class="toolsBtn" data-cmd="Next" tooltip="Go to Next Record (PgDn)">
+				<div class="toolBtnNormal" data-type="button">
+					<div class="sprite-icon main-icon" icon="PageNext">
+						<div class="main-icon-img main-PageNext">
+
+						</div>
+					</div>
+				</div>
+			</div></li><li><div class="toolsBtn" data-cmd="Last" tooltip="Go to Last Record">
+				<div class="toolBtnNormal" data-type="button">
+					<div class="sprite-icon main-icon" icon="PageLast">
+						<div class="main-icon-img main-PageLast">
+
+						</div>
+					</div>
+				</div>
+			</div></li><li><div class="toolsBtn" data-cmd="prepareImport" tooltip="Prepare &amp; Import">
+				<div class="toolBtnNormal" data-type="button">
+					Prepare &amp; Import
+				</div>
+			</div></li><li><div class="toolsBtn" data-cmd="prepare" tooltip="Prepare">
+				<div class="toolBtnNormal" data-type="button">
+					Prepare
+				</div>
+			</div></li><li><div class="toolsBtn" data-cmd="import" tooltip="Import">
+				<div class="toolBtnNormal" data-type="button">
+					Import
+				</div>
+			</div></li><li><div class="toolBarSep">
+
+			</div></li><li><div class="toolsBtn" enabled="false" data-cmd="showUploadPanel" tooltip="Upload a new version of the file attached to the provider.">
+				<div class="toolBtnDisabled" data-type="button">
+					Upload File Version
+				</div>
+			</div></li><li><div class="toolsBtn" enabled="false" data-cmd="getLatestFile" tooltip="Get the latest version of the file that is used by the provider for this mapping.">
+				<div class="toolBtnDisabled" data-type="button">
+					Get File
+				</div>
+			</div></li><li style="display:none;"><div class="toolsBtn" data-cmd="convertSimpleMappingToManual">
+				<div class="toolBtnNormal" data-type="button">
+					Convert To Manual Scenario
+				</div>
+			</div></li><li><div class="toolsBtn" enabled="false" data-cmd="viewScreen">
+				<div class="toolBtnDisabled" data-type="button">
+					View Screen
+				</div>
+			</div></li><li style="display:none;"><div class="toolsBtn" data-cmd="LongRun" enabled="false" tooltip="Nothing in progress" status="aborted" error="2">
+				<div class="toolBtnDisabled" data-type="button">
+					<div class="sprite-icon main-icon" icon="Success" id="ctl00_phDS_ds_ToolBar_ctl63"><div class="main-icon-img main-Success"></div></div>
+				</div>
+			</div></li><li style="display:none;"><div class="toolsBtn" data-cmd="ElapsedTime" enabled="false" tooltip="Elapsed time" status="aborted">
+				<div class="toolBtnDisabled" data-type="button">
+					
+				</div>
+			</div></li>
+		</ul>
+	</div><div name="ctl00$phDS$ds$ctl00" id="ctl00_phDS_ds_ctl00" style="height:0px;width:0px;">
+
+	</div>
+</div>
+
+			</div>
+		</div><div style="display: none; height: 88px;"></div>
+
+		<div class="phF">
+			
+	<table name="ctl00$phF$uplDlg" cellspacing="0" cellpadding="0" id="ctl00_phF_uplDlg" tabindex="1600" class="SmartPanel" style="display:none;height:110px;width:500px;">
+	<tbody><tr>
+		<td id="ctl00_phF_uplDlg_cap" class="SmartPanelC" style="vertical-align:middle;"><div class="sprite-icon control-icon" icon="Close" mode="c" style="float: right; opacity: 0.55;">
+			<div class="control-icon-img control-Close">
+
+			</div>
+		</div>Upload New Revision</td>
+	</tr><tr>
+		<td class="SmartPanelCN" id="ctl00_phF_uplDlg_cont" style="width:500px;height:110px;"><table tabindex="1600" cellpadding="3" border="0" style="width:100%;">
+			<tbody><tr style="vertical-align:top;">
+				<td><nobr><span class="label"></span></nobr></td><td style="width:100%;"><span><input id="ctl00_phF_uplDlg_rdFile" type="radio" name="ctl00$phF$uplDlg$rdFile" value="rdFile"><label for="ctl00_phF_uplDlg_rdFile">Upload file</label></span><span><input id="ctl00_phF_uplDlg_rdLink" type="radio" name="ctl00$phF$uplDlg$rdLink" value="rdLink"><label for="ctl00_phF_uplDlg_rdLink">Link to existing file</label></span></td>
+			</tr><tr style="vertical-align:top;">
+				<td><nobr><span class="label">Choose File:</span></nobr></td><td style="width:100%;"><div name="ctl00$phF$uplDlg$upl" id="ctl00_phF_uplDlg_upl" style="width:100%;">
+					<table cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;">
+						<tbody><tr>
+							<td style="width:100%;"><input type="file" name="ctl00$phF$uplDlg$upl$upl" id="ctl00_phF_uplDlg_upl_upl" size="35" accept=".als,.cer,.csv,.dat,.doc,.docx,.epl,.exe,.gif,.ico,.ics,.jpeg,.jpg,.js,.mdb,.msi,.ofx,.pdf,.pfx,.png,.ppt,.pptx,.qbo,.qfx,.rar,.rtf,.sql,.swf,.tif,.txt,.xls,.xlsx,.xml,.zip,.zpl,.msg" style="width:100%;"></td><td style="width:16px;text-align:left;"><img id="ctl00_phF_uplDlg_upl_imgl" src="/App_Themes/Default/Images/spinnerSmall.gif?imgTimeStamp=637254197140000000" style="border-width:0px;display:none;"></td>
+						</tr>
+					</tbody></table><input name="ctl00$phF$uplDlg$upl$txt" type="text" id="ctl00_phF_uplDlg_upl_txt" style="height:0px;width:0px;visibility:hidden;display:none;position:absolute;left:0px;top:0px;">
+				</div></td>
+			</tr><tr style="display:none;vertical-align:top;">
+				<td><nobr><span class="label">Existing File:</span></nobr></td><td style="width:100%;"><input name="ctl00$phF$uplDlg$edtLinkExisting" type="text" id="ctl00_phF_uplDlg_edtLinkExisting" class="editor" style="width:99%;"></td>
+			</tr><tr style="vertical-align:top;">
+				<td><nobr><span class="label">Comment:</span></nobr></td><td style="width:100%;"><textarea name="ctl00$phF$uplDlg$edtComment" id="ctl00_phF_uplDlg_edtComment" class="editor" style="height:110px;width:99%;"></textarea></td>
+			</tr><tr style="vertical-align:top;">
+				<td><nobr><span class="label">max 250000KB</span></nobr></td><td style="width:100%;text-align:right;"><button name="ctl00$phF$uplDlg$btnUpload" type="button" id="ctl00_phF_uplDlg_btnUpload" class="Button Button">Upload</button>&nbsp;&nbsp;<button name="ctl00$phF$uplDlg$btnClose" type="button" id="ctl00_phF_uplDlg_btnClose" class="Button Button">Cancel</button></td>
+			</tr>
+		</tbody></table></td>
+	</tr>
+</tbody></table>
+
+    
+    
+    <table name="ctl00$phF$smPnlNewScenarioCreation" cellspacing="0" cellpadding="0" id="ctl00_phF_smPnlNewScenarioCreation" tabindex="2000" class="SmartPanel" style="display:none;width:400px;">
+	<tbody><tr>
+		<td id="ctl00_phF_smPnlNewScenarioCreation_cap" class="SmartPanelC" style="vertical-align:middle;"><div class="sprite-icon control-icon" icon="Close" mode="c" style="float: right; opacity: 0.55;">
+			<div class="control-icon-img control-Close">
+
+			</div>
+		</div>Provide New Scenario Properties</td>
+	</tr><tr>
+		<td class="SmartPanelCN" id="ctl00_phF_smPnlNewScenarioCreation_cont" style="width:400px;height:;"><div class="panelContent">
+			
+        <div name="ctl00$phF$smPnlNewScenarioCreation$frmNewScenarioCreation" id="ctl00_phF_smPnlNewScenarioCreation_frmNewScenarioCreation" class="FormView ctl00_phF_smPnlNewScenarioCreation_frmNewScenarioCreation" cellpadding="0" cellspacing="0">
+		<div id="ctl00_phF_smPnlNewScenarioCreation_frmNewScenarioCreation_s0" style="display:inline-block;">
+		<div class="stack-v" style="position:relative;">
+			<div class="cell-pn">
+				<div class="cell-w">
+					<div note="1" class="req-l req-lh" title="">
+
+					</div><div class="fld-lc note-m">
+						<div class="fld-l fld-ls">
+							<label for="ctl00_phF_smPnlNewScenarioCreation_frmNewScenarioCreation_trNewScenarioCreation_text">Screen Name:</label>
+						</div><div class="fld-c fld-cs">
+							<div name="ctl00$phF$smPnlNewScenarioCreation$frmNewScenarioCreation$trNewScenarioCreation" id="ctl00_phF_smPnlNewScenarioCreation_frmNewScenarioCreation_trNewScenarioCreation" tabindex="-1" class="selector required size-m">
+								<div class="controlCont">
+									<div class="editorCont">
+										<div class="editorWrap">
+											<input name="ctl00$phF$smPnlNewScenarioCreation$frmNewScenarioCreation$trNewScenarioCreation$text" type="text" id="ctl00_phF_smPnlNewScenarioCreation_frmNewScenarioCreation_trNewScenarioCreation_text" tabindex="1800" class="editor">
+										</div>
+									</div><div class="buttonsCont">
+										<span class="center"></span><div class="sprite-icon control-icon" icon="SelectorN" type="sel">
+											<div class="control-icon-img control-SelectorN">
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><div class="cell-pv">
+				<div class="cell-w">
+					<div note="1" class="req-l req-lh" title="">
+
+					</div><div class="fld-lc note-m">
+						<div class="fld-l fld-ls">
+							<label for="ctl00_phF_smPnlNewScenarioCreation_frmNewScenarioCreation_scenarioName">Scenario Name:</label>
+						</div><div class="fld-c fld-cs">
+							<input name="ctl00$phF$smPnlNewScenarioCreation$frmNewScenarioCreation$scenarioName" type="text" maxlength="128" id="ctl00_phF_smPnlNewScenarioCreation_frmNewScenarioCreation_scenarioName" tabindex="1801" class="editor required size-m">
+						</div>
+					</div>
+				</div>
+			</div><div class="cell-pv">
+				<div class="cell-w">
+					<div note="1" class="req-l req-lh" title="">
+
+					</div><div class="fld-lc note-m">
+						<div class="fld-l fld-ls">
+							<label for="ctl00_phF_smPnlNewScenarioCreation_frmNewScenarioCreation_providerType_text">Provider Type:</label>
+						</div><div class="fld-c fld-cs">
+							<qp-editor-wrapper config.one-time="{&quot;suggester&quot;:{&quot;graph&quot;:&quot;PX.Api.SYImportProcessSingle&quot;,&quot;graphStateId&quot;:&quot;&quot;,&quot;viewName&quot;:&quot;_SYMappingSimplePropertyProviderType_PX.Api.PXSYProviderSelector+ProviderRec+typeName_&quot;,&quot;valueField&quot;:&quot;typeName&quot;,&quot;descriptionName&quot;:&quot;description&quot;,&quot;inlineArgs&quot;:true,&quot;serverFiltering&quot;:true,&quot;fields&quot;:[{&quot;id&quot;:&quot;typeName&quot;,&quot;label&quot;:&quot;Type Name&quot;,&quot;filter&quot;:true},{&quot;id&quot;:&quot;description&quot;,&quot;label&quot;:&quot;Description&quot;,&quot;filter&quot;:true}]}}" class="au-target" au-target-id="82"><!--view--><div name="ctl00$phF$smPnlNewScenarioCreation$frmNewScenarioCreation$providerType" id="ctl00_phF_smPnlNewScenarioCreation_frmNewScenarioCreation_providerType" tabindex="-1" class="selector required size-m">
+								<div class="controlCont">
+									<div class="editorCont">
+										<div class="editorWrap">
+											<input name="ctl00$phF$smPnlNewScenarioCreation$frmNewScenarioCreation$providerType$text" type="text" maxlength="128" id="ctl00_phF_smPnlNewScenarioCreation_frmNewScenarioCreation_providerType_text" tabindex="1802" class="editor" autocomplete="new-password">
+										</div>
+									</div><div class="buttonsCont">
+										<span class="center"></span><div class="sprite-icon control-icon" icon="SelectorN" type="sel">
+											<div class="control-icon-img control-SelectorN">
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div><!--slot--><qp-suggester editor.two-way="editor" rect-element.bind="rectElement" set-editor-value.call="setEditorValue(value,display,useUpdateValue)" config.bind="config.suggester" class="au-target" au-target-id="80"><!--view--><!--anchor--></qp-suggester><!--anchor--></qp-editor-wrapper>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+			</div>
+
+        <div id="ctl00_phF_smPnlNewScenarioCreation_pnlNewScenarioCreation" tabindex="2051" class="groupBox buttonPanel" style="overflow:hidden;">
+		<div class="stack-h stack-pout-h" style="float:right;position:relative;">
+			<div class="cell-ph">
+				<div class="cell-w">
+					<div class="fld-lc">
+						<div class="fld-l fld-l">
+							&nbsp;
+						</div><div class="fld-c fld-c">
+							<button name="ctl00$phF$smPnlNewScenarioCreation$btnOk" type="button" id="ctl00_phF_smPnlNewScenarioCreation_btnOk" tabindex="2051" class="Button">OK</button>
+						</div>
+					</div>
+				</div>
+			</div><div class="cell-pn">
+				<div class="cell-w">
+					<button name="ctl00$phF$smPnlNewScenarioCreation$btnCancel" type="button" id="ctl00_phF_smPnlNewScenarioCreation_btnCancel" tabindex="2052" class="Button">Close</button>
+				</div>
+			</div><div style="clear:left;">
+
+			</div>
+		</div>
+			</div>
+    
+		</div></td>
+	</tr>
+</tbody></table>
+
+	<table name="ctl00$phF$form" id="ctl00_phF_form" class="FormView ctl00_phF_form" cellpadding="0" cellspacing="0" style="z-index: 100">
+	<tbody><tr>
+		<td id="ctl00_phF_form_content" class="FormContent" style="vertical-align:Top;"><div id="ctl00_phF_form_s0" style="display:inline-block;">
+		<div class="stack-h stack-pout-h" style="position:relative;">
+			<div class="cell-ph2">
+				<div id="ctl00_phF_form_s0_s0">
+		<div class="stack-v" style="position:relative;">
+			<div class="cell-pn">
+				<div class="cell-w">
+					<div note="1" class="req-l" title="">
+
+					</div><div class="fld-lc note-m">
+						<div class="fld-l fld-lsm">
+							<label for="ctl00_phF_form_edName_text">Name:</label>
+						</div><div class="fld-c fld-csm">
+							<qp-editor-wrapper config.one-time="{&quot;suggester&quot;:{&quot;graph&quot;:&quot;PX.Api.SYImportProcessSingle&quot;,&quot;graphStateId&quot;:&quot;&quot;,&quot;viewName&quot;:&quot;_SYMappingActiveName_PX.Api.SYMappingActive+name_&quot;,&quot;valueField&quot;:&quot;name&quot;,&quot;descriptionName&quot;:&quot;name&quot;,&quot;inlineArgs&quot;:true,&quot;serverFiltering&quot;:true,&quot;fields&quot;:[{&quot;id&quot;:&quot;name&quot;,&quot;label&quot;:&quot;Name&quot;,&quot;filter&quot;:true},{&quot;id&quot;:&quot;ScreenID&quot;,&quot;label&quot;:&quot;Screen Name&quot;,&quot;filter&quot;:true},{&quot;id&quot;:&quot;ScreenDescription&quot;,&quot;label&quot;:&quot;Screen Name&quot;,&quot;filter&quot;:true}]}}" class="au-target" au-target-id="83"><!--view--><div name="ctl00$phF$form$edName" id="ctl00_phF_form_edName" tabindex="-1" class="selector required size-m">
+								<div class="controlCont">
+									<div class="editorCont">
+										<div class="editorWrap">
+											<input name="ctl00$phF$form$edName$text" type="text" maxlength="128" id="ctl00_phF_form_edName_text" tabindex="2100" class="editor" autocomplete="new-password" tooltip=" Received Tax Invoice Status Update">
+										</div>
+									</div><div class="buttonsCont">
+										<span class="center"></span><div class="sprite-icon control-icon" icon="SelectorN" type="sel">
+											<div class="control-icon-img control-SelectorN">
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div><!--slot--><qp-suggester editor.two-way="editor" rect-element.bind="rectElement" set-editor-value.call="setEditorValue(value,display,useUpdateValue)" config.bind="config.suggester" class="au-target" au-target-id="80"><!--view--><!--anchor--></qp-suggester><!--anchor--></qp-editor-wrapper>
+						</div>
+					</div>
+				</div>
+			</div><div class="cell-pv">
+				<div class="cell-w">
+					<div note="1" class="" title="">
+
+					</div><div class="fld-lc note-m">
+						<div class="fld-l fld-lsm">
+							<label for="ctl00_phF_form_edScreenID_text">Screen Name:</label>
+						</div><div class="fld-c fld-csm">
+							<div name="ctl00$phF$form$edScreenID" id="ctl00_phF_form_edScreenID" tabindex="-1" class="selector size-m ReadOnly">
+								<div class="controlCont">
+									<div class="editorCont">
+										<div class="editorWrap">
+											<input name="ctl00$phF$form$edScreenID$text" type="text" readonly="readonly" id="ctl00_phF_form_edScreenID_text" tabindex="2101" class="editor ReadOnly" title="">
+										</div>
+									</div><div class="buttonsCont">
+										<span class="center"></span><div class="sprite-icon control-icon" icon="SelectorD" type="sel" style="display:none;">
+											<div class="control-icon-img control-SelectorD">
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+				</div>
+			</div><div class="cell-ph2">
+				<div id="ctl00_phF_form_s0_s1">
+		<div class="stack-v" style="position:relative;">
+			<div class="cell-pn">
+				<div class="cell-w">
+					<div note="1" class="" title="">
+
+					</div><div class="fld-lc note-m">
+						<div class="fld-l fld-lsm">
+							<label for="ctl00_phF_form_edStatus_text">Status:</label>
+						</div><div class="fld-c fld-csm">
+							<div name="ctl00$phF$form$edStatus" buttons="0" enabled="false" id="ctl00_phF_form_edStatus" tabindex="-1" class="dropDown size-m Disabled">
+								<div class="editorCont">
+									<div class="editorWrap" title="">
+										<input name="ctl00$phF$form$edStatus$text" type="text" readonly="readonly" enabled="false" id="ctl00_phF_form_edStatus_text" tabindex="2102" class="editor Disabled" invisible="1"><span class="center"></span><span class="text">Processed</span>
+									</div>
+								</div><div class="buttonsCont">
+									<span class="center"></span><div class="sprite-icon control-icon" icon="DropDownD" type="sel" style="display:none;">
+										<div class="control-icon-img control-DropDownD">
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><div class="cell-pv">
+				<div class="cell-w">
+					<div note="1" class="" title="">
+
+					</div><div class="fld-lc note-m">
+						<div class="fld-l fld-lsm">
+							<label for="ctl00_phF_form_edNbrRecords">Number of Records:</label>
+						</div><div class="fld-c fld-csm">
+							<input name="ctl00$phF$form$edNbrRecords" type="text" value="0" readonly="" enabled="false" id="ctl00_phF_form_edNbrRecords" tabindex="2103" class="editor size-m Disabled" style="text-align:Right;">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+				</div>
+			</div><div class="cell-pn">
+				<div id="ctl00_phF_form_s0_s2">
+		<div class="stack-v" style="position:relative;">
+			<div class="cell-pn">
+				<div class="cell-w">
+					<div note="1" class="" title="">
+
+					</div><div class="note-m">
+						<span class="checkBox" enabled="false"><input id="ctl00_phF_form_mappingTabVisibility" type="checkbox" name="ctl00$phF$form$mappingTabVisibility" disabled="disabled" tabindex="2104"><label for="ctl00_phF_form_mappingTabVisibility">Simple Scenario</label></span>
+					</div>
+				</div>
+			</div><div class="cell-pv">
+				<div class="cell-w">
+					<div note="1" class="" title="">
+
+					</div><div class="note-m">
+						<span class="checkBox"><input id="ctl00_phF_form_chkDiscardPrevious" type="checkbox" name="ctl00$phF$form$chkDiscardPrevious" tabindex="2105"><label for="ctl00_phF_form_chkDiscardPrevious">Discard Previous Result</label></span>
+					</div>
+				</div>
+			</div>
+		</div>
+				</div>
+			</div><div style="clear:left;">
+
+			</div>
+		</div>
+		</div>
+			</td>
+	</tr>
+</tbody></table>
+
+		</div>
+
+		<div class="phG" resize-top="1">
+			
+	<table name="ctl00$phG$tab" id="ctl00_phG_tab" class="tabView ctl00_phG_tab" cellpadding="0" cellspacing="0" style="height: 679px;">
+	<tbody><tr>
+		<td class="tabCaption"><div style="position:relative;">
+			<div id="ctl00_phG_tab_tabDiv">
+				<div>
+					<table id="ctl00_phG_tab_tabT" cellpadding="0" cellspacing="0" border="0">
+						<tbody><tr>
+							<td class="tabBase" nowrap="nowrap"><div style="width:5px;">
+
+							</div></td><td id="ctl00_phG_tab_tab0" class="tabSelected tabNormal tabBase" nowrap="nowrap" style="display:;">Prepared Data</td><td id="ctl00_phG_tab_tab1" class="tabNormal tabBase" nowrap="nowrap" style="display:none;">Mapping</td><td id="ctl00_phG_tab_tab2" class="tabNormal tabBase" nowrap="nowrap" style="display:;">History</td><td id="ctl00_phG_tab_tab3" class="tabNormal tabBase" nowrap="nowrap" style="display:;">Details</td><td class="tabBase" nowrap="nowrap" style="width:100%;font-size:0pt;">&nbsp;</td>
+						</tr>
+					</tbody></table>
+				</div>
+			</div><div id="ctl00_phG_tab_butDiv" class="tabBase">
+				<button name="ctl00$phG$tab$oi" type="button" id="ctl00_phG_tab_oi" class="Button" style="display:none;"><div id="ctl00_phG_tab_oi_im" class="sprite-icon control-icon" icon="HiddenItems">
+					<div class="control-icon-img control-HiddenItems">
+
+					</div>
+				</div></button>
+			</div>
+		</div></td>
+	</tr><tr>
+		<td id="ctl00_phG_tab_cont" class="tabContent" style="height: 679px; vertical-align: top;"><div name="ctl00$phG$tab$t0" id="ctl00_phG_tab_t0" tabindex="3400" class="tabPanel">
+			
+					<table name="ctl00$phG$tab$t0$gridPreparedData" id="ctl00_phG_tab_t0_gridPreparedData" tabindex="2300" class="GridMainT nobr ctl00_phG_tab_t0_gridPreparedData" cellpadding="0" cellspacing="0" style="position: relative; z-index: 100; height: 568px;">
+				<tbody><tr>
+					<td id="ctl00_phG_tab_t0_gridPreparedData_at" class="GridToolsCell"><div name="ctl00$phG$tab$t0$gridPreparedData$at$tlb" id="ctl00_phG_tab_t0_gridPreparedData_at_tlb" class="toolBar ctl00_phG_tab_t0_gridPreparedData_at_tlb" style="width: 1698px;">
+						<div style="width: 1698px; overflow: hidden;">
+							<ul id="ctl00_phG_tab_t0_gridPreparedData_at_tlb_ul" class="toolsList asTable">
+								<li><div class="toolsBtn" data-cmd="Refresh" tooltip="Refresh">
+									<div class="toolBtnNormal" data-type="button">
+										<div class="sprite-icon main-icon" icon="Refresh">
+											<div class="main-icon-img main-Refresh">
+
+											</div>
+										</div>
+									</div>
+								</div></li><li><div class="toolsBtn" data-cmd="AddNew" enabled="false" tooltip="Add Row">
+									<div class="toolBtnDisabled" data-type="button">
+										<div class="sprite-icon main-icon" icon="RecordAdd">
+											<div class="main-icon-img main-RecordAdd">
+
+											</div>
+										</div>
+									</div>
+								</div></li><li><div class="toolsBtn" data-cmd="Delete" enabled="false" tooltip="Delete Row">
+									<div class="toolBtnDisabled" data-type="button">
+										<div class="sprite-icon main-icon" icon="RecordDel">
+											<div class="main-icon-img main-RecordDel">
+
+											</div>
+										</div>
+									</div>
+								</div></li><li><div class="toolBarSep">
+
+								</div></li><li><div class="toolsBtn" data-cmd="switchActivation" tooltip="Change the activation status for all rows." enabled="false">
+									<div class="toolBtnDisabled" data-type="button">
+										Toggle Activation
+									</div>
+								</div></li><li><div class="toolsBtn" data-cmd="switchActivationUntilError" tooltip="Clear the activation status for all rows before the row with an error." enabled="false">
+									<div class="toolBtnDisabled" data-type="button">
+										Clear Activation Until Error
+									</div>
+								</div></li><li><div class="toolsBtn" data-cmd="switchProcessing" tooltip="Change processing status for all rows." enabled="false">
+									<div class="toolBtnDisabled" data-type="button">
+										Toggle Processing
+									</div>
+								</div></li><li><div class="toolsBtn" data-cmd="clearErrors" tooltip="Delete error messages for all rows in the prepared data.">
+									<div class="toolBtnNormal" data-type="button">
+										Clear Errors
+									</div>
+								</div></li><li><div class="toolBarSep">
+
+								</div></li><li><div class="toolsBtn" data-cmd="AdjustColumns" tooltip="Fit to Screen">
+									<div class="toolBtnNormal" data-type="button">
+										<div class="sprite-icon main-icon" icon="Adjust">
+											<div class="main-icon-img main-Adjust">
+
+											</div>
+										</div>
+									</div>
+								</div></li><li><div class="toolsBtn" data-cmd="ExportExcel" enabled="false" tooltip="Export to Excel">
+									<div class="toolBtnDisabled" data-type="button">
+										<div class="sprite-icon main-icon" icon="Excel">
+											<div class="main-icon-img main-Excel">
+
+											</div>
+										</div>
+									</div>
+								</div></li><li style="width:100%;"><div class="toolLabel">
+									<nobr>&nbsp;</nobr>
+								</div></li><li><div name="ctl00$phG$tab$t0$gridPreparedData$at$tlb$fs" id="ctl00_phG_tab_t0_gridPreparedData_at_tlb_fs" tabindex="-1" class="dropDown" type="filter">
+									<div class="editorCont">
+										<div class="editorWrap" title="">
+											<input name="ctl00$phG$tab$t0$gridPreparedData$at$tlb$fs$text" type="text" value="All Records" id="ctl00_phG_tab_t0_gridPreparedData_at_tlb_fs_text" class="editor" invisible="1" tabindex="-1"><span class="center"></span><span class="text">All Records</span>
+										</div>
+									</div><div class="buttonsCont">
+										<span class="center"></span><div class="sprite-icon control-icon" icon="DropDownN" type="sel">
+											<div class="control-icon-img control-DropDownN">
+
+											</div>
+										</div>
+									</div>
+								</div></li><li><div class="toolsBtn" data-cmd="FilterShow" tooltip="Filter Settings">
+									<div class="toolBtnNormal" data-type="button">
+										<div class="sprite-icon main-icon" icon="Filter">
+											<div class="main-icon-img main-Filter">
+
+											</div>
+										</div>
+									</div>
+								</div></li><li style="display:none;"><div class="toolsBtn" data-cmd="hi">
+									<div class="toolBtnNormal" data-type="button">
+										<div class="sprite-icon control-icon" icon="HiddenItems">
+											<div class="control-icon-img control-HiddenItems">
+
+											</div>
+										</div>
+									</div>
+								</div></li>
+							</ul>
+						</div>
+					</div></td>
+				</tr><tr>
+					<td class="GridHeaderCell"><div id="ctl00_phG_tab_t0_gridPreparedData_headerDiv" style="position:relative;overflow:hidden;"><table id="ctl00_phG_tab_t0_gridPreparedData_headerT" cellpadding="0" cellspacing="0" border="0" style="table-layout:fixed;height:100%;width:0px;position:relative;">
+	<colgroup>
+		<col style="width:16px;"><col style="width:25px;"><col style="width:25px;"><col style="width:50px;"><col style="width:60px;"><col style="width:60px;"><col style="width:100px;"><col style="width:70px;"><col style="width:72px;"><col style="width:120px;"><col style="width:108px;"><col style="width:72px;">
+	</colgroup><thead>
+		<tr>
+			<td class="GridHeader GridRow" style="text-align:Center;padding:0px;"><div class="sprite-icon control-icon" icon="LocalMenu">
+				<div class="control-icon-img control-LocalMenu">
+
+				</div>
+			</div></td><td id="ctl00_phG_tab_t0_gridPreparedData_colHS_0_0" title="Files" class="GridHeader GridRow" style="text-align:Center;"><div class="sprite-icon control-icon" icon="RowFileEmpty">
+				<div class="control-icon-img control-RowFileEmpty">
+
+				</div>
+			</div></td><td id="ctl00_phG_tab_t0_gridPreparedData_colHS_0_1" title="Notes" class="GridHeader GridRow" style="text-align:Center;"><div class="sprite-icon control-icon" icon="RowNoteEmpty">
+				<div class="control-icon-img control-RowNoteEmpty">
+
+				</div>
+			</div></td><td id="ctl00_phG_tab_t0_gridPreparedData_colHS_0_2" class="GridHeader GridRow" style="display:none;"><div class="GridHeaderWrap">
+				<div class="GridHeaderText">
+					MappingID
+				</div>
+			</div></td><td id="ctl00_phG_tab_t0_gridPreparedData_colHS_0_3" class="GridHeader GridRow" style="text-align:Right;"><div class="GridHeaderWrap right">
+				<div class="GridHeaderText">
+					Number
+				</div>
+			</div></td><td id="ctl00_phG_tab_t0_gridPreparedData_colHS_0_4" class="GridHeader GridRow" style="text-align:Center;"><div class="GridHeaderWrap">
+				<div class="GridHeaderText">
+					Active
+				</div>
+			</div></td><td id="ctl00_phG_tab_t0_gridPreparedData_colHS_0_5" class="GridHeader GridRow" style="text-align:Center;"><div class="GridHeaderWrap">
+				<div class="GridHeaderText">
+					Processed
+				</div>
+			</div></td><td id="ctl00_phG_tab_t0_gridPreparedData_colHS_0_6" class="GridHeader GridRow"><div class="GridHeaderWrap">
+				<div class="GridHeaderText">
+					Error
+				</div>
+			</div></td><td id="ctl00_phG_tab_t0_gridPreparedData_colHS_0_7" class="GridHeader GridRow"><div class="GridHeaderWrap">
+				<div class="GridHeaderText">
+					ID
+				</div>
+			</div></td><td id="ctl00_phG_tab_t0_gridPreparedData_colHS_0_8" class="GridHeader GridRow"><div class="GridHeaderWrap">
+				<div class="GridHeaderText">
+					STATUS
+				</div>
+			</div></td><td id="ctl00_phG_tab_t0_gridPreparedData_colHS_0_9" class="GridHeader GridRow"><div class="GridHeaderWrap">
+				<div class="GridHeaderText">
+					TAX_STATUS
+				</div>
+			</div></td><td id="ctl00_phG_tab_t0_gridPreparedData_colHS_0_10" class="GridHeader GridRow"><div class="GridHeaderWrap">
+				<div class="GridHeaderText">
+					SEQ_NUM_S
+				</div>
+			</div></td><td id="ctl00_phG_tab_t0_gridPreparedData_colHS_0_11" class="GridHeader GridRow"><div class="GridHeaderWrap">
+				<div class="GridHeaderText">
+					K_TYPE
+				</div>
+			</div></td>
+		</tr>
+	</thead>
+</table></div></td>
+				</tr><tr>
+					<td class="GridContentCell" style="height: 568px; vertical-align: top; overflow: hidden;"><div id="ctl00_phG_tab_t0_gridPreparedData_scrollDiv" style="height: 568px; position: relative; overflow: auto hidden;"><table xmlns="http://www.w3.org/1999/xhtml" id="ctl00_phG_tab_t0_gridPreparedData_dataT0" name="ctl00_phG_tab_t0_gridPreparedData_dataT0" class="gridDataT" cellpadding="0" cellspacing="0" border="0" style="table-layout:fixed;width:0px;" data-newrow="true">
+<colgroup>
+<col style="width:16px;">
+<col style="width:25px;">
+<col style="width:25px;">
+<col style="width:50px;">
+<col style="width:60px;">
+<col style="width:60px;">
+<col style="width:100px;">
+<col style="width:70px;">
+<col style="width:72px;">
+<col style="width:120px;">
+<col style="width:108px;">
+<col style="width:72px;">
+</colgroup>
+<thead><tr style="display:none;">
+<td class="GridHeader GridRow" style="padding:0px;"><div class="sprite-icon control-icon" icon="LocalMenu"><div class="control-icon-img control-LocalMenu">&nbsp;</div></div></td>
+<td class="GridHeader GridRow" id="ctl00_phG_tab_t0_gridPreparedData_colH_0_0" name="ctl00_phG_tab_t0_gridPreparedData_colH_0_0">&nbsp;</td>
+<td class="GridHeader GridRow" id="ctl00_phG_tab_t0_gridPreparedData_colH_0_1" name="ctl00_phG_tab_t0_gridPreparedData_colH_0_1">&nbsp;</td>
+<td class="GridHeader GridRow" id="ctl00_phG_tab_t0_gridPreparedData_colH_0_2" name="ctl00_phG_tab_t0_gridPreparedData_colH_0_2" style="display:none;">MappingID</td>
+<td class="GridHeader GridRow" id="ctl00_phG_tab_t0_gridPreparedData_colH_0_3" name="ctl00_phG_tab_t0_gridPreparedData_colH_0_3">Number</td>
+<td class="GridHeader GridRow" id="ctl00_phG_tab_t0_gridPreparedData_colH_0_4" name="ctl00_phG_tab_t0_gridPreparedData_colH_0_4">Active</td>
+<td class="GridHeader GridRow" id="ctl00_phG_tab_t0_gridPreparedData_colH_0_5" name="ctl00_phG_tab_t0_gridPreparedData_colH_0_5">Processed</td>
+<td class="GridHeader GridRow" id="ctl00_phG_tab_t0_gridPreparedData_colH_0_6" name="ctl00_phG_tab_t0_gridPreparedData_colH_0_6">Error</td>
+<td class="GridHeader GridRow" id="ctl00_phG_tab_t0_gridPreparedData_colH_0_7" name="ctl00_phG_tab_t0_gridPreparedData_colH_0_7">ID</td>
+<td class="GridHeader GridRow" id="ctl00_phG_tab_t0_gridPreparedData_colH_0_8" name="ctl00_phG_tab_t0_gridPreparedData_colH_0_8">STATUS</td>
+<td class="GridHeader GridRow" id="ctl00_phG_tab_t0_gridPreparedData_colH_0_9" name="ctl00_phG_tab_t0_gridPreparedData_colH_0_9">TAX_STATUS</td>
+<td class="GridHeader GridRow" id="ctl00_phG_tab_t0_gridPreparedData_colH_0_10" name="ctl00_phG_tab_t0_gridPreparedData_colH_0_10">SEQ_NUM_S</td>
+<td class="GridHeader GridRow" id="ctl00_phG_tab_t0_gridPreparedData_colH_0_11" name="ctl00_phG_tab_t0_gridPreparedData_colH_0_11">K_TYPE</td>
+</tr></thead>
+<tbody><tr xmlindex="" id="ctl00_phG_tab_t0_gridPreparedData_newRow" style="display:none;">
+<td class="GridRowSelector GridHeader GridRow" style="padding:0px;">&nbsp;</td>
+<td class="GridRow" align="center"><div class="sprite-icon control-icon" icon="RowFileEmpty"><div class="control-icon-img control-RowFileEmpty">&nbsp;</div></div></td>
+<td class="GridRow" align="center"><div class="sprite-icon control-icon" icon="RowNoteEmpty"><div class="control-icon-img control-RowNoteEmpty">&nbsp;</div></div></td>
+<td class="GridRow" style="display:none;">&nbsp;</td>
+<td class="GridRow GridReadOnly" align="right">&nbsp;</td>
+<td class="GridRow" align="center"><div class="sprite-icon control-icon" icon="GridCheck" check="1"><div class="control-icon-img control-GridCheck">&nbsp;</div></div></td>
+<td class="GridRow" align="center"><div class="sprite-icon control-icon" icon="GridUncheck" check="1"><div class="control-icon-img control-GridUncheck">&nbsp;</div></div></td>
+<td class="GridRow GridReadOnly ellipsis">&nbsp;</td>
+<td class="GridRow ellipsis">&nbsp;</td>
+<td class="GridRow ellipsis">&nbsp;</td>
+<td class="GridRow ellipsis">&nbsp;</td>
+<td class="GridRow ellipsis">&nbsp;</td>
+<td class="GridRow ellipsis">&nbsp;</td>
+</tr></tbody>
+</table></div></td>
+				</tr><tr>
+					<td id="ctl00_phG_tab_t0_gridPreparedData_ab" class="GridToolsBottom GridToolsCell"><div name="ctl00$phG$tab$t0$gridPreparedData$ab$tlb" id="ctl00_phG_tab_t0_gridPreparedData_ab_tlb" class="toolBar ctl00_phG_tab_t0_gridPreparedData_ab_tlb" style="width: 1698px;">
+						<div style="width: 1698px; overflow: hidden;">
+							<ul id="ctl00_phG_tab_t0_gridPreparedData_ab_tlb_ul" class="toolsList asTable">
+								<li style="width:100%;"><div class="toolLabel">
+									<nobr>&nbsp;</nobr>
+								</div></li><li><div class="toolsBtn" data-cmd="PageFirst" enabled="false" tooltip="Go to First Page (Ctrl+PgUp)">
+									<div class="toolBtnDisabled" data-type="button">
+										<div class="sprite-icon main-icon" icon="PageFirst">
+											<div class="main-icon-img main-PageFirst">
+
+											</div>
+										</div>
+									</div>
+								</div></li><li><div class="toolsBtn" data-cmd="PagePrev" enabled="false" tooltip="Go to Previous Page (PgUp)">
+									<div class="toolBtnDisabled" data-type="button">
+										<div class="sprite-icon main-icon" icon="PagePrev">
+											<div class="main-icon-img main-PagePrev">
+
+											</div>
+										</div>
+									</div>
+								</div></li><li><div class="toolsBtn" data-cmd="PageNext" enabled="false" tooltip="Go to Next Page (PgDn)">
+									<div class="toolBtnDisabled" data-type="button">
+										<div class="sprite-icon main-icon" icon="PageNext">
+											<div class="main-icon-img main-PageNext">
+
+											</div>
+										</div>
+									</div>
+								</div></li><li><div class="toolsBtn" data-cmd="PageLast" enabled="false" tooltip="Go to Last Page (Ctrl+PgDn)">
+									<div class="toolBtnDisabled" data-type="button">
+										<div class="sprite-icon main-icon" icon="PageLast">
+											<div class="main-icon-img main-PageLast">
+
+											</div>
+										</div>
+									</div>
+								</div></li><li style="display:none;"><div class="toolsBtn" data-cmd="hi">
+									<div class="toolBtnNormal" data-type="button">
+										<div class="sprite-icon control-icon" icon="HiddenItems">
+											<div class="control-icon-img control-HiddenItems">
+
+											</div>
+										</div>
+									</div>
+								</div></li>
+							</ul>
+						</div>
+					</div></td>
+				</tr>
+			</tbody></table><table id="ctl00_phG_tab_t0_gridPreparedData_lf0" class="GridRowForm" cellpadding="0" cellspacing="0" border="0" style="height:0px;display:none;">
+				<tbody><tr>
+					<td style="vertical-align:Top;"><div name="ctl00$phG$tab$t0$gridPreparedData$lv0" id="ctl00_phG_tab_t0_gridPreparedData_lv0" class="FormView">
+		<div style="height:100%;position:relative;overflow-x:hidden;overflow-y:auto;">
+			<div id="ctl00_phG_tab_t0_gridPreparedData_lv0_s0" class="groupBox" style="display:inline-block;">
+		<div class="stack-v stack-pout-v" style="position:relative;">
+			<div class="cell-pn">
+				<div id="ctl00_phG_tab_t0_gridPreparedData_lv0_s0_s0" class="groupBox">
+		<div class="stack-h" style="position:relative;">
+			<div class="cell-ph">
+				<div class="cell-w">
+					<div note="1">
+
+					</div><div class="fld-lc note-m">
+						<div class="fld-l fld-lm">
+							&nbsp;
+						</div><div class="fld-c fld-cm">
+							<span class="checkBox"><input id="ctl00_phG_tab_t0_gridPreparedData_lv0_chkIsActive" type="checkbox" name="ctl00$phG$tab$t0$gridPreparedData$lv0$chkIsActive" tabindex="4600"><label for="ctl00_phG_tab_t0_gridPreparedData_lv0_chkIsActive">Active</label></span>
+						</div>
+					</div>
+				</div>
+			</div><div class="cell-pn">
+				<div class="cell-w">
+					<div note="1">
+
+					</div><div class="fld-lc note-m">
+						<div class="fld-l fld-lm">
+							<label for="ctl00_phG_tab_t0_gridPreparedData_lv0_edErrorMessage">Error:</label>
+						</div><div class="fld-c fld-cm">
+							<textarea name="ctl00$phG$tab$t0$gridPreparedData$lv0$edErrorMessage" maxlength="4000" readonly="" id="ctl00_phG_tab_t0_gridPreparedData_lv0_edErrorMessage" tabindex="4601" class="editor size-s ReadOnly"></textarea>
+						</div>
+					</div>
+				</div>
+			</div><div style="clear:left;">
+
+			</div>
+		</div>
+				</div>
+			</div><div class="cell-pv">
+				<div class="cell-w">
+					<div note="1">
+
+					</div><div class="fld-lc note-m">
+						<div class="fld-l fld-lm">
+							&nbsp;
+						</div><div class="fld-c fld-cm">
+							<span class="checkBox"><input id="ctl00_phG_tab_t0_gridPreparedData_lv0_chkIsProcessed" type="checkbox" name="ctl00$phG$tab$t0$gridPreparedData$lv0$chkIsProcessed" tabindex="4602"><label for="ctl00_phG_tab_t0_gridPreparedData_lv0_chkIsProcessed">Processed</label></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+			</div>
+		</div>
+					</div></td>
+				</tr><tr>
+					<td></td>
+				</tr>
+			</tbody></table><div id="ctl00_phG_tab_t0_gridPreparedData_menu0" class="menuIsland" level="0" itemscount="3" name="ctl00$phG$tab$t0$gridPreparedData$menu0" style="width:100px;position:absolute;display:none;">
+				<ul class="menu">
+					<li id="ctl00_phG_tab_t0_gridPreparedData_menu0_item_0" class="menuItem"><div class="menuSpacer">
+						&nbsp;
+					</div></li><li style="height:2px;background-repeat:repeat-x;background-image:url(/App_Themes/Default/Images/menu_separator.gif?imgTimeStamp=637254197140000000);"></li><li id="ctl00_phG_tab_t0_gridPreparedData_menu0_item_1" class="menuItem" data-cmd="LayoutSave"><div class="sprite-icon main-icon" icon="Save">
+						<div class="main-icon-img main-Save">
+
+						</div>
+					</div><div class="menuSpacer">
+						Save layout
+					</div></li><li id="ctl00_phG_tab_t0_gridPreparedData_menu0_item_2" class="menuDisabled" enabled="false" data-cmd="LayoutReset"><div class="sprite-icon main-icon" icon="Remove">
+						<div class="main-icon-img main-Remove">
+
+						</div>
+					</div><div class="menuSpacer">
+						Reset layout
+					</div></li>
+				</ul>
+			</div><span id="ctl00_phG_tab_t0_gridPreparedData_xml" style="display:none;"><!-- <PXGrid ID="ctl00_phG_tab_t0_gridPreparedData"><Levels Count="1"><Level i="0" KeyNames="MappingID;LineNbr" AllowUpdate="True"><Layout CellPadding="0" CellSpacing="0" FooterVisible="False" HeaderVisible="True" WrapText="False" LevelIndent="22px" RowSelectorsVisible="True" RowSelectorsWidth="16px" HighlightMode="Both" ShowRowStatus="True" /><Styles Row="GridRow" AltRow="GridAltRow GridRow" SelRow="GridSelRow GridRow" ActiveCell="GridActiveCell GridActiveRow GridRow" ActiveRow="GridActiveRow GridRow" Error="GridError" Warning="GridWarn" RowForm="GridRowForm" RowSelector="GridRowSelector GridHeader GridRow" Header="GridHeader GridRow" Footer="GridHeader GridRow" SelHeader="GridHeader GridRow" SelFooter="GridHeader GridRow" CellButton="GridCellButton" CellEditor="GridCellEditor" EditorText="GridEditorText" ReadOnlyCell="GridReadOnly" /><Images ArrowDown="control@RedArrowDown" ArrowUp="control@RedArrowUp" CurrentRow="control@CurrentRow" EditRow="control@EditRow" NewRow="control@NewRow" GridCorner="control@LocalMenu" SortAsc="control@SortAsc" SortDesc="control@SortDesc" Checked="control@GridCheck" Unchecked="control@GridUncheck" DeletedRow="control@RowDeleted" ModifiedRow="control@RowModified" InsertedRow="control@RowInserted" RowError="control@Error" RowWarning="control@Warning" RowNote="control@RowNote" RowNoteEmpty="control@RowNoteEmpty" RowInfo="control@Info" RowFile="control@RowFile" RowFileEmpty="control@RowFileEmpty" Search="control@Search" Filter="control@Filter" FilterSortAsc="control@FilterSortAsc" FilterSortDesc="control@FilterSortDesc" /><Columns><Column i="0" Width="25px" Type="Icon" TextAlign="center"><Styles /><Header ToolTip="Files" ImageUrl="control@RowFileEmpty" /><Footer /><ValueItems><ValueItem Value="0" DisplayValue="control@RowFileEmpty" /><ValueItem Value="1" DisplayValue="control@RowFile" /></ValueItems></Column><Column i="1" Width="25px" Type="Icon" TextAlign="center"><Styles /><Header ToolTip="Notes" ImageUrl="control@RowNoteEmpty" /><Footer /><ValueItems><ValueItem Value="0" DisplayValue="control@RowNoteEmpty" /><ValueItem Value="1" DisplayValue="control@RowNote" /></ValueItems></Column><Column i="2" Width="70px" Visible="False"><Styles /><Header Text="MappingID" /><Footer /></Column><Column i="3" Width="50px" AllowUpdate="False" TextAlign="right"><Styles /><Header Text="Number" /><Footer /></Column><Column i="4" Width="60px" Type="CheckBox" TextAlign="center"><Styles /><Header Text="Active" /><Footer /></Column><Column i="5" Width="60px" Type="CheckBox" TextAlign="center"><Styles /><Header Text="Processed" /><Footer /></Column><Column i="6" Width="100px" AllowUpdate="False" Ellipsis="True"><Styles /><Header Text="Error" /><Footer /></Column><Column i="7" Width="70px" Ellipsis="True"><Styles /><Header Text="ID" /><Footer /></Column><Column i="8" Width="72px" Ellipsis="True"><Styles /><Header Text="STATUS" /><Footer /></Column><Column i="9" Width="120px" Ellipsis="True"><Styles /><Header Text="TAX_STATUS" /><Footer /></Column><Column i="10" Width="108px" Ellipsis="True"><Styles /><Header Text="SEQ_NUM_S" /><Footer /></Column><Column i="11" Width="72px" Ellipsis="True"><Styles /><Header Text="K_TYPE" /><Footer /></Column></Columns><Row Visible="False"><Cells><Cell Value="0" Text="control@RowFileEmpty" /><Cell Value="0" Text="control@RowNoteEmpty" /><Cell Value="" /><Cell Value="" /><Cell Value="True" /><Cell Value="False" /><Cell Value="" /><Cell Value="" /><Cell Value="" /><Cell Value="" /><Cell Value="" /><Cell Value="" /></Cells></Row></Level></Levels><Rows Level="0" HashCode="" /></PXGrid> --></span>
+				
+		</div><div name="ctl00$phG$tab$t1" id="ctl00_phG_tab_t1" tabindex="3700" class="tabPanel" style="display:none;">
+			
+                    <table name="ctl00$phG$tab$t1$mapping" id="ctl00_phG_tab_t1_mapping" tabindex="2500" class="GridMainT nobr ctl00_phG_tab_t1_mapping" cellpadding="0" cellspacing="0" style="position:relative;">
+				<tbody><tr>
+					<td id="ctl00_phG_tab_t1_mapping_at" class="GridToolsCell"><div name="ctl00$phG$tab$t1$mapping$at$tlb" id="ctl00_phG_tab_t1_mapping_at_tlb" class="toolBar ctl00_phG_tab_t1_mapping_at_tlb">
+						<div style="width:100%;overflow:hidden;">
+							<ul id="ctl00_phG_tab_t1_mapping_at_tlb_ul" class="toolsList asTable">
+								<li><div class="toolsBtn" data-cmd="Refresh" tooltip="Refresh">
+									<div class="toolBtnNormal" data-type="button">
+										<div class="sprite-icon main-icon" icon="Refresh">
+											<div class="main-icon-img main-Refresh">
+
+											</div>
+										</div>
+									</div>
+								</div></li><li><div class="toolsBtn" data-cmd="AddNew" tooltip="Add Row">
+									<div class="toolBtnNormal" data-type="button">
+										<div class="sprite-icon main-icon" icon="RecordAdd">
+											<div class="main-icon-img main-RecordAdd">
+
+											</div>
+										</div>
+									</div>
+								</div></li><li><div class="toolsBtn" data-cmd="Delete" enabled="false" tooltip="Delete Row">
+									<div class="toolBtnDisabled" data-type="button">
+										<div class="sprite-icon main-icon" icon="RecordDel">
+											<div class="main-icon-img main-RecordDel">
+
+											</div>
+										</div>
+									</div>
+								</div></li><li><div class="toolBarSep">
+
+								</div></li><li><div class="toolsBtn" data-cmd="RefreshFromFile">
+									<div class="toolBtnNormal" data-type="button"> Refresh from File</div>
+								</div></li><li><div class="toolBarSep">
+
+								</div></li><li><div class="toolsBtn" data-cmd="AdjustColumns" tooltip="Fit to Screen">
+									<div class="toolBtnNormal" data-type="button">
+										<div class="sprite-icon main-icon" icon="Adjust">
+											<div class="main-icon-img main-Adjust">
+
+											</div>
+										</div>
+									</div>
+								</div></li><li><div class="toolsBtn" data-cmd="ExportExcel" enabled="false" tooltip="Export to Excel">
+									<div class="toolBtnDisabled" data-type="button">
+										<div class="sprite-icon main-icon" icon="Excel">
+											<div class="main-icon-img main-Excel">
+
+											</div>
+										</div>
+									</div>
+								</div></li><li style="width:100%;"><div class="toolLabel">
+									<nobr>&nbsp;</nobr>
+								</div></li><li style="display:none;"><div class="toolsBtn" data-cmd="hi">
+									<div class="toolBtnNormal" data-type="button">
+										<div class="sprite-icon control-icon" icon="HiddenItems">
+											<div class="control-icon-img control-HiddenItems">
+
+											</div>
+										</div>
+									</div>
+								</div></li>
+							</ul>
+						</div>
+					</div></td>
+				</tr><tr>
+					<td class="GridHeaderCell"><div id="ctl00_phG_tab_t1_mapping_headerDiv" style="position:relative;overflow:hidden;"><table id="ctl00_phG_tab_t1_mapping_headerT" cellpadding="0" cellspacing="0" border="0" style="table-layout:fixed;height:100%;width:0px;position:relative;">
+	<colgroup>
+		<col style="width:16px;"><col style="width:25px;"><col style="width:25px;"><col style="width:77px;"><col style="width:250px;"><col style="width:250px;"><col style="width:60px;"><col style="width:250px;">
+	</colgroup><thead>
+		<tr>
+			<td class="GridHeader GridRow" style="text-align:Center;padding:0px;"><div class="sprite-icon control-icon" icon="LocalMenu">
+				<div class="control-icon-img control-LocalMenu">
+
+				</div>
+			</div></td><td id="ctl00_phG_tab_t1_mapping_colHS_0_0" title="Files" class="GridHeader GridRow" style="text-align:Center;"><div class="sprite-icon control-icon" icon="RowFileEmpty">
+				<div class="control-icon-img control-RowFileEmpty">
+
+				</div>
+			</div></td><td id="ctl00_phG_tab_t1_mapping_colHS_0_1" title="Notes" class="GridHeader GridRow" style="text-align:Center;"><div class="sprite-icon control-icon" icon="RowNoteEmpty">
+				<div class="control-icon-img control-RowNoteEmpty">
+
+				</div>
+			</div></td><td id="ctl00_phG_tab_t1_mapping_colHS_0_2" class="GridHeader GridRow" style="text-align:Center;"><div class="GridHeaderWrap">
+				<div class="GridHeaderText">
+					Active
+				</div>
+			</div></td><td id="ctl00_phG_tab_t1_mapping_colHS_0_3" class="GridHeader GridRow"><div class="GridHeaderWrap">
+				<div class="GridHeaderText">
+					Source Field / Value
+				</div>
+			</div></td><td id="ctl00_phG_tab_t1_mapping_colHS_0_4" class="GridHeader GridRow"><div class="GridHeaderWrap GridReq">
+				<div class="GridHeaderText">
+					Target Object
+				</div>
+			</div></td><td id="ctl00_phG_tab_t1_mapping_colHS_0_5" class="GridHeader GridRow" style="text-align:Center;"><div class="GridHeaderWrap">
+				<div class="GridHeaderText">
+					Key
+				</div>
+			</div></td><td id="ctl00_phG_tab_t1_mapping_colHS_0_6" class="GridHeader GridRow"><div class="GridHeaderWrap">
+				<div class="GridHeaderText">
+					Field Name
+				</div>
+			</div></td><td id="ctl00_phG_tab_t1_mapping_colHS_0_7" class="GridHeader GridRow" style="display:none;"><div class="GridHeaderWrap">
+				<div class="GridHeaderText">
+					MappingID
+				</div>
+			</div></td><td id="ctl00_phG_tab_t1_mapping_colHS_0_8" class="GridHeader GridRow" style="text-align:Right;display:none;"><div class="GridHeaderWrap right">
+				<div class="GridHeaderText">
+					LineNbr
+				</div>
+			</div></td>
+		</tr>
+	</thead>
+</table></div></td>
+				</tr><tr>
+					<td class="GridContentCell" style="vertical-align:Top;overflow:hidden;"><div id="ctl00_phG_tab_t1_mapping_scrollDiv" style="position:relative;overflow:auto;"><table xmlns="http://www.w3.org/1999/xhtml" id="ctl00_phG_tab_t1_mapping_dataT0" name="ctl00_phG_tab_t1_mapping_dataT0" class="gridDataT" cellpadding="0" cellspacing="0" border="0" style="table-layout:fixed;width:0px;" data-newrow="true">
+<colgroup>
+<col style="width:16px;">
+<col style="width:25px;">
+<col style="width:25px;">
+<col style="width:77px;">
+<col style="width:250px;">
+<col style="width:250px;">
+<col style="width:60px;">
+<col style="width:250px;">
+</colgroup>
+<thead><tr style="display:none;">
+<td class="GridHeader GridRow" style="padding:0px;"><div class="sprite-icon control-icon" icon="LocalMenu"><div class="control-icon-img control-LocalMenu">&nbsp;</div></div></td>
+<td class="GridHeader GridRow" id="ctl00_phG_tab_t1_mapping_colH_0_0" name="ctl00_phG_tab_t1_mapping_colH_0_0">&nbsp;</td>
+<td class="GridHeader GridRow" id="ctl00_phG_tab_t1_mapping_colH_0_1" name="ctl00_phG_tab_t1_mapping_colH_0_1">&nbsp;</td>
+<td class="GridHeader GridRow" id="ctl00_phG_tab_t1_mapping_colH_0_2" name="ctl00_phG_tab_t1_mapping_colH_0_2">Active</td>
+<td class="GridHeader GridRow" id="ctl00_phG_tab_t1_mapping_colH_0_3" name="ctl00_phG_tab_t1_mapping_colH_0_3">Source Field / Value</td>
+<td class="GridHeader GridRow" id="ctl00_phG_tab_t1_mapping_colH_0_4" name="ctl00_phG_tab_t1_mapping_colH_0_4">Target Object</td>
+<td class="GridHeader GridRow" id="ctl00_phG_tab_t1_mapping_colH_0_5" name="ctl00_phG_tab_t1_mapping_colH_0_5">Key</td>
+<td class="GridHeader GridRow" id="ctl00_phG_tab_t1_mapping_colH_0_6" name="ctl00_phG_tab_t1_mapping_colH_0_6">Field Name</td>
+<td class="GridHeader GridRow" id="ctl00_phG_tab_t1_mapping_colH_0_7" name="ctl00_phG_tab_t1_mapping_colH_0_7" style="display:none;">MappingID</td>
+<td class="GridHeader GridRow" id="ctl00_phG_tab_t1_mapping_colH_0_8" name="ctl00_phG_tab_t1_mapping_colH_0_8" style="display:none;">LineNbr</td>
+</tr></thead>
+<tbody><tr xmlindex="" id="ctl00_phG_tab_t1_mapping_newRow" style="display:none;">
+<td class="GridRowSelector GridHeader GridRow" style="padding:0px;">&nbsp;</td>
+<td class="GridRow" align="center"><div class="sprite-icon control-icon" icon="RowFileEmpty"><div class="control-icon-img control-RowFileEmpty">&nbsp;</div></div></td>
+<td class="GridRow" align="center"><div class="sprite-icon control-icon" icon="RowNoteEmpty"><div class="control-icon-img control-RowNoteEmpty">&nbsp;</div></div></td>
+<td class="GridRow" align="center"><div class="sprite-icon control-icon" icon="GridCheck" check="1"><div class="control-icon-img control-GridCheck">&nbsp;</div></div></td>
+<td class="GridRow ellipsis">&nbsp;</td>
+<td class="GridRow ellipsis">&nbsp;</td>
+<td class="GridRow GridReadOnly" align="center"><div class="sprite-icon control-icon" icon="GridUncheck" check="1"><div class="control-icon-img control-GridUncheck">&nbsp;</div></div></td>
+<td class="GridRow ellipsis">&nbsp;</td>
+<td class="GridRow" style="display:none;">&nbsp;</td>
+<td class="GridRow GridReadOnly" align="right" style="display:none;">&nbsp;</td>
+</tr></tbody>
+</table></div></td>
+				</tr><tr>
+					<td id="ctl00_phG_tab_t1_mapping_ab" class="GridToolsBottom GridToolsCell"><div name="ctl00$phG$tab$t1$mapping$ab$tlb" id="ctl00_phG_tab_t1_mapping_ab_tlb" class="toolBar ctl00_phG_tab_t1_mapping_ab_tlb">
+						<div style="width:100%;overflow:hidden;">
+							<ul id="ctl00_phG_tab_t1_mapping_ab_tlb_ul" class="toolsList asTable">
+								<li style="width:100%;"><div class="toolLabel">
+									<nobr>&nbsp;</nobr>
+								</div></li><li style="display:none;"><div class="toolsBtn" data-cmd="hi">
+									<div class="toolBtnNormal" data-type="button">
+										<div class="sprite-icon control-icon" icon="HiddenItems">
+											<div class="control-icon-img control-HiddenItems">
+
+											</div>
+										</div>
+									</div>
+								</div></li>
+							</ul>
+						</div>
+					</div></td>
+				</tr>
+			</tbody></table><table id="ctl00_phG_tab_t1_mapping_lf0" class="GridRowForm" cellpadding="0" cellspacing="0" border="0" style="height:0px;display:none;">
+				<tbody><tr>
+					<td style="vertical-align:Top;"><div name="ctl00$phG$tab$t1$mapping$lv0" id="ctl00_phG_tab_t1_mapping_lv0" class="FormView">
+		<div style="height:100%;position:relative;overflow-x:hidden;overflow-y:auto;">
+			
+									<div class="fld-lc">
+				<div class="fld-l">
+					<label for="ctl00_phG_tab_t1_mapping_lv0_edValue_text">Source Field / Value:</label>
+				</div><div class="fld-c">
+					<div name="ctl00$phG$tab$t1$mapping$lv0$edValue" buttons="2" id="ctl00_phG_tab_t1_mapping_lv0_edValue" tabindex="-1" class="dropDown">
+						<div class="editorCont">
+							<div class="editorWrap" title="">
+								<input name="ctl00$phG$tab$t1$mapping$lv0$edValue$text" type="text" maxlength="4000" id="ctl00_phG_tab_t1_mapping_lv0_edValue_text" tabindex="4800" class="editor"><span class="center"></span><span class="text"></span>
+							</div>
+						</div><div class="buttonsCont">
+							<span class="center"></span><div class="sprite-icon control-icon" icon="DropDownN" type="sel">
+								<div class="control-icon-img control-DropDownN">
+
+								</div>
+							</div><div class="sprite-icon control-icon" icon="EditN" type="edit">
+								<div class="control-icon-img control-EditN">
+
+								</div>
+							</div>
+						</div><div name="ctl00$phG$tab$t1$mapping$lv0$edValue$pnlFormulaCombo" id="ctl00_phG_tab_t1_mapping_lv0_edValue_pnlFormulaCombo" tabindex="5000" class="SmartPanel SmartPanelCN" style="display:none;overflow:hidden;height:430px;width:530px;">
+
+						</div>
+					</div>
+				</div>
+			</div>
+								<div name="ctl00$phG$tab$t1$mapping$lv0$ed" id="ctl00_phG_tab_t1_mapping_lv0_ed" tabindex="-1" class="dropDown size-s" style="visibility:hidden;">
+				<div class="editorCont">
+					<div class="editorWrap">
+						<input name="ctl00$phG$tab$t1$mapping$lv0$ed$text" type="text" id="ctl00_phG_tab_t1_mapping_lv0_ed_text" class="editor">
+					</div>
+				</div><div class="buttonsCont">
+					<span class="center"></span><div class="sprite-icon control-icon" icon="DropDownN" type="sel">
+						<div class="control-icon-img control-DropDownN">
+
+						</div>
+					</div>
+				</div>
+			</div><div name="ctl00$phG$tab$t1$mapping$lv0$ec" id="ctl00_phG_tab_t1_mapping_lv0_ec" tabindex="-1" class="dropDown" style="visibility:hidden;">
+				<div class="editorCont">
+					<div class="editorWrap">
+						<input name="ctl00$phG$tab$t1$mapping$lv0$ec$text" type="text" id="ctl00_phG_tab_t1_mapping_lv0_ec_text" class="editor" invisible="1"><span class="center"></span><span class="text"></span>
+					</div>
+				</div><div class="buttonsCont">
+					<span class="center"></span><div class="sprite-icon control-icon" icon="DropDownN" type="sel">
+						<div class="control-icon-img control-DropDownN">
+
+						</div>
+					</div>
+				</div>
+			</div><div name="ctl00$phG$tab$t1$mapping$lv0$es" id="ctl00_phG_tab_t1_mapping_lv0_es" tabindex="-1" class="selector" style="visibility:hidden;">
+				<div class="controlCont">
+					<div class="editorCont">
+						<div class="editorWrap">
+							<input name="ctl00$phG$tab$t1$mapping$lv0$es$text" type="text" id="ctl00_phG_tab_t1_mapping_lv0_es_text" class="editor">
+						</div>
+					</div><div class="buttonsCont">
+						<span class="center"></span><div class="sprite-icon control-icon" icon="SelectorN" type="sel">
+							<div class="control-icon-img control-SelectorN">
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><input name="ctl00$phG$tab$t1$mapping$lv0$em" type="text" id="ctl00_phG_tab_t1_mapping_lv0_em" class="editor" style="visibility:hidden;">
+		</div>
+					</div></td>
+				</tr><tr>
+					<td><button name="ctl00$phG$tab$t1$mapping$lfFirst0" type="button" id="ctl00_phG_tab_t1_mapping_lfFirst0" class="Button ctl00_phG_tab_t1_mapping_lfFirst0" style="margin-left:5px;"><div id="ctl00_phG_tab_t1_mapping_lfFirst0_im" class="sprite-icon main-icon" icon="PageFirst">
+						<div class="main-icon-img main-PageFirst">
+
+						</div>
+					</div>&nbsp;First</button><button name="ctl00$phG$tab$t1$mapping$lfPrev0" type="button" id="ctl00_phG_tab_t1_mapping_lfPrev0" class="Button ctl00_phG_tab_t1_mapping_lfPrev0" style="margin-left:5px;"><div id="ctl00_phG_tab_t1_mapping_lfPrev0_im" class="sprite-icon main-icon" icon="PagePrev">
+						<div class="main-icon-img main-PagePrev">
+
+						</div>
+					</div>&nbsp;Prev</button><button name="ctl00$phG$tab$t1$mapping$lfNext0" type="button" id="ctl00_phG_tab_t1_mapping_lfNext0" class="Button ctl00_phG_tab_t1_mapping_lfNext0" style="margin-left:5px;"><div id="ctl00_phG_tab_t1_mapping_lfNext0_im" class="sprite-icon main-icon" icon="PageNext">
+						<div class="main-icon-img main-PageNext">
+
+						</div>
+					</div>&nbsp;Next</button><button name="ctl00$phG$tab$t1$mapping$lfLast0" type="button" id="ctl00_phG_tab_t1_mapping_lfLast0" class="Button ctl00_phG_tab_t1_mapping_lfLast0" style="margin-left:5px;"><div id="ctl00_phG_tab_t1_mapping_lfLast0_im" class="sprite-icon main-icon" icon="PageLast">
+						<div class="main-icon-img main-PageLast">
+
+						</div>
+					</div>&nbsp;Last</button></td>
+				</tr>
+			</tbody></table><div id="ctl00_phG_tab_t1_mapping_menu0" class="menuIsland" level="0" itemscount="3" name="ctl00$phG$tab$t1$mapping$menu0" style="width:100px;position:absolute;display:none;">
+				<ul class="menu">
+					<li id="ctl00_phG_tab_t1_mapping_menu0_item_0" class="menuItem"><div class="menuSpacer">
+						&nbsp;
+					</div></li><li style="height:2px;background-repeat:repeat-x;background-image:url(/App_Themes/Default/Images/menu_separator.gif?imgTimeStamp=637254197140000000);"></li><li id="ctl00_phG_tab_t1_mapping_menu0_item_1" class="menuItem" data-cmd="LayoutSave"><div class="sprite-icon main-icon" icon="Save">
+						<div class="main-icon-img main-Save">
+
+						</div>
+					</div><div class="menuSpacer">
+						Save layout
+					</div></li><li id="ctl00_phG_tab_t1_mapping_menu0_item_2" class="menuDisabled" enabled="false" data-cmd="LayoutReset"><div class="sprite-icon main-icon" icon="Remove">
+						<div class="main-icon-img main-Remove">
+
+						</div>
+					</div><div class="menuSpacer">
+						Reset layout
+					</div></li>
+				</ul>
+			</div><span id="ctl00_phG_tab_t1_mapping_xml" style="display:none;"><!-- <PXGrid ID="ctl00_phG_tab_t1_mapping"><Levels Count="1"><Level i="0" KeyNames="MappingID;LineNbr" AllowUpdate="True"><Layout CellPadding="0" CellSpacing="0" FooterVisible="False" HeaderVisible="True" WrapText="False" LevelIndent="22px" RowSelectorsVisible="True" RowSelectorsWidth="16px" HighlightMode="Both" ShowRowStatus="True" /><Styles Row="GridRow" AltRow="GridAltRow GridRow" SelRow="GridSelRow GridRow" ActiveCell="GridActiveCell GridActiveRow GridRow" ActiveRow="GridActiveRow GridRow" Error="GridError" Warning="GridWarn" RowForm="GridRowForm" RowSelector="GridRowSelector GridHeader GridRow" Header="GridHeader GridRow" Footer="GridHeader GridRow" SelHeader="GridHeader GridRow" SelFooter="GridHeader GridRow" CellButton="GridCellButton" CellEditor="GridCellEditor" EditorText="GridEditorText" ReadOnlyCell="GridReadOnly" /><Images ArrowDown="control@RedArrowDown" ArrowUp="control@RedArrowUp" CurrentRow="control@CurrentRow" EditRow="control@EditRow" NewRow="control@NewRow" GridCorner="control@LocalMenu" SortAsc="control@SortAsc" SortDesc="control@SortDesc" Checked="control@GridCheck" Unchecked="control@GridUncheck" DeletedRow="control@RowDeleted" ModifiedRow="control@RowModified" InsertedRow="control@RowInserted" RowError="control@Error" RowWarning="control@Warning" RowNote="control@RowNote" RowNoteEmpty="control@RowNoteEmpty" RowInfo="control@Info" RowFile="control@RowFile" RowFileEmpty="control@RowFileEmpty" Search="control@Search" Filter="control@Filter" FilterSortAsc="control@FilterSortAsc" FilterSortDesc="control@FilterSortDesc" /><Columns><Column i="0" Width="25px" Type="Icon" TextAlign="center"><Styles /><Header ToolTip="Files" ImageUrl="control@RowFileEmpty" /><Footer /><ValueItems><ValueItem Value="0" DisplayValue="control@RowFileEmpty" /><ValueItem Value="1" DisplayValue="control@RowFile" /></ValueItems></Column><Column i="1" Width="25px" Type="Icon" TextAlign="center"><Styles /><Header ToolTip="Notes" ImageUrl="control@RowNoteEmpty" /><Footer /><ValueItems><ValueItem Value="0" DisplayValue="control@RowNoteEmpty" /><ValueItem Value="1" DisplayValue="control@RowNote" /></ValueItems></Column><Column i="2" Width="77px" Type="CheckBox" TextAlign="center"><Styles /><Header Text="Active" /><Footer /></Column><Column i="3" Width="250px" Type="DropDownList" Ellipsis="True"><Styles /><Header Text="Source Field / Value" /><Footer /><ValueItems Exclusive="False" EmptyPossible="True"><ValueItem Value="" /></ValueItems></Column><Column i="4" Width="250px" Type="DropDownList" Ellipsis="True"><Styles /><Header Text="Target Object" /><Footer /><ValueItems Exclusive="False" EmptyPossible="True"><ValueItem Value="" /></ValueItems></Column><Column i="5" Width="60px" Type="CheckBox" AllowUpdate="False" TextAlign="center"><Styles /><Header Text="Key" /><Footer /></Column><Column i="6" Width="250px" Type="DropDownList" Ellipsis="True"><Styles /><Header Text="Field Name" /><Footer /><ValueItems Exclusive="False" EmptyPossible="True"><ValueItem Value="" /></ValueItems></Column><Column i="7" Width="70px" Visible="False"><Styles /><Header Text="MappingID" /><Footer /></Column><Column i="8" Width="70px" Visible="False" AllowUpdate="False" TextAlign="right"><Styles /><Header Text="LineNbr" /><Footer /></Column></Columns><Row Visible="False"><Cells><Cell Value="0" Text="control@RowFileEmpty" /><Cell Value="0" Text="control@RowNoteEmpty" /><Cell Value="True" /><Cell Value="" /><Cell Value="" /><Cell Value="" /><Cell Value="" /><Cell Value="" /><Cell Value="" /></Cells></Row></Level></Levels><Rows Level="0" HashCode="" /></PXGrid> --></span>
+                
+		</div><div name="ctl00$phG$tab$t2" id="ctl00_phG_tab_t2" tabindex="4000" class="tabPanel" style="display:none;">
+			
+					<table name="ctl00$phG$tab$t2$grHistory" id="ctl00_phG_tab_t2_grHistory" tabindex="2700" class="GridMainT nobr ctl00_phG_tab_t2_grHistory" cellpadding="0" cellspacing="0" style="position:relative;z-index: 100">
+				<tbody><tr>
+					<td id="ctl00_phG_tab_t2_grHistory_at" class="GridToolsCell"><div name="ctl00$phG$tab$t2$grHistory$at$tlb" id="ctl00_phG_tab_t2_grHistory_at_tlb" class="toolBar ctl00_phG_tab_t2_grHistory_at_tlb">
+						<div style="width:100%;overflow:hidden;">
+							<ul id="ctl00_phG_tab_t2_grHistory_at_tlb_ul" class="toolsList asTable">
+								<li><div class="toolsBtn" data-cmd="Refresh" tooltip="Refresh">
+									<div class="toolBtnNormal" data-type="button">
+										<div class="sprite-icon main-icon" icon="Refresh">
+											<div class="main-icon-img main-Refresh">
+
+											</div>
+										</div>
+									</div>
+								</div></li><li><div class="toolBarSep">
+
+								</div></li><li><div class="toolsBtn" data-cmd="rollback" tooltip="Roll Back" enabled="false">
+									<div class="toolBtnDisabled" data-type="button">
+										Roll Back
+									</div>
+								</div></li><li><div class="toolBarSep">
+
+								</div></li><li><div class="toolsBtn" data-cmd="AdjustColumns" tooltip="Fit to Screen">
+									<div class="toolBtnNormal" data-type="button">
+										<div class="sprite-icon main-icon" icon="Adjust">
+											<div class="main-icon-img main-Adjust">
+
+											</div>
+										</div>
+									</div>
+								</div></li><li><div class="toolsBtn" data-cmd="ExportExcel" enabled="false" tooltip="Export to Excel">
+									<div class="toolBtnDisabled" data-type="button">
+										<div class="sprite-icon main-icon" icon="Excel">
+											<div class="main-icon-img main-Excel">
+
+											</div>
+										</div>
+									</div>
+								</div></li><li style="width:100%;"><div class="toolLabel">
+									<nobr>&nbsp;</nobr>
+								</div></li><li style="display:none;"><div class="toolsBtn" data-cmd="hi">
+									<div class="toolBtnNormal" data-type="button">
+										<div class="sprite-icon control-icon" icon="HiddenItems">
+											<div class="control-icon-img control-HiddenItems">
+
+											</div>
+										</div>
+									</div>
+								</div></li>
+							</ul>
+						</div>
+					</div></td>
+				</tr><tr>
+					<td class="GridHeaderCell"><div id="ctl00_phG_tab_t2_grHistory_headerDiv" style="position:relative;overflow:hidden;"><table id="ctl00_phG_tab_t2_grHistory_headerT" cellpadding="0" cellspacing="0" border="0" style="table-layout:fixed;height:100%;width:0px;position:relative;">
+	<colgroup>
+		<col style="width:16px;"><col style="width:120px;"><col style="width:150px;"><col style="width:100px;"><col style="width:200px;"><col style="width:250px;">
+	</colgroup><thead>
+		<tr>
+			<td class="GridHeader GridRow" style="text-align:Center;padding:0px;"><div class="sprite-icon control-icon" icon="LocalMenu">
+				<div class="control-icon-img control-LocalMenu">
+
+				</div>
+			</div></td><td id="ctl00_phG_tab_t2_grHistory_colHS_0_0" class="GridHeader GridRow" style="text-align:Right;display:none;"><div class="GridHeaderWrap right">
+				<div class="GridHeaderText">
+					Ticks
+				</div>
+			</div></td><td id="ctl00_phG_tab_t2_grHistory_colHS_0_1" class="GridHeader GridRow"><div class="GridHeaderWrap">
+				<div class="GridHeaderText">
+					Status Date
+				</div>
+			</div></td><td id="ctl00_phG_tab_t2_grHistory_colHS_0_2" class="GridHeader GridRow"><div class="GridHeaderWrap">
+				<div class="GridHeaderText">
+					Status
+				</div>
+			</div></td><td id="ctl00_phG_tab_t2_grHistory_colHS_0_3" class="GridHeader GridRow" style="text-align:Right;"><div class="GridHeaderWrap right">
+				<div class="GridHeaderText">
+					Number of Records
+				</div>
+			</div></td><td id="ctl00_phG_tab_t2_grHistory_colHS_0_4" class="GridHeader GridRow" style="text-align:Left;"><div class="GridHeaderWrap">
+				<div class="GridHeaderText">
+					Version
+				</div>
+			</div></td><td id="ctl00_phG_tab_t2_grHistory_colHS_0_5" class="GridHeader GridRow"><div class="GridHeaderWrap">
+				<div class="GridHeaderText">
+					Description
+				</div>
+			</div></td><td id="ctl00_phG_tab_t2_grHistory_colHS_0_6" class="GridHeader GridRow" style="display:none;"><div class="GridHeaderWrap">
+				<div class="GridHeaderText">
+					MappingID
+				</div>
+			</div></td>
+		</tr>
+	</thead>
+</table></div></td>
+				</tr><tr>
+					<td class="GridContentCell" style="height:460px;vertical-align:Top;overflow:hidden;"><div id="ctl00_phG_tab_t2_grHistory_scrollDiv" style="height: 460px; position: relative; overflow: auto hidden;"><table xmlns="http://www.w3.org/1999/xhtml" id="ctl00_phG_tab_t2_grHistory_dataT0" name="ctl00_phG_tab_t2_grHistory_dataT0" class="gridDataT" cellpadding="0" cellspacing="0" border="0" style="table-layout:fixed;width:0px;" data-newrow="true">
+<colgroup>
+<col style="width:16px;">
+<col style="width:120px;">
+<col style="width:150px;">
+<col style="width:100px;">
+<col style="width:200px;">
+<col style="width:250px;">
+</colgroup>
+<thead><tr style="display:none;">
+<td class="GridHeader GridRow" style="padding:0px;"><div class="sprite-icon control-icon" icon="LocalMenu"><div class="control-icon-img control-LocalMenu">&nbsp;</div></div></td>
+<td class="GridHeader GridRow" id="ctl00_phG_tab_t2_grHistory_colH_0_0" name="ctl00_phG_tab_t2_grHistory_colH_0_0" style="display:none;">Ticks</td>
+<td class="GridHeader GridRow" id="ctl00_phG_tab_t2_grHistory_colH_0_1" name="ctl00_phG_tab_t2_grHistory_colH_0_1">Status Date</td>
+<td class="GridHeader GridRow" id="ctl00_phG_tab_t2_grHistory_colH_0_2" name="ctl00_phG_tab_t2_grHistory_colH_0_2">Status</td>
+<td class="GridHeader GridRow" id="ctl00_phG_tab_t2_grHistory_colH_0_3" name="ctl00_phG_tab_t2_grHistory_colH_0_3">Number of Records</td>
+<td class="GridHeader GridRow" id="ctl00_phG_tab_t2_grHistory_colH_0_4" name="ctl00_phG_tab_t2_grHistory_colH_0_4">Version</td>
+<td class="GridHeader GridRow" id="ctl00_phG_tab_t2_grHistory_colH_0_5" name="ctl00_phG_tab_t2_grHistory_colH_0_5">Description</td>
+<td class="GridHeader GridRow" id="ctl00_phG_tab_t2_grHistory_colH_0_6" name="ctl00_phG_tab_t2_grHistory_colH_0_6" style="display:none;">MappingID</td>
+</tr></thead>
+<tbody><tr xmlindex="" id="ctl00_phG_tab_t2_grHistory_newRow" style="display:none;">
+<td class="GridRowSelector GridHeader GridRow" style="padding:0px;">&nbsp;</td>
+<td class="GridRow" align="right" style="display:none;">&nbsp;</td>
+<td class="GridRow">&nbsp;</td>
+<td class="GridRow ellipsis">&nbsp;</td>
+<td class="GridRow" align="right">&nbsp;</td>
+<td class="GridRow ellipsis" align="left">&nbsp;</td>
+<td class="GridRow ellipsis">&nbsp;</td>
+<td class="GridRow" style="display:none;">&nbsp;</td>
+</tr></tbody>
+</table></div></td>
+				</tr><tr>
+					<td id="ctl00_phG_tab_t2_grHistory_ab" class="GridToolsBottom GridToolsCell"><div name="ctl00$phG$tab$t2$grHistory$ab$tlb" id="ctl00_phG_tab_t2_grHistory_ab_tlb" class="toolBar ctl00_phG_tab_t2_grHistory_ab_tlb">
+						<div style="width:100%;overflow:hidden;">
+							<ul id="ctl00_phG_tab_t2_grHistory_ab_tlb_ul" class="toolsList asTable">
+								<li style="width:100%;"><div class="toolLabel">
+									<nobr>&nbsp;</nobr>
+								</div></li><li><div class="toolsBtn" data-cmd="PageFirst" enabled="false" tooltip="Go to First Page (Ctrl+PgUp)">
+									<div class="toolBtnDisabled" data-type="button">
+										<div class="sprite-icon main-icon" icon="PageFirst">
+											<div class="main-icon-img main-PageFirst">
+
+											</div>
+										</div>
+									</div>
+								</div></li><li><div class="toolsBtn" data-cmd="PagePrev" enabled="false" tooltip="Go to Previous Page (PgUp)">
+									<div class="toolBtnDisabled" data-type="button">
+										<div class="sprite-icon main-icon" icon="PagePrev">
+											<div class="main-icon-img main-PagePrev">
+
+											</div>
+										</div>
+									</div>
+								</div></li><li><div class="toolsBtn" data-cmd="PageNext" enabled="false" tooltip="Go to Next Page (PgDn)">
+									<div class="toolBtnDisabled" data-type="button">
+										<div class="sprite-icon main-icon" icon="PageNext">
+											<div class="main-icon-img main-PageNext">
+
+											</div>
+										</div>
+									</div>
+								</div></li><li><div class="toolsBtn" data-cmd="PageLast" enabled="false" tooltip="Go to Last Page (Ctrl+PgDn)">
+									<div class="toolBtnDisabled" data-type="button">
+										<div class="sprite-icon main-icon" icon="PageLast">
+											<div class="main-icon-img main-PageLast">
+
+											</div>
+										</div>
+									</div>
+								</div></li><li style="display:none;"><div class="toolsBtn" data-cmd="hi">
+									<div class="toolBtnNormal" data-type="button">
+										<div class="sprite-icon control-icon" icon="HiddenItems">
+											<div class="control-icon-img control-HiddenItems">
+
+											</div>
+										</div>
+									</div>
+								</div></li>
+							</ul>
+						</div>
+					</div></td>
+				</tr>
+			</tbody></table><div id="ctl00_phG_tab_t2_grHistory_menu0" class="menuIsland" level="0" itemscount="3" name="ctl00$phG$tab$t2$grHistory$menu0" style="width:100px;position:absolute;display:none;">
+				<ul class="menu">
+					<li id="ctl00_phG_tab_t2_grHistory_menu0_item_0" class="menuItem"><div class="menuSpacer">
+						&nbsp;
+					</div></li><li style="height:2px;background-repeat:repeat-x;background-image:url(/App_Themes/Default/Images/menu_separator.gif?imgTimeStamp=637254197140000000);"></li><li id="ctl00_phG_tab_t2_grHistory_menu0_item_1" class="menuItem" data-cmd="LayoutSave"><div class="sprite-icon main-icon" icon="Save">
+						<div class="main-icon-img main-Save">
+
+						</div>
+					</div><div class="menuSpacer">
+						Save layout
+					</div></li><li id="ctl00_phG_tab_t2_grHistory_menu0_item_2" class="menuDisabled" enabled="false" data-cmd="LayoutReset"><div class="sprite-icon main-icon" icon="Remove">
+						<div class="main-icon-img main-Remove">
+
+						</div>
+					</div><div class="menuSpacer">
+						Reset layout
+					</div></li>
+				</ul>
+			</div><span id="ctl00_phG_tab_t2_grHistory_xml" style="display:none;"><!-- <PXGrid ID="ctl00_phG_tab_t2_grHistory"><Levels Count="1"><Level i="0" KeyNames="MappingID;StatusDate" AllowUpdate="False"><Layout CellPadding="0" CellSpacing="0" FooterVisible="False" HeaderVisible="True" WrapText="False" LevelIndent="22px" RowSelectorsVisible="True" RowSelectorsWidth="16px" HighlightMode="Both" ShowRowStatus="True" /><Styles Row="GridRow" AltRow="GridAltRow GridRow" SelRow="GridSelRow GridRow" ActiveCell="GridActiveCell GridActiveRow GridRow" ActiveRow="GridActiveRow GridRow" Error="GridError" Warning="GridWarn" RowForm="GridRowForm" RowSelector="GridRowSelector GridHeader GridRow" Header="GridHeader GridRow" Footer="GridHeader GridRow" SelHeader="GridHeader GridRow" SelFooter="GridHeader GridRow" CellButton="GridCellButton" CellEditor="GridCellEditor" EditorText="GridEditorText" ReadOnlyCell="GridReadOnly" /><Images ArrowDown="control@RedArrowDown" ArrowUp="control@RedArrowUp" CurrentRow="control@CurrentRow" EditRow="control@EditRow" NewRow="control@NewRow" GridCorner="control@LocalMenu" SortAsc="control@SortAsc" SortDesc="control@SortDesc" Checked="control@GridCheck" Unchecked="control@GridUncheck" DeletedRow="control@RowDeleted" ModifiedRow="control@RowModified" InsertedRow="control@RowInserted" RowError="control@Error" RowWarning="control@Warning" RowNote="control@RowNote" RowNoteEmpty="control@RowNoteEmpty" RowInfo="control@Info" RowFile="control@RowFile" RowFileEmpty="control@RowFileEmpty" Search="control@Search" Filter="control@Filter" FilterSortAsc="control@FilterSortAsc" FilterSortDesc="control@FilterSortDesc" /><Columns><Column i="0" Width="70px" Visible="False" TextAlign="right"><Styles /><Header Text="Ticks" /><Footer /></Column><Column i="1" Width="120px" AllowUpdate="False"><Styles /><Header Text="Status Date" /><Footer /></Column><Column i="2" Width="150px" Type="DropDownList" AllowUpdate="False" Ellipsis="True"><Styles /><Header Text="Status" /><Footer /><ValueItems><ValueItem Value="N" DisplayValue="New" /><ValueItem Value="P" DisplayValue="Prepared" /><ValueItem Value="I" DisplayValue="Processed" /><ValueItem Value="F" DisplayValue="Partially Processed" /><ValueItem Value="E" DisplayValue="Processed" /><ValueItem Value="X" DisplayValue="Partially Processed" /></ValueItems></Column><Column i="3" Width="100px" AllowUpdate="False" TextAlign="right"><Styles /><Header Text="Number of Records" /><Footer /></Column><Column i="4" Width="200px" Ellipsis="True" TextAlign="left"><Styles /><Header Text="Version" /><Footer /></Column><Column i="5" Width="250px" AllowUpdate="False" Ellipsis="True"><Styles /><Header Text="Description" /><Footer /></Column><Column i="6" Width="70px" Visible="False"><Styles /><Header Text="MappingID" /><Footer /></Column></Columns><Row Visible="False"><Cells><Cell Value="" /><Cell Value="" /><Cell Value="" /><Cell Value="" /><Cell Value="" /><Cell Value="" /><Cell Value="" /></Cells></Row></Level></Levels><Rows Level="0" HashCode="" /></PXGrid> --></span>
+				
+		</div><div name="ctl00$phG$tab$t3" id="ctl00_phG_tab_t3" tabindex="4300" class="tabPanelS" style="overflow:visible;display:none;">
+			
+                    <div name="ctl00$phG$tab$t3$DetailsForm" id="ctl00_phG_tab_t3_DetailsForm" class="ctl00_phG_tab_t3_DetailsForm">
+		<div id="ctl00_phG_tab_t3_DetailsForm_s0" style="display:inline-block;">
+		<div class="stack-h stack-pout-h" style="position:relative;">
+			<div class="cell-ph2">
+				<div id="ctl00_phG_tab_t3_DetailsForm_s0_s0">
+		<div class="stack-v" style="position:relative;">
+			<div class="cell-pn">
+				<fieldset id="ctl00_phG_tab_t3_DetailsForm_s0_s0_s0">
+					<legend>
+						Info
+					</legend><div style="position:relative;">
+			<div class="stack-v" ownershift="2">
+				<div class="cell-pn">
+					<div class="cell-w">
+						<div note="1" class="" title="">
+
+						</div><div class="fld-lc note-m">
+							<div class="fld-l fld-lsm">
+								<label for="ctl00_phG_tab_t3_DetailsForm_edProviderID_text">Provider:</label>
+							</div><div class="fld-c fld-csm">
+								<qp-editor-wrapper config.one-time="{&quot;suggester&quot;:{&quot;graph&quot;:&quot;PX.Api.SYImportProcessSingle&quot;,&quot;graphStateId&quot;:&quot;&quot;,&quot;viewName&quot;:&quot;_Cache#PX.Api.SYMappingActive_ProviderID_PX.Api.SYProvider+providerID_&quot;,&quot;valueField&quot;:&quot;name&quot;,&quot;descriptionName&quot;:&quot;name&quot;,&quot;serverFiltering&quot;:true,&quot;fields&quot;:[{&quot;id&quot;:&quot;name&quot;,&quot;label&quot;:&quot;Name&quot;,&quot;filter&quot;:true},{&quot;id&quot;:&quot;ProviderType&quot;,&quot;label&quot;:&quot;Provider Type&quot;,&quot;filter&quot;:true}]}}" class="au-target" au-target-id="84"><!--view--><div name="ctl00$phG$tab$t3$DetailsForm$edProviderID" id="ctl00_phG_tab_t3_DetailsForm_edProviderID" tabindex="-1" class="selector size-m ReadOnly" edit="1">
+									<div class="controlCont">
+										<div class="editorCont">
+											<div class="editorWrap">
+												<input name="ctl00$phG$tab$t3$DetailsForm$edProviderID$text" type="text" maxlength="128" readonly="readonly" id="ctl00_phG_tab_t3_DetailsForm_edProviderID_text" tabindex="4100" class="editor ReadOnly" autocomplete="new-password">
+											</div>
+										</div><div class="buttonsCont">
+											<span class="center"></span><div class="sprite-icon control-icon" icon="SelectorD" type="sel" style="display:none;">
+												<div class="control-icon-img control-SelectorD">
+
+												</div>
+											</div>
+										</div>
+									</div><div class="editBtnCont">
+										<div>
+											<div class="sprite-icon control-icon" icon="EditN" type="edit">
+												<div class="control-icon-img control-EditN">
+
+												</div>
+											</div>
+										</div>
+									</div>
+								</div><!--slot--><qp-suggester editor.two-way="editor" rect-element.bind="rectElement" set-editor-value.call="setEditorValue(value,display,useUpdateValue)" config.bind="config.suggester" class="au-target" au-target-id="80"><!--view--><!--anchor--></qp-suggester><!--anchor--></qp-editor-wrapper>
+							</div>
+						</div>
+					</div>
+				</div><div class="cell-pv">
+					<div class="cell-w">
+						<div note="1" class="" title="">
+
+						</div><div class="fld-lc note-m">
+							<div class="fld-l fld-lsm">
+								<label for="ctl00_phG_tab_t3_DetailsForm_edSyncType_text">Sync Type:</label>
+							</div><div class="fld-c fld-csm">
+								<div name="ctl00$phG$tab$t3$DetailsForm$edSyncType" buttons="0" id="ctl00_phG_tab_t3_DetailsForm_edSyncType" tabindex="-1" class="dropDown size-m ReadOnly">
+									<div class="editorCont">
+										<div class="editorWrap" title="">
+											<input name="ctl00$phG$tab$t3$DetailsForm$edSyncType$text" type="text" readonly="readonly" id="ctl00_phG_tab_t3_DetailsForm_edSyncType_text" tabindex="4101" class="editor ReadOnly" invisible="1"><span class="center"></span><span class="text">Full</span>
+										</div>
+									</div><div class="buttonsCont">
+										<span class="center"></span><div class="sprite-icon control-icon" icon="DropDownD" type="sel" style="display:none;">
+											<div class="control-icon-img control-DropDownD">
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div><div class="cell-pv">
+					<div class="cell-w">
+						<div note="1" class="" title="">
+
+						</div><div class="fld-lc note-m">
+							<div class="fld-l fld-lsm">
+								<label for="ctl00_phG_tab_t3_DetailsForm_edPreparedOn_text">Prepared On:</label>
+							</div><div class="fld-c fld-csm">
+								<div buttons="0" name="ctl00$phG$tab$t3$DetailsForm$edPreparedOn" enabled="false" id="ctl00_phG_tab_t3_DetailsForm_edPreparedOn" tabindex="-1" class="dropDown size-m Disabled">
+									<div class="editorCont">
+										<div class="editorWrap">
+											<input name="ctl00$phG$tab$t3$DetailsForm$edPreparedOn$text" type="text" readonly="readonly" enabled="false" id="ctl00_phG_tab_t3_DetailsForm_edPreparedOn_text" tabindex="4102" class="editor Disabled">
+										</div>
+									</div><div class="buttonsCont">
+										<span class="center"></span><div class="sprite-icon control-icon" icon="DropDownD" type="sel" style="display:none;">
+											<div class="control-icon-img control-DropDownD">
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div><div class="cell-pv">
+					<div class="cell-w">
+						<div note="1" class="" title="">
+
+						</div><div class="fld-lc note-m">
+							<div class="fld-l fld-lsm">
+								<label for="ctl00_phG_tab_t3_DetailsForm_edCompletedOn_text">Completed On:</label>
+							</div><div class="fld-c fld-csm">
+								<div buttons="0" name="ctl00$phG$tab$t3$DetailsForm$edCompletedOn" enabled="false" id="ctl00_phG_tab_t3_DetailsForm_edCompletedOn" tabindex="-1" class="dropDown size-m Disabled">
+									<div class="editorCont">
+										<div class="editorWrap">
+											<input name="ctl00$phG$tab$t3$DetailsForm$edCompletedOn$text" type="text" readonly="readonly" enabled="false" id="ctl00_phG_tab_t3_DetailsForm_edCompletedOn_text" tabindex="4103" class="editor Disabled">
+										</div>
+									</div><div class="buttonsCont">
+										<span class="center"></span><div class="sprite-icon control-icon" icon="DropDownD" type="sel" style="display:none;">
+											<div class="control-icon-img control-DropDownD">
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+				</fieldset>
+			</div><div class="cell-pv">
+				<fieldset id="ctl00_phG_tab_t3_DetailsForm_s0_s0_s1">
+					<legend>
+						Site Map
+					</legend><div style="position:relative;">
+			<div class="stack-v" ownershift="2">
+				<div class="cell-pn">
+					<div class="cell-w">
+						<div note="1" class="" title="">
+
+						</div><div class="fld-lc note-m">
+							<div class="fld-l fld-lsm">
+								<label for="ctl00_phG_tab_t3_DetailsForm_edSitemapTitle">Site Map Title:</label>
+							</div><div class="fld-c fld-csm">
+								<input name="ctl00$phG$tab$t3$DetailsForm$edSitemapTitle" type="text" id="ctl00_phG_tab_t3_DetailsForm_edSitemapTitle" tabindex="4104" class="editor size-m">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+				</fieldset>
+			</div>
+		</div>
+				</div>
+			</div><div class="cell-pn">
+				<div id="ctl00_phG_tab_t3_DetailsForm_s0_s1">
+		<div class="stack-v" style="position:relative;">
+			<div class="cell-pn">
+				<fieldset id="ctl00_phG_tab_t3_DetailsForm_s0_s1_s0">
+					<legend>
+						Options
+					</legend><div style="position:relative;">
+			<div class="stack-v" ownershift="2">
+				<div class="cell-pn">
+					<div name="ctl00$phG$tab$t3$DetailsForm$OperationForm" id="ctl00_phG_tab_t3_DetailsForm_OperationForm" class="FormView" cellpadding="0" cellspacing="0">
+		<div id="ctl00_phG_tab_t3_DetailsForm_OperationForm_s0" style="display:inline-block;">
+		<div class="stack-v" style="position:relative;">
+			<div class="cell-pn">
+				<div class="cell-w">
+					<div note="1" class="" title="">
+
+					</div><div class="note-m">
+						<span class="checkBox" autorefresh="true"><input id="ctl00_phG_tab_t3_DetailsForm_OperationForm_chkBreakOnError" type="checkbox" name="ctl00$phG$tab$t3$DetailsForm$OperationForm$chkBreakOnError" checked="checked" tabindex="4106"><label for="ctl00_phG_tab_t3_DetailsForm_OperationForm_chkBreakOnError">Break on Error</label></span>
+					</div>
+				</div>
+			</div><div class="cell-pv">
+				<div class="cell-w">
+					<div note="1" class="" title="">
+
+					</div><div class="note-m">
+						<span class="checkBox"><input id="ctl00_phG_tab_t3_DetailsForm_OperationForm_chkBreakOnTarget" type="checkbox" name="ctl00$phG$tab$t3$DetailsForm$OperationForm$chkBreakOnTarget" checked="checked" tabindex="4107"><label for="ctl00_phG_tab_t3_DetailsForm_OperationForm_chkBreakOnTarget">Break on Incorrect Target</label></span>
+					</div>
+				</div>
+			</div><div class="cell-pv">
+				<div class="cell-w">
+					<div note="1" class="" title="">
+
+					</div><div class="note-m">
+						<span class="checkBox"><input id="ctl00_phG_tab_t3_DetailsForm_OperationForm_chkValidate" type="checkbox" name="ctl00$phG$tab$t3$DetailsForm$OperationForm$chkValidate" tabindex="4108"><label for="ctl00_phG_tab_t3_DetailsForm_OperationForm_chkValidate">Validate Data (No Saving)</label></span>
+					</div>
+				</div>
+			</div><div class="cell-pv">
+				<div class="cell-w">
+					<div note="1" class="" title="">
+
+					</div><div class="note-m">
+						<span class="checkBox" enabled="false"><input id="ctl00_phG_tab_t3_DetailsForm_OperationForm_chkValidateAndSave" type="checkbox" name="ctl00$phG$tab$t3$DetailsForm$OperationForm$chkValidateAndSave" disabled="disabled" tabindex="4109"><label for="ctl00_phG_tab_t3_DetailsForm_OperationForm_chkValidateAndSave">Save if Data Is Valid</label></span>
+					</div>
+				</div>
+			</div><div class="cell-pv">
+				<div class="cell-w">
+					<div note="1" class="" title="">
+
+					</div><div class="note-m">
+						<span class="checkBox"><input id="ctl00_phG_tab_t3_DetailsForm_OperationForm_chkSkipHeadersr" type="checkbox" name="ctl00$phG$tab$t3$DetailsForm$OperationForm$chkSkipHeadersr" tabindex="4110"><label for="ctl00_phG_tab_t3_DetailsForm_OperationForm_chkSkipHeadersr">Skip Headers</label></span>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+					</div>
+				</div>
+			</div>
+		</div>
+				</fieldset>
+			</div>
+		</div>
+				</div>
+			</div><div style="clear:left;">
+
+			</div>
+		</div>
+		</div>
+			</div>
+                
+		</div></td>
+	</tr>
+</tbody></table>
+
+			
+			
+		</div>
+		
+	<table name="ctl00$L10nEditor" cellspacing="0" cellpadding="0" id="ctl00_L10nEditor" tabindex="3100" class="SmartPanel" style="display:none;">
+	<tbody><tr>
+		<td id="ctl00_L10nEditor_cap" class="SmartPanelC" style="vertical-align:middle;"><div class="sprite-icon control-icon" icon="Close" mode="c" style="float: right; opacity: 0.55;">
+			<div class="control-icon-img control-Close">
+
+			</div>
+		</div>Translations</td>
+	</tr><tr>
+		<td class="SmartPanelCN" id="ctl00_L10nEditor_cont" style="width:;height:;"><div class="panelContent">
+
+		</div></td>
+	</tr>
+</tbody></table><table name="ctl00$inputBox" cellspacing="0" cellpadding="0" id="inputBox" tabindex="4400" class="SmartPanel" style="display:none;width:400px;">
+	<tbody><tr>
+		<td id="inputBox_cap" class="SmartPanelC" style="vertical-align:middle;"><div class="sprite-icon control-icon" icon="Close" mode="c" style="float: right; opacity: 0.55;">
+			<div class="control-icon-img control-Close">
+
+			</div>
+		</div>Copy to clipboard (Ctrl+C)</td>
+	</tr><tr>
+		<td class="SmartPanelCN" id="inputBox_cont" style="width:400px;height:;"><table tabindex="4400" border="0" style="width:100%;">
+			<tbody><tr>
+				<td><input name="ctl00$inputBox$ctl01" type="text" class="editor" style="width:400px;"></td>
+			</tr><tr>
+				<td align="right"><button type="button" class="Button MessageButton" id="inputBox_0">OK</button><button type="button" class="Button MessageButton" id="inputBox_1">Cancel</button></td>
+			</tr>
+		</tbody></table></td>
+	</tr>
+</tbody></table><table name="ctl00$msgBox" cellspacing="0" cellpadding="0" id="msgBox" tabindex="4500" class="SmartPanel" style="display:none;width:400px;">
+	<tbody><tr>
+		<td id="msgBox_cap" class="SmartPanelC" style="vertical-align:middle;"><div class="sprite-icon control-icon" icon="Close" mode="c" style="float: right; opacity: 0.55;">
+			<div class="control-icon-img control-Close">
+
+			</div>
+		</div>Note</td>
+	</tr><tr>
+		<td class="SmartPanelCN" id="msgBox_cont" style="width:400px;height:;"><table cellpadding="4" border="0" style="width:100%;">
+			<tbody><tr style="height:60%;">
+				<td><img src="/App_Themes/Default/Images/Message/information.gif?imgTimeStamp=637254197140000000" style="border-width:0px;"></td><td style="width:100%;"></td>
+			</tr><tr style="height:20%;">
+				<td colspan="2" style="text-align:Center;"><button type="button" id="msgBox_0" class="Button MessageButton">OK</button></td>
+			</tr>
+		</tbody></table></td>
+	</tr>
+</tbody></table>
+<script type="text/javascript">
+//<![CDATA[
+var __px_controls =  new Array("ctl00_usrCaption_tlbPath:PXToolBar", "ctl00_usrCaption_tlbPath_cmdBranch:PXDropDown", "ctl00_usrCaption_tlbDataView:PXDataViewBar", "ctl00_usrCaption_tlbTools:PXToolBar", "ctl00_usrCaption_dlgUploadXml:PXUploadDialog", "ctl00_usrCaption_dlgUploadXml_upl_txt:PXTextEdit", "ctl00_usrCaption_dlgUploadXml_btnUpload:PXButton", "ctl00_usrCaption_dlgUploadXml_btnClose:PXButton", "ctl00_usrCaption_pnlAbout:PXSmartPanel", "ctl00_usrCaption_pnlAudit:PXSmartPanel", "ctl00_usrCaption_shareColumnsDlg:PXSmartPanel", "ctl00_usrCaption_PanelDynamicForm:PXSmartPanel", "ctl00_phDS_ds_ToolBar:PXToolBar", "ctl00_phDS_ds_ctl00:PXShortcutManager", "ctl00_phF_uplDlg:PXUploadDialog", "ctl00_phF_uplDlg_upl_txt:PXTextEdit", "ctl00_phF_uplDlg_edtLinkExisting:PXTextEdit", "ctl00_phF_uplDlg_edtComment:PXTextEdit", "ctl00_phF_uplDlg_btnUpload:PXButton", "ctl00_phF_uplDlg_btnClose:PXButton", "ctl00_phF_upDlgForFileCreation:PXUploadDialog", "ctl00_phF_upDlgForFileCreation_upl_txt:PXTextEdit", "ctl00_phF_upDlgForFileCreation_btnUpload:PXButton", "ctl00_phF_upDlgForFileCreation_btnClose:PXButton", "ctl00_phF_smPnlNewScenarioCreation:PXSmartPanel", "ctl00_phF_smPnlNewScenarioCreation_frmNewScenarioCreation:PXFormView", "ctl00_phF_smPnlNewScenarioCreation_frmNewScenarioCreation_trNewScenarioCreation:PXSelector", "ctl00_phF_smPnlNewScenarioCreation_frmNewScenarioCreation_scenarioName:PXTextEdit", "ctl00_phF_smPnlNewScenarioCreation_frmNewScenarioCreation_providerType:PXSelector", "ctl00_phF_smPnlNewScenarioCreation_btnOk:PXButton", "ctl00_phF_smPnlNewScenarioCreation_btnCancel:PXButton", "ctl00_phF_form:PXFormView", "ctl00_phF_form_edName:PXSelector", "ctl00_phF_form_edScreenID:PXSelector", "ctl00_phF_form_edStatus:PXDropDown", "ctl00_phF_form_edNbrRecords:PXNumberEdit", "ctl00_phF_form_mappingTabVisibility:PXCheckBox", "ctl00_phF_form_chkDiscardPrevious:PXCheckBox", "ctl00_phG_tab:PXTab", "ctl00_phG_tab_t0_gridPreparedData:PXGrid", "ctl00_phG_tab_t0_gridPreparedData_lv0:PXFormView", "ctl00_phG_tab_t0_gridPreparedData_lv0_chkIsActive:PXCheckBox", "ctl00_phG_tab_t0_gridPreparedData_lv0_edErrorMessage:PXTextEdit", "ctl00_phG_tab_t0_gridPreparedData_lv0_chkIsProcessed:PXCheckBox", "ctl00_phG_tab_t1_mapping:PXGrid", "ctl00_phG_tab_t1_mapping_lv0:PXFormView", "ctl00_phG_tab_t1_mapping_lv0_edValue:PXFormulaCombo", "ctl00_phG_tab_t1_mapping_lv0_edValue_pnlFormulaCombo:PXSmartPanel", "ctl00_phG_tab_t1_mapping_lv0_ed:PXDateTimeEdit", "ctl00_phG_tab_t1_mapping_lv0_ec:PXDropDown", "ctl00_phG_tab_t1_mapping_lv0_es:PXSelector", "ctl00_phG_tab_t1_mapping_lv0_em:PXSegmentMask", "ctl00_phG_tab_t2_grHistory:PXGrid", "ctl00_phG_tab_t3_DetailsForm:PXFormView", "ctl00_phG_tab_t3_DetailsForm_edProviderID:PXSelector", "ctl00_phG_tab_t3_DetailsForm_edSyncType:PXDropDown", "ctl00_phG_tab_t3_DetailsForm_edPreparedOn:PXDateTimeEdit", "ctl00_phG_tab_t3_DetailsForm_edCompletedOn:PXDateTimeEdit", "ctl00_phG_tab_t3_DetailsForm_edSitemapTitle:PXTextEdit", "ctl00_phG_tab_t3_DetailsForm_OperationForm:PXFormView", "ctl00_phG_tab_t3_DetailsForm_OperationForm_chkBreakOnError:PXCheckBox", "ctl00_phG_tab_t3_DetailsForm_OperationForm_chkBreakOnTarget:PXCheckBox", "ctl00_phG_tab_t3_DetailsForm_OperationForm_chkValidate:PXCheckBox", "ctl00_phG_tab_t3_DetailsForm_OperationForm_chkValidateAndSave:PXCheckBox", "ctl00_phG_tab_t3_DetailsForm_OperationForm_chkSkipHeadersr:PXCheckBox", "ctl00_L10nEditor:PXSmartPanel", "inputBox:PXInputBox", "msgBox:PXMessage", "ctl00_phDS_ds:PXBaseDataSource");
+//]]>
+</script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+window.RequiredReloadPage=true;//]]>
+</script>
+<div id="ctl00_usrCaption_tlbTools_menuhelp" class="menuIsland" level="0" itemscount="7" name="ctl00$usrCaption$tlbTools$menuhelp" style="width: 100px; position: absolute; display: none; top: -999px; left: -999px;">
+					<ul class="menu">
+						<li id="ctl00_usrCaption_tlbTools_menuhelp_item_0" class="menuItem"><div class="menuSpacer">
+							<div class="size-xs inline-block">Screen ID</div> <span id="screenID">SM.20.60.36</span>
+						</div></li><li id="ctl00_usrCaption_tlbTools_menuhelp_item_1" class="menuItem" data-cmd="LinkShow"><div class="menuSpacer">
+							Get Link
+						</div></li><li id="ctl00_usrCaption_tlbTools_menuhelp_item_2" class="menuItem"><div class="menuSpacer">
+							Web Service
+						</div></li><li style="height:2px;background-repeat:repeat-x;background-image:url(/App_Themes/Default/Images/menu_separator.gif?imgTimeStamp=637254197140000000);"></li><li id="ctl00_usrCaption_tlbTools_menuhelp_item_3" class="menuItem"><div class="menuSpacer">
+							Access Rights...
+						</div></li><li id="ctl00_usrCaption_tlbTools_menuhelp_item_4" class="menuItem"><div class="menuSpacer">
+							Share Column Configuration
+						</div></li><li id="ctl00_usrCaption_tlbTools_menuhelp_item_5" class="menuItem" data-cmd="trace"><div class="menuSpacer">
+							Trace...
+						</div></li><li id="ctl00_usrCaption_tlbTools_menuhelp_item_6" class="menuItem"><div class="menuSpacer">
+							About...
+						</div></li>
+					</ul>
+				</div><div id="ctl00_phG_tab_t0_gridPreparedData_at_tlb_menuhi" class="menuIsland" level="0" itemscount="0" name="ctl00$phG$tab$t0$gridPreparedData$at$tlb$menuhi" style="width: 100px; position: absolute; display: none; top: -999px; left: -999px;">
+						<ul class="menu">
+
+						</ul>
+					</div><div id="ctl00_phG_tab_t0_gridPreparedData_ab_tlb_menuhi" class="menuIsland" level="0" itemscount="0" name="ctl00$phG$tab$t0$gridPreparedData$ab$tlb$menuhi" style="width: 100px; position: absolute; display: none; top: -999px; left: -999px;">
+						<ul class="menu">
+
+						</ul>
+					</div><div id="ctl00_phG_tab_t1_mapping_at_tlb_menuhi" class="menuIsland" level="0" itemscount="0" name="ctl00$phG$tab$t1$mapping$at$tlb$menuhi" style="width: 100px; position: absolute; display: none; top: -999px; left: -999px;">
+						<ul class="menu">
+
+						</ul>
+					</div><div id="ctl00_phG_tab_t1_mapping_ab_tlb_menuhi" class="menuIsland" level="0" itemscount="0" name="ctl00$phG$tab$t1$mapping$ab$tlb$menuhi" style="width: 100px; position: absolute; display: none; top: -999px; left: -999px;">
+						<ul class="menu">
+
+						</ul>
+					</div><div id="ctl00_phG_tab_t2_grHistory_at_tlb_menuhi" class="menuIsland" level="0" itemscount="0" name="ctl00$phG$tab$t2$grHistory$at$tlb$menuhi" style="width: 100px; position: absolute; display: none; top: -999px; left: -999px;">
+						<ul class="menu">
+
+						</ul>
+					</div><div id="ctl00_phG_tab_t2_grHistory_ab_tlb_menuhi" class="menuIsland" level="0" itemscount="0" name="ctl00$phG$tab$t2$grHistory$ab$tlb$menuhi" style="width: 100px; position: absolute; display: none; top: -999px; left: -999px;">
+						<ul class="menu">
+
+						</ul>
+					</div><div id="ctl00_phG_tab_oi_menu" class="menuIsland" level="0" itemscount="0" name="ctl00$phG$tab$oi$menu" style="width: 100px; position: absolute; display: none; top: -999px; left: -999px;">
+					<ul class="menu">
+
+					</ul>
+				</div><div style="top: 0px; left: 0px; background-color: transparent; z-index: 20000; position: absolute; width: 100%; height: 889px; display: none;"></div><div id="ctl00_phG_tab_t0_gridPreparedData_menu" class="menuIsland" level="0" itemscount="11" name="ctl00$phG$tab$t0$gridPreparedData$menu" style="width:100px;position:absolute;display:none;">
+				<ul class="menu">
+					<li id="ctl00_phG_tab_t0_gridPreparedData_menu_item_0" class="menuItem" data-cmd="Refresh"><div class="sprite-icon main-icon" icon="Refresh">
+						<div class="main-icon-img main-Refresh">
+
+						</div>
+					</div><div class="menuSpacer">
+						Refresh
+					</div></li><li id="ctl00_phG_tab_t0_gridPreparedData_menu_item_1" class="menuDisabled" enabled="false" data-cmd="AddNew"><div class="sprite-icon main-icon" icon="RecordAdd">
+						<div class="main-icon-img main-RecordAdd">
+
+						</div>
+					</div><div class="menuSpacer">
+						New Line
+					</div></li><li id="ctl00_phG_tab_t0_gridPreparedData_menu_item_2" class="menuDisabled" enabled="false" data-cmd="Delete"><div class="sprite-icon main-icon" icon="RecordDel">
+						<div class="main-icon-img main-RecordDel">
+
+						</div>
+					</div><div class="menuSpacer">
+						Delete
+					</div></li><li style="height:2px;background-repeat:repeat-x;background-image:url(/App_Themes/Default/Images/menu_separator.gif?imgTimeStamp=637254197140000000);"></li><li id="ctl00_phG_tab_t0_gridPreparedData_menu_item_3" class="menuDisabled" enabled="false" data-cmd="switchActivation" style="display:none;"><div class="menuSpacer"></div></li><li id="ctl00_phG_tab_t0_gridPreparedData_menu_item_4" class="menuDisabled" enabled="false" data-cmd="switchActivationUntilError" style="display:none;"><div class="menuSpacer">
+						&nbsp;
+					</div></li><li id="ctl00_phG_tab_t0_gridPreparedData_menu_item_5" class="menuDisabled" enabled="false" data-cmd="switchProcessing" style="display:none;"><div class="menuSpacer"></div></li><li id="ctl00_phG_tab_t0_gridPreparedData_menu_item_6" class="menuDisabled" enabled="false" data-cmd="clearErrors" style="display:none;"><div class="menuSpacer"></div></li><li style="height:2px;background-repeat:repeat-x;background-image:url(/App_Themes/Default/Images/menu_separator.gif?imgTimeStamp=637254197140000000);"></li><li id="ctl00_phG_tab_t0_gridPreparedData_menu_item_7" class="menuItem" data-cmd="AdjustColumns"><div class="sprite-icon main-icon" icon="Adjust">
+						<div class="main-icon-img main-Adjust">
+
+						</div>
+					</div><div class="menuSpacer">
+						Adjust
+					</div></li><li id="ctl00_phG_tab_t0_gridPreparedData_menu_item_8" class="menuDisabled" enabled="false" data-cmd="ExportExcel"><div class="sprite-icon main-icon" icon="Excel">
+						<div class="main-icon-img main-Excel">
+
+						</div>
+					</div><div class="menuSpacer">
+						Export
+					</div></li><li style="height:2px;background-repeat:repeat-x;background-image:url(/App_Themes/Default/Images/menu_separator.gif?imgTimeStamp=637254197140000000);"></li><li id="ctl00_phG_tab_t0_gridPreparedData_menu_item_9" class="menuItem" data-cmd="FilterShow"><div class="sprite-icon main-icon" icon="Filter">
+						<div class="main-icon-img main-Filter">
+
+						</div>
+					</div><div class="menuSpacer">
+						Filter by This Cell Value (Shift+F)
+					</div></li><li id="ctl00_phG_tab_t0_gridPreparedData_menu_item_10" class="menuItem" data-cmd="FilterSet"><div class="sprite-icon main-icon" icon="FilterSet">
+						<div class="main-icon-img main-FilterSet">
+
+						</div>
+					</div><div class="menuSpacer">
+						Clear Column Filter
+					</div></li>
+				</ul>
+			</div><div id="ctl00_phG_tab_t1_mapping_menu" class="menuIsland" level="0" itemscount="6" name="ctl00$phG$tab$t1$mapping$menu" style="width:100px;position:absolute;display:none;">
+				<ul class="menu">
+					<li id="ctl00_phG_tab_t1_mapping_menu_item_0" class="menuItem" data-cmd="Refresh"><div class="sprite-icon main-icon" icon="Refresh">
+						<div class="main-icon-img main-Refresh">
+
+						</div>
+					</div><div class="menuSpacer">
+						Refresh
+					</div></li><li id="ctl00_phG_tab_t1_mapping_menu_item_1" class="menuItem" data-cmd="AddNew"><div class="sprite-icon main-icon" icon="RecordAdd">
+						<div class="main-icon-img main-RecordAdd">
+
+						</div>
+					</div><div class="menuSpacer">
+						New Line
+					</div></li><li id="ctl00_phG_tab_t1_mapping_menu_item_2" class="menuDisabled" enabled="false" data-cmd="Delete"><div class="sprite-icon main-icon" icon="RecordDel">
+						<div class="main-icon-img main-RecordDel">
+
+						</div>
+					</div><div class="menuSpacer">
+						Delete
+					</div></li><li style="height:2px;background-repeat:repeat-x;background-image:url(/App_Themes/Default/Images/menu_separator.gif?imgTimeStamp=637254197140000000);"></li><li id="ctl00_phG_tab_t1_mapping_menu_item_3" class="menuItem" data-cmd="RefreshFromFile"><div class="menuSpacer">Refresh from File</div></li><li style="height:2px;background-repeat:repeat-x;background-image:url(/App_Themes/Default/Images/menu_separator.gif?imgTimeStamp=637254197140000000);"></li><li id="ctl00_phG_tab_t1_mapping_menu_item_4" class="menuItem" data-cmd="AdjustColumns"><div class="sprite-icon main-icon" icon="Adjust">
+						<div class="main-icon-img main-Adjust">
+
+						</div>
+					</div><div class="menuSpacer">
+						Adjust
+					</div></li><li id="ctl00_phG_tab_t1_mapping_menu_item_5" class="menuDisabled" enabled="false" data-cmd="ExportExcel"><div class="sprite-icon main-icon" icon="Excel">
+						<div class="main-icon-img main-Excel">
+
+						</div>
+					</div><div class="menuSpacer">
+						Export
+					</div></li>
+				</ul>
+			</div><div id="ctl00_phG_tab_t2_grHistory_menu" class="menuIsland" level="0" itemscount="4" name="ctl00$phG$tab$t2$grHistory$menu" style="width:100px;position:absolute;display:none;">
+				<ul class="menu">
+					<li id="ctl00_phG_tab_t2_grHistory_menu_item_0" class="menuItem" data-cmd="Refresh"><div class="sprite-icon main-icon" icon="Refresh">
+						<div class="main-icon-img main-Refresh">
+
+						</div>
+					</div><div class="menuSpacer">
+						Refresh
+					</div></li><li style="height:2px;background-repeat:repeat-x;background-image:url(/App_Themes/Default/Images/menu_separator.gif?imgTimeStamp=637254197140000000);"></li><li id="ctl00_phG_tab_t2_grHistory_menu_item_1" class="menuDisabled" enabled="false" data-cmd="rollback" style="display:none;"><div class="menuSpacer"></div></li><li style="height:2px;background-repeat:repeat-x;background-image:url(/App_Themes/Default/Images/menu_separator.gif?imgTimeStamp=637254197140000000);"></li><li id="ctl00_phG_tab_t2_grHistory_menu_item_2" class="menuItem" data-cmd="AdjustColumns"><div class="sprite-icon main-icon" icon="Adjust">
+						<div class="main-icon-img main-Adjust">
+
+						</div>
+					</div><div class="menuSpacer">
+						Adjust
+					</div></li><li id="ctl00_phG_tab_t2_grHistory_menu_item_3" class="menuDisabled" enabled="false" data-cmd="ExportExcel"><div class="sprite-icon main-icon" icon="Excel">
+						<div class="main-icon-img main-Excel">
+
+						</div>
+					</div><div class="menuSpacer">
+						Export
+					</div></li>
+				</ul>
+			</div><table name="ctl00$phF$upDlgForFileCreation" cellspacing="0" cellpadding="0" id="ctl00_phF_upDlgForFileCreation" tabindex="1700" class="SmartPanel" style="width: 400px; position: absolute; top: 389px; left: 652px; z-index: 5000;">
+	<tbody><tr>
+		<td id="ctl00_phF_upDlgForFileCreation_cap" class="SmartPanelC" style="vertical-align:middle;"><div class="sprite-icon control-icon" icon="Close" mode="c" style="float: right; opacity: 0.55;">
+			<div class="control-icon-img control-Close">
+
+			</div>
+		</div>Select File For Import</td>
+	</tr><tr>
+		<td class="SmartPanelCN" id="ctl00_phF_upDlgForFileCreation_cont" style="width:400px;height:;"><table tabindex="1700" cellpadding="3" border="0" style="width:100%;">
+			<tbody><tr style="vertical-align:top;">
+				<td><nobr><span class="label">Choose File:</span></nobr></td><td style="width:100%;"><div name="ctl00$phF$upDlgForFileCreation$upl" id="ctl00_phF_upDlgForFileCreation_upl" style="width:100%;">
+					<table cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;">
+						<tbody><tr>
+							<td style="width:100%;"><input type="file" name="ctl00$phF$upDlgForFileCreation$upl$upl" id="ctl00_phF_upDlgForFileCreation_upl_upl" size="35" accept=".als,.cer,.csv,.dat,.doc,.docx,.epl,.exe,.gif,.ico,.ics,.jpeg,.jpg,.js,.mdb,.msi,.ofx,.pdf,.pfx,.png,.ppt,.pptx,.qbo,.qfx,.rar,.rtf,.sql,.swf,.tif,.txt,.xls,.xlsx,.xml,.zip,.zpl,.msg" style="width:100%;"></td><td style="width:16px;text-align:left;"><img id="ctl00_phF_upDlgForFileCreation_upl_imgl" src="/App_Themes/Default/Images/spinnerSmall.gif?imgTimeStamp=637254197140000000" style="border-width:0px;display:none;"></td>
+						</tr>
+					</tbody></table><input name="ctl00$phF$upDlgForFileCreation$upl$txt" type="text" id="ctl00_phF_upDlgForFileCreation_upl_txt" style="height:0px;width:0px;visibility:hidden;display:none;position:absolute;left:0px;top:0px;">
+				</div></td>
+			</tr><tr style="vertical-align:top;">
+				<td><nobr><span class="label">max 250000KB</span></nobr></td><td style="width:100%;text-align:right;"><button name="ctl00$phF$upDlgForFileCreation$btnUpload" type="button" id="ctl00_phF_upDlgForFileCreation_btnUpload" class="Button Button">Upload</button>&nbsp;&nbsp;<button name="ctl00$phF$upDlgForFileCreation$btnClose" type="button" id="ctl00_phF_upDlgForFileCreation_btnClose" class="Button Button">Cancel</button></td>
+			</tr>
+		</tbody></table></td>
+	</tr>
+</tbody></table><div id="ctl00_phF_upDlgForFileCreation_shdw" style="z-index: 4999; position: absolute; left: 0px; top: 0px; background-color: rgba(0, 0, 0, 0.2); opacity: 1; width: 1704px; height: 889px;"></div></form>
+
+
+<div id="tooltip" style="z-index: 20000; visibility: hidden; position: absolute; max-width: 300px; left: -100px; top: -87px;"></div></body></html>

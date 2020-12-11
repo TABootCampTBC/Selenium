@@ -1,0 +1,180 @@
+[1607366962.926][INFO]: Starting ChromeDriver 87.0.4280.88 (89e2380a3e36c3464b5dd1302349b1382549290d-refs/branch-heads/4280@{#1761}) on port 23915
+[1607366962.926][INFO]: Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+[1607366963.596][INFO]: [2700b97c1b70a1869fff854cb8fda93d] COMMAND InitSession {
+   "capabilities": {
+      "firstMatch": [ {
+         "acceptInsecureCerts": true,
+         "browserName": "chrome",
+         "goog:chromeOptions": {
+            "args": [ "--proxy-bypass-list=\u003C-loopback>", "--disable-dev-shm-usage", "--no-sandbox" ],
+            "excludeSwitches": [ "enable-automation", "load-extension" ],
+            "extensions": [  ],
+            "prefs": {
+               "credentials_enable_service": false,
+               "download.default_directory": "C:\\Users\\atkabladze\\Desktop\\TestAutomationProject\\build\\downloads\\1607366962611_17544_1",
+               "plugins.always_open_pdf_externally": true,
+               "profile.default_content_setting_values.automatic_downloads": 1
+            }
+         },
+         "pageLoadStrategy": "normal"
+      } ]
+   },
+   "desiredCapabilities": {
+      "acceptInsecureCerts": true,
+      "acceptSslCerts": true,
+      "browserName": "chrome",
+      "goog:chromeOptions": {
+         "args": [ "--proxy-bypass-list=\u003C-loopback>", "--disable-dev-shm-usage", "--no-sandbox" ],
+         "excludeSwitches": [ "enable-automation", "load-extension" ],
+         "extensions": [  ],
+         "prefs": {
+            "credentials_enable_service": false,
+            "download.default_directory": "C:\\Users\\atkabladze\\Desktop\\TestAutomationProject\\build\\downloads\\1607366962611_17544_1",
+            "plugins.always_open_pdf_externally": true,
+            "profile.default_content_setting_values.automatic_downloads": 1
+         }
+      },
+      "handlesAlerts": true,
+      "javascriptEnabled": true,
+      "pageLoadStrategy": "normal",
+      "takesScreenshot": true
+   }
+}
+[1607366963.602][INFO]: Populating Preferences file: {
+   "alternate_error_pages": {
+      "enabled": false
+   },
+   "autofill": {
+      "enabled": false
+   },
+   "browser": {
+      "check_default_browser": false
+   },
+   "credentials_enable_service": false,
+   "distribution": {
+      "import_bookmarks": false,
+      "import_history": false,
+      "import_search_engine": false,
+      "make_chrome_default_for_user": false,
+      "skip_first_run_ui": true
+   },
+   "dns_prefetching": {
+      "enabled": false
+   },
+   "download": {
+      "default_directory": "C:\\Users\\atkabladze\\Desktop\\TestAutomationProject\\build\\downloads\\1607366962611_17544_1"
+   },
+   "plugins": {
+      "always_open_pdf_externally": true
+   },
+   "profile": {
+      "content_settings": {
+         "pattern_pairs": {
+            "https://*,*": {
+               "media-stream": {
+                  "audio": "Default",
+                  "video": "Default"
+               }
+            }
+         }
+      },
+      "default_content_setting_values": {
+         "automatic_downloads": 1,
+         "geolocation": 1
+      },
+      "default_content_settings": {
+         "geolocation": 1,
+         "mouselock": 1,
+         "notifications": 1,
+         "popups": 1,
+         "ppapi-broker": 1
+      },
+      "password_manager_enabled": false
+   },
+   "safebrowsing": {
+      "enabled": false
+   },
+   "search": {
+      "suggest_enabled": false
+   },
+   "translate": {
+      "enabled": false
+   }
+}
+[1607366963.606][INFO]: Populating Local State file: {
+   "background_mode": {
+      "enabled": false
+   },
+   "ssl": {
+      "rev_checking": {
+         "enabled": false
+      }
+   }
+}
+[1607366963.612][INFO]: Launching chrome: "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --disable-background-networking --disable-backgrounding-occluded-windows --disable-client-side-phishing-detection --disable-default-apps --disable-dev-shm-usage --disable-hang-monitor --disable-popup-blocking --disable-prompt-on-repost --disable-sync --enable-blink-features=ShadowDOMV0 --enable-logging --ignore-certificate-errors --log-level=0 --no-first-run --no-sandbox --no-service-autorun --password-store=basic --proxy-bypass-list=<-loopback> --remote-debugging-port=0 --test-type=webdriver --use-mock-keychain --user-data-dir="C:\Users\ATKABL~1\AppData\Local\Temp\scoped_dir21052_1596914520" data:,
+[1607366964.419][INFO]: resolved localhost to ["::1","127.0.0.1"]
+[1607366965.435][INFO]: resolved localhost to ["::1","127.0.0.1"]
+[1607366966.451][INFO]: [2700b97c1b70a1869fff854cb8fda93d] RESPONSE InitSession {
+   "capabilities": {
+      "acceptInsecureCerts": true,
+      "browserName": "chrome",
+      "browserVersion": "87.0.4280.88",
+      "chrome": {
+         "chromedriverVersion": "87.0.4280.88 (89e2380a3e36c3464b5dd1302349b1382549290d-refs/branch-heads/4280@{#1761})",
+         "userDataDir": "C:\\Users\\ATKABL~1\\AppData\\Local\\Temp\\scoped_dir21052_1596914520"
+      },
+      "goog:chromeOptions": {
+         "debuggerAddress": "localhost:50144"
+      },
+      "networkConnectionEnabled": false,
+      "pageLoadStrategy": "normal",
+      "platformName": "windows",
+      "proxy": {
+
+      },
+      "setWindowRect": true,
+      "strictFileInteractability": false,
+      "timeouts": {
+         "implicit": 0,
+         "pageLoad": 300000,
+         "script": 30000
+      },
+      "unhandledPromptBehavior": "dismiss and notify",
+      "webauthn:virtualAuthenticators": true
+   },
+   "sessionId": "2700b97c1b70a1869fff854cb8fda93d"
+}
+[1607366966.489][INFO]: [2700b97c1b70a1869fff854cb8fda93d] COMMAND MaximizeWindow {
+
+}
+[1607366966.489][INFO]: Waiting for pending navigations...
+[1607366966.492][INFO]: Done waiting for pending navigations. Status: ok
+[1607366966.599][INFO]: Waiting for pending navigations...
+[1607366966.600][INFO]: Done waiting for pending navigations. Status: ok
+[1607366966.600][INFO]: [2700b97c1b70a1869fff854cb8fda93d] RESPONSE MaximizeWindow {
+   "height": 1056,
+   "width": 1936,
+   "x": -8,
+   "y": -8
+}
+[1607366966.609][INFO]: [2700b97c1b70a1869fff854cb8fda93d] COMMAND SetTimeouts {
+   "pageLoad": 30000
+}
+[1607366966.609][INFO]: [2700b97c1b70a1869fff854cb8fda93d] RESPONSE SetTimeouts
+[1607366966.616][INFO]: [2700b97c1b70a1869fff854cb8fda93d] COMMAND Navigate {
+   "url": "http://erp01tst.tbcbank.ge/Frames/Login.aspx?ReturnUrl=%2f"
+}
+[1607366966.616][INFO]: Waiting for pending navigations...
+[1607366966.637][INFO]: Done waiting for pending navigations. Status: ok
+[1607366996.616][SEVERE]: Timed out receiving message from renderer: 30.000
+[1607366996.616][INFO]: Waiting for pending navigations...
+[1607366996.617][SEVERE]: Timed out receiving message from renderer: -0.000
+[1607366996.617][INFO]: Timed out. Stopping navigation...
+[1607366996.620][SEVERE]: Timed out receiving message from renderer: -0.000
+[1607366996.620][INFO]: Done waiting for pending navigations. Status: timeout: Timed out receiving message from renderer: -0.000
+[1607366996.620][INFO]: [2700b97c1b70a1869fff854cb8fda93d] RESPONSE Navigate ERROR timeout: Timed out receiving message from renderer: -0.000
+  (Session info: chrome=87.0.4280.88)
+[1607366996.649][INFO]: [2700b97c1b70a1869fff854cb8fda93d] COMMAND Quit {
+
+}
+[1607366996.763][INFO]: [2700b97c1b70a1869fff854cb8fda93d] RESPONSE Quit
